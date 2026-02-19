@@ -6,7 +6,7 @@ namespace Farming
 {
     public class FarmTile : MonoBehaviour
     {
-        public enum Condition { Grass, Tilled, Watered /*, Planted */ }
+        public enum Condition { Grass, Tilled, Watered, Planted }
 
         [SerializeField] private Condition tileCondition = Condition.Grass; 
 
@@ -14,13 +14,10 @@ namespace Farming
         [SerializeField] private Material grassMaterial;
         [SerializeField] private Material tilledMaterial;
         [SerializeField] private Material wateredMaterial;
-        // [SerializeField] private Material plantedMaterial; // Commented out - using grass material for now
+        [SerializeField] private Material plantedMaterial; // Optional - falls back to grassMaterial
         MeshRenderer tileRenderer;
 
-        [Header("Growth & Regrowth")]
-        [SerializeField] private float regrowthTime = 15f; // Seconds before watered tile grows back into grass
-        private float waterTimer = 0f;
-        private bool isRegrowing = false;
+
 
         [Header("Audio")]
         [SerializeField] private AudioSource stepAudio;
@@ -43,18 +40,6 @@ namespace Farming
             }
         }
 
-        void Update()
-        {
-            // Regrowth timer: watered tiles grow back into grass after time
-            if (isRegrowing && tileCondition == Condition.Watered)
-            {
-                waterTimer += Time.deltaTime;
-                if (waterTimer >= regrowthTime)
-                {
-                    RegrowGrass();
-                }
-            }
-        }
 
         /// <summary>
         /// Interact without water check (tilling only).
@@ -104,12 +89,30 @@ namespace Farming
                     
                 case FarmTile.Condition.Watered:
                     return false;
-                    
-                // case FarmTile.Condition.Planted:
-                //     Harvest();
-                //     return true;
+
+                case FarmTile.Condition.Planted:
+                    return false; // Already planted
             }
             return false;
+        }
+
+        /// <summary>
+        /// Plant seeds on a watered tile. Consumes one seed from the inventory.
+        /// Returns true if planting succeeded.
+        /// </summary>
+        public bool Plant(SeedInventory seeds)
+        {
+            if (tileCondition != Condition.Watered) return false;
+            if (seeds == null || !seeds.TryConsumeSeed()) return false;
+
+            Condition previousCondition = tileCondition;
+            tileCondition = Condition.Planted;
+            UpdateVisual();
+            tillAudio?.Play(); // reuse till audio for planting sound
+            daysSinceLastInteraction = 0;
+
+            FarmingEvents.TileFarmed(this, previousCondition, tileCondition);
+            return true;
         }
 
         public void Till()
@@ -130,29 +133,10 @@ namespace Farming
             UpdateVisual();
             waterAudio?.Play();
             
-            // Start regrowth timer - watered tiles will grow back into grass
-            waterTimer = 0f;
-            isRegrowing = true;
-            
             // Fire farming event for progress tracking
             FarmingEvents.TileFarmed(this, previousCondition, tileCondition);
         }
 
-        /// <summary>
-        /// Called automatically when the regrowth timer completes.
-        /// Watered tile grows back into grass.
-        /// </summary>
-        void RegrowGrass()
-        {
-            Condition previousCondition = tileCondition;
-            tileCondition = Condition.Grass;
-            isRegrowing = false;
-            waterTimer = 0f;
-            UpdateVisual();
-            
-            // Fire farming event for progress tracking
-            FarmingEvents.TileFarmed(this, previousCondition, tileCondition);
-        }
 
         /// <summary>
         /// Called automatically when the growth timer completes.
@@ -178,9 +162,9 @@ namespace Farming
                 case FarmTile.Condition.Grass: tileRenderer.material = grassMaterial; break;
                 case FarmTile.Condition.Tilled: tileRenderer.material = tilledMaterial; break;
                 case FarmTile.Condition.Watered: tileRenderer.material = wateredMaterial; break;
-                // case FarmTile.Condition.Planted: 
-                //     tileRenderer.material = plantedMaterial != null ? plantedMaterial : grassMaterial;
-                //     break;
+                case FarmTile.Condition.Planted:
+                    tileRenderer.material = plantedMaterial != null ? plantedMaterial : grassMaterial;
+                    break;
             }
         }
 
@@ -205,11 +189,9 @@ namespace Farming
             daysSinceLastInteraction++;
             if(daysSinceLastInteraction >= 2)
             {
-                // if(tileCondition == FarmTile.Condition.Planted) tileCondition = FarmTile.Condition.Grass;
-                if(tileCondition == FarmTile.Condition.Watered) tileCondition = FarmTile.Condition.Tilled;
+                if(tileCondition == FarmTile.Condition.Planted) tileCondition = FarmTile.Condition.Grass;
+                else if(tileCondition == FarmTile.Condition.Watered) tileCondition = FarmTile.Condition.Tilled;
                 else if(tileCondition == FarmTile.Condition.Tilled) tileCondition = FarmTile.Condition.Grass;
-                isRegrowing = false;
-                waterTimer = 0f;
             }
             UpdateVisual();
         }
@@ -218,15 +200,15 @@ namespace Farming
         /// Harvest a planted tile. Resets to grass and fires harvest event.
         /// Currently disabled - planted state commented out.
         /// </summary>
-        // public void Harvest()
-        // {
-        //     if (tileCondition != Condition.Planted) return;
-        //     Debug.Log($"[FarmTile] Harvested {gameObject.name}!");
-        //     tileCondition = Condition.Grass;
-        //     isGrowing = false;
-        //     waterTimer = 0f;
-        //     UpdateVisual();
-        //     FarmingEvents.TileHarvested(this);
-        // }
+        public void Harvest()
+        {
+            if (tileCondition != Condition.Planted) return;
+            Debug.Log($"[FarmTile] Harvested {gameObject.name}!");
+            Condition previousCondition = tileCondition;
+            tileCondition = Condition.Grass;
+            daysSinceLastInteraction = 0;
+            UpdateVisual();
+            FarmingEvents.TileHarvested(this);
+        }
     }
 }

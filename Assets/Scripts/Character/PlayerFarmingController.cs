@@ -10,6 +10,7 @@ namespace Character
 
         AnimatedController animatedController;
         WaterResource waterResource;
+        SeedInventory seedInventory;
 
         bool isWateringActive; // prevents multi-drain per animation
         float wateringStartTime;
@@ -20,6 +21,7 @@ namespace Character
         {
             animatedController = GetComponent<AnimatedController>();
             waterResource = GetComponent<WaterResource>();
+            seedInventory = GetComponent<SeedInventory>();
 
             if (selectorManager == null)
                 selectorManager = GetComponent<SelectorManager>();
@@ -31,6 +33,9 @@ namespace Character
 
             if (!waterResource)
                 Debug.LogError("No WaterResource found on Player.");
+
+            if (!seedInventory)
+                Debug.LogWarning("No SeedInventory found on Player - planting will be unavailable.");
         }
 
         void Update()
@@ -69,12 +74,36 @@ namespace Character
                 return;
             }
 
-            // Use InteractWithWater to gate watering behind water resource
-            bool success = tile.InteractWithWater(waterResource);
-
-            if (success && tile.GetCondition == FarmTile.Condition.Watered)
+            // Check which tool is selected in the hotbar
+            HotbarUI.ToolType selectedTool = HotbarUI.ToolType.WateringCan;
+            if (HotbarUI.Instance != null)
             {
-                TryWater();
+                selectedTool = HotbarUI.Instance.SelectedTool;
+            }
+
+            // SEEDS: Plant on watered tiles
+            if (selectedTool == HotbarUI.ToolType.Seeds)
+            {
+                if (tile.GetCondition == FarmTile.Condition.Watered && seedInventory != null && seedInventory.HasSeeds)
+                {
+                    tile.Plant(seedInventory);
+                }
+                else if (tile.GetCondition != FarmTile.Condition.Watered)
+                {
+                    Debug.Log("[PlayerFarmingController] Seeds can only be planted on watered tiles!");
+                }
+                return;
+            }
+
+            // WATERING CAN: Till grass, water tilled land
+            if (selectedTool == HotbarUI.ToolType.WateringCan)
+            {
+                bool success = tile.InteractWithWater(waterResource);
+
+                if (success && tile.GetCondition == FarmTile.Condition.Watered)
+                {
+                    TryWater();
+                }
             }
         }
 

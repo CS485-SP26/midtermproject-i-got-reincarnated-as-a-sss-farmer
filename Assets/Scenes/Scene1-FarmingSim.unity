@@ -960,6 +960,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Character.WaterResource
   maxWater: 10
   currentWater: 10
+--- !u!114 &76249691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76249673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a080f43e8f3a445e2845da51a277a2d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Farming.SeedInventory
+  startingSeeds: 5
 --- !u!1 &78836005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1177,6 +1190,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2015955068725829075, guid: 9520bada6c169bd499d4f8d942ca249e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 895203129}
+    - targetCorrespondingSourceObject: {fileID: 2015955068725829075, guid: 9520bada6c169bd499d4f8d942ca249e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1889973156}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1202967806258005865, guid: 9520bada6c169bd499d4f8d942ca249e, type: 3}
       insertIndex: -1
@@ -1349,6 +1365,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::HotbarUI
   hotbarCanvas: {fileID: 0}
   wateringCanTexture: {fileID: 2800000, guid: 9bd27fb0e59474d4a923ee40cb50f45f, type: 3}
+  seedTexture: {fileID: 2800000, guid: b4a735338a07942af8d2ab7d5b6a2bf0, type: 3}
   iconSize: 64
   bottomMargin: 20
   fontSize: 24
@@ -2391,7 +2408,7 @@ MonoBehaviour:
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
-  regrowthTime: 15
+  plantedMaterial: {fileID: 0}
   stepAudio: {fileID: 383629377}
   tillAudio: {fileID: 383629376}
   waterAudio: {fileID: 383629375}
@@ -2934,7 +2951,7 @@ MonoBehaviour:
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
-  regrowthTime: 15
+  plantedMaterial: {fileID: 0}
   stepAudio: {fileID: 400642163}
   tillAudio: {fileID: 400642162}
   waterAudio: {fileID: 400642161}
@@ -3492,7 +3509,7 @@ MonoBehaviour:
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
-  regrowthTime: 15
+  plantedMaterial: {fileID: 0}
   stepAudio: {fileID: 413481111}
   tillAudio: {fileID: 413481110}
   waterAudio: {fileID: 413481109}
@@ -4488,7 +4505,7 @@ MonoBehaviour:
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
-  regrowthTime: 15
+  plantedMaterial: {fileID: 0}
   stepAudio: {fileID: 575667308}
   tillAudio: {fileID: 575667307}
   waterAudio: {fileID: 575667306}
@@ -4919,7 +4936,7 @@ MonoBehaviour:
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
-  regrowthTime: 15
+  plantedMaterial: {fileID: 0}
   stepAudio: {fileID: 593384254}
   tillAudio: {fileID: 593384253}
   waterAudio: {fileID: 593384252}
@@ -5350,7 +5367,7 @@ MonoBehaviour:
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
-  regrowthTime: 15
+  plantedMaterial: {fileID: 0}
   stepAudio: {fileID: 621895053}
   tillAudio: {fileID: 621895052}
   waterAudio: {fileID: 621895051}
@@ -6179,7 +6196,7 @@ MonoBehaviour:
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
-  regrowthTime: 15
+  plantedMaterial: {fileID: 0}
   stepAudio: {fileID: 749749636}
   tillAudio: {fileID: 749749635}
   waterAudio: {fileID: 749749634}
@@ -6834,7 +6851,7 @@ MonoBehaviour:
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
-  regrowthTime: 15
+  plantedMaterial: {fileID: 0}
   stepAudio: {fileID: 818270252}
   tillAudio: {fileID: 818270251}
   waterAudio: {fileID: 818270250}
@@ -8280,6 +8297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmTIleManager
   farmTilePrefab: {fileID: 8145061694655009692, guid: d824016b64cc6f448842d675ff08ed24, type: 3}
   dayController: {fileID: 1248295910}
+  playerEconomy: {fileID: 1023191086}
   rows: 4
   cols: 4
   tileGap: 0.1
@@ -8581,7 +8599,7 @@ MonoBehaviour:
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
-  regrowthTime: 15
+  plantedMaterial: {fileID: 0}
   stepAudio: {fileID: 1259173397}
   tillAudio: {fileID: 1259173396}
   waterAudio: {fileID: 1259173395}
@@ -9572,7 +9590,7 @@ MonoBehaviour:
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
-  regrowthTime: 15
+  plantedMaterial: {fileID: 0}
   stepAudio: {fileID: 1347809123}
   tillAudio: {fileID: 1347809122}
   waterAudio: {fileID: 1347809121}
@@ -10228,7 +10246,7 @@ MonoBehaviour:
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
-  regrowthTime: 15
+  plantedMaterial: {fileID: 0}
   stepAudio: {fileID: 1381054964}
   tillAudio: {fileID: 1381054963}
   waterAudio: {fileID: 1381054962}
@@ -10659,7 +10677,7 @@ MonoBehaviour:
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
-  regrowthTime: 15
+  plantedMaterial: {fileID: 0}
   stepAudio: {fileID: 1393355534}
   tillAudio: {fileID: 1393355533}
   waterAudio: {fileID: 1393355532}
@@ -11090,7 +11108,7 @@ MonoBehaviour:
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
-  regrowthTime: 15
+  plantedMaterial: {fileID: 0}
   stepAudio: {fileID: 1403734918}
   tillAudio: {fileID: 1403734917}
   waterAudio: {fileID: 1403734916}
@@ -12926,6 +12944,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b81ad75952811d842aac7eb5ec1e8292, type: 3}
       insertIndex: -1
       addedObject: {fileID: 76249689}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b81ad75952811d842aac7eb5ec1e8292, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 76249691}
   m_SourcePrefab: {fileID: 100100000, guid: b81ad75952811d842aac7eb5ec1e8292, type: 3}
 --- !u!1 &1697533640
 GameObject:
@@ -12985,7 +13006,7 @@ MonoBehaviour:
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
-  regrowthTime: 15
+  plantedMaterial: {fileID: 0}
   stepAudio: {fileID: 1697533645}
   tillAudio: {fileID: 1697533644}
   waterAudio: {fileID: 1697533643}
@@ -14109,6 +14130,96 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1883107568}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1889973155
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1889973156}
+  - component: {fileID: 1889973159}
+  - component: {fileID: 1889973158}
+  m_Layer: 0
+  m_Name: Slash
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1889973156
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889973155}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0.00000002235174, y: -0, z: -0.2557365, w: 0.9667465}
+  m_LocalPosition: {x: -0.315, y: 1.996, z: 1.864}
+  m_LocalScale: {x: 0.48769, y: 0.055012923, z: -0.022381}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1173184620}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -29.634}
+--- !u!23 &1889973158
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889973155}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: ac8807b56f4454ced87ace4de591a74a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_MaskInteraction: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1889973159
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1889973155}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1900093294
 GameObject:
   m_ObjectHideFlags: 0
@@ -14782,7 +14893,7 @@ MonoBehaviour:
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
-  regrowthTime: 15
+  plantedMaterial: {fileID: 0}
   stepAudio: {fileID: 2056574615}
   tillAudio: {fileID: 2056574614}
   waterAudio: {fileID: 2056574613}
@@ -15325,7 +15436,7 @@ MonoBehaviour:
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
-  regrowthTime: 15
+  plantedMaterial: {fileID: 0}
   stepAudio: {fileID: 2096229169}
   tillAudio: {fileID: 2096229168}
   waterAudio: {fileID: 2096229167}
