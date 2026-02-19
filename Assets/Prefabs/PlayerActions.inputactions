@@ -25,18 +25,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Equip",
+                    "name": "Run",
                     "type": "Button",
-                    "id": "c588e5e3-1f07-4091-a7e7-0323f3a76837",
+                    "id": "5eac5067-a02c-4d3a-85f7-6854390a7b2e",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Jump",
+                    "name": "SwitchSelector",
                     "type": "Button",
-                    "id": "f4e984d7-526e-4853-87fc-6f2a92a5a837",
+                    "id": "95733177-3580-4927-a95c-aa8c6ca71e9a",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -102,7 +102,7 @@
                 {
                     "name": "",
                     "id": "fa0a2514-3eb3-4b15-a441-8b07b7a27f14",
-                    "path": "<Keyboard>/q",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -112,23 +112,23 @@
                 },
                 {
                     "name": "",
-                    "id": "522a17b0-67fe-4673-84b5-8b2b51bc2dae",
-                    "path": "<Keyboard>/e",
+                    "id": "1d53b3e9-f637-4ffd-b9d6-6863f780f6fc",
+                    "path": "<Keyboard>/shift",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Equip",
+                    "action": "Run",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "3a0bbeb8-878c-4d60-9944-bad00569ad37",
-                    "path": "<Keyboard>/space",
+                    "id": "c4f5a242-4284-42c4-bf03-7aeace9c657a",
+                    "path": "<Keyboard>/tab",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Jump",
+                    "action": "SwitchSelector",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

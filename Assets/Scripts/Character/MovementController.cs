@@ -7,10 +7,8 @@ namespace Character {
         [Header("Movement Settings")]
         [SerializeField] protected float acceleration = 20f;
         [SerializeField] protected float maxVelocity = 5f;
-
         protected Rigidbody rb;
         protected Vector2 moveInput;
-        public bool jumpInput, airborn, canJump;
 
         // Start is called once before the first execution of Update after the MonoBehaviour is created
         protected virtual void Start()
@@ -29,12 +27,8 @@ namespace Character {
             moveInput = Vector2.zero;
         }
 
-        public virtual void Jump()
-        {
-            Debug.Log("Jumping in MovementController");
-            jumpInput = true;
-            
-        }
+        public virtual void Jump() { /* NO JUMP SUPPORT */ }
+
         public virtual float GetHorizontalSpeedPercent()
         {
             return moveInput == Vector2.zero ? 0f : 1f;
@@ -51,7 +45,7 @@ namespace Character {
             movement += transform.right * moveInput.x;
             movement += transform.forward * moveInput.y;
             movement.Normalize();
-            movement *= Time.deltaTime * acceleration;
+            movement *= Time.fixedDeltaTime * acceleration; // Fixed: use fixedDeltaTime in FixedUpdate
             rb.MovePosition(rb.position + movement);
         }
     }

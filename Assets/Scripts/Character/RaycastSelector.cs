@@ -1,53 +1,100 @@
-using Character;
-using Farming;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using Farming;
 
-
-// note: AI was used in formatting & polishing RaycastSelector
-public class RaycastSelector : TileSelector
+namespace Character
 {
-    [SerializeField] private float rayDistance = 5f;
-
-    void Update()
+    public class RaycastSelector : TileSelector
     {
-        // making a new raycast given our position
-        Ray ray = new Ray(transform.position, Vector3.down);
-        // AI-recommended debugging
-        // Debug.DrawRay(transform.position, transform.forward * rayDistance, Color.red);
-
-        // assuming the newTile is null at the start
-        FarmTile newTile = null;
-
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, rayDistance))
+        [Header("Raycast Settings")]
+        [SerializeField] float maxRange = 10f;
+        [SerializeField] LayerMask tileLayerMask = -1;
+        [SerializeField] LayerMask ignoreLayerMask = 0; // Player and other objects to ignore
+        
+        [Header("Camera Setup")]
+        [SerializeField] Camera raycastCamera;
+        
+        void Start()
         {
-            hitInfo.collider.TryGetComponent(out newTile);
+            // Auto-assign camera if not set
+            if (!raycastCamera)
+                raycastCamera = Camera.main;
         }
 
-        // the newTile becomes the activeTile (it gets selected)
-        SetActiveTile(newTile);
-
-    }
-}
-
-// RaycastSelector from video demo
-/*
-public class RaycastSelector : TileSelector
-{
-    [SerializeField] private float rayDistance = 5f;
-    void Update()
-    {
-        Ray ray = new Ray(transform.position, transform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hitInfo, rayDistance))
+        void Update()
         {
-            if (hitInfo.collider.TryGetComponent<FarmTile>(out FarmTile tile))
+            PerformRaycast();
+        }
+
+        void PerformRaycast()
+        {
+            // Always raycast from mouse position for precise control
+            Vector2 mousePosition = Mouse.current?.position.ReadValue() ?? Vector2.zero;
+            Ray ray = raycastCamera.ScreenPointToRay(mousePosition);
+
+            FarmTile hitTile = null;
+
+            // Get all hits and find the first valid farm tile
+            RaycastHit[] hits = Physics.RaycastAll(ray, maxRange, tileLayerMask);
+            
+            foreach (RaycastHit hit in hits)
             {
-                SetActiveTile(tile);
+                GameObject hitObject = hit.collider.gameObject;
+                
+                // Skip if this object is on ignore layer (like player character)
+                if (((1 << hitObject.layer) & ignoreLayerMask) != 0)
+                {
+                    continue;
+                }
+                
+                // Skip if this is the player character by name (backup check)
+                if (hitObject.name.Contains("Ch19") || hitObject.name.ToLower().Contains("player"))
+                {
+                    continue;
+                }
+                
+                // Check for FarmTile on the hit object or its parent
+                if (hit.collider.TryGetComponent<FarmTile>(out hitTile))
+                {
+                    break; // Found a valid tile, stop looking
+                }
+                else if (hit.collider.transform.parent != null && hit.collider.transform.parent.TryGetComponent<FarmTile>(out hitTile))
+                {
+                    break; // Found a valid tile, stop looking
+                }
+                else
+                {
+                    // Check if we hit a child of a FarmTile
+                    Transform current = hit.collider.transform;
+                    while (current != null && hitTile == null)
+                    {
+                        if (current.TryGetComponent<FarmTile>(out hitTile))
+                        {
+                            break;
+                        }
+                        current = current.parent;
+                    }
+                    
+                    if (hitTile != null)
+                        break; // Found a valid tile, stop looking
+                }
             }
+
+            SetActiveTile(hitTile);
+
         }
-        else
+
+        void OnDrawGizmosSelected()
         {
-            SetActiveTile(null);
+            if (!raycastCamera) return;
+            
+            // Visualize the raycast in scene view (from mouse position)
+            Vector3 rayOrigin = raycastCamera.transform.position;
+            Vector2 mousePosition = Mouse.current?.position.ReadValue() ?? Vector2.zero;
+            Ray mouseRay = raycastCamera.ScreenPointToRay(mousePosition);
+            
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(rayOrigin, rayOrigin + mouseRay.direction * maxRange);
         }
     }
 }
-*/
