@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -25,28 +26,29 @@ namespace Core
         }
         
 
-        int funds = 0;
-        public void AddFunds(int funds)
+        [SerializeField] private int funds = 0;
+        public int Funds => funds;
+        public void AddFunds(int amount)
         {
-            this.funds = funds;
-            
+            funds += amount;
+            Debug.Log($"Funds updated: {funds}");
+
         }
         
         void Awake()
         {
-            if (GameManager.instance == null)
+            if (instance != null && instance != this)
             {
-                instance = this;
-                DontDestroyOnLoad(this);
-                Debug.Log("GameManager is set in Awake.");
+                Debug.LogWarning("Duplicate GameManager detected! Destroying the newcomer.");
+                Destroy(gameObject); // DESTROY THE GAMEOBJECT, NOT JUST 'THIS'
+                return;
             }
-            else
-            {
-                Debug.Log("Duplicate GameManager is destroyed in Awake.");
-                Destroy(this);
-            }
-        }
 
+                instance = this;
+            DontDestroyOnLoad(gameObject);
+            }
+            
+            
 
         public void LoadScenebyName(string name)
         {
