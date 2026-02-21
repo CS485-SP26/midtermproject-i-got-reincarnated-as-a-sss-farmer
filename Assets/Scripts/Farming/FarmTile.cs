@@ -168,6 +168,15 @@ namespace Farming
             }
         }
 
+        /// <summary>
+        /// Restore tile to a saved condition state (used by save/load system)
+        /// </summary>
+        public void SetCondition(Condition newCondition)
+        {
+            tileCondition = newCondition;
+            UpdateVisual();
+        }
+
         public void SetHighlight(bool active)
         {
             foreach (Material m in materials)

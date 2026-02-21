@@ -24,6 +24,13 @@ public class SpawnManager : MonoBehaviour
         var player = GameObject.FindGameObjectWithTag("Player");
         // "if our player loaded & a valid spawn point was detected, spawn the player there"
         if (player != null && GameManager.Instance.pendingSpawnPoint == spawnPointName) {
+            // Ensure spawn point is valid before using it
+            if (shopSpawn == null) {
+                Debug.LogWarning($"[SpawnManager] shopSpawn is null in scene {scene.name}, skipping spawn positioning");
+                GameManager.Instance.pendingSpawnPoint = null;
+                return;
+            }
+            
             // Move player to spawn
             player.transform.position = shopSpawn.position;
 

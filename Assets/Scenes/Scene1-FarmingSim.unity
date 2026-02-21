@@ -958,8 +958,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085a57479ea6cf049955d5ba2d4960ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character.WaterResource
-  maxWater: 10
-  currentWater: 10
+  maxWater: 16
+  currentWater: 16
 --- !u!114 &76249691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1193,19 +1193,13 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2015955068725829075, guid: 9520bada6c169bd499d4f8d942ca249e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1889973156}
+    - targetCorrespondingSourceObject: {fileID: 2015955068725829075, guid: 9520bada6c169bd499d4f8d942ca249e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1667879669}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1202967806258005865, guid: 9520bada6c169bd499d4f8d942ca249e, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1173184624}
-    - targetCorrespondingSourceObject: {fileID: 1202967806258005865, guid: 9520bada6c169bd499d4f8d942ca249e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1173184622}
-    - targetCorrespondingSourceObject: {fileID: 1202967806258005865, guid: 9520bada6c169bd499d4f8d942ca249e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1173184621}
-    - targetCorrespondingSourceObject: {fileID: 1202967806258005865, guid: 9520bada6c169bd499d4f8d942ca249e, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1173184627}
   m_SourcePrefab: {fileID: 100100000, guid: 9520bada6c169bd499d4f8d942ca249e, type: 3}
 --- !u!1 &88119350
 GameObject:
@@ -8306,34 +8300,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2015955068725829075, guid: 9520bada6c169bd499d4f8d942ca249e, type: 3}
   m_PrefabInstance: {fileID: 83961237}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1173184621
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933086708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e43f51e5b7e84447c8807a51c6bfb993, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ShopZone
-  shopUI: {fileID: 1173184622}
---- !u!114 &1173184622
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933086708}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19cc6800fcc8e458db3ddad31b68fd47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ShopUI
-  waterRefillCost: 5
-  panelWidth: 300
-  panelHeight: 200
 --- !u!65 &1173184624
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8355,27 +8321,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.2609005, y: 3.9810123, z: 3.822114}
   m_Center: {x: 0.0000015951558, y: 1.9905062, z: 0.068800926}
---- !u!135 &1173184627
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 933086708}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Radius: 2.9227602
-  m_Center: {x: 0.00000008642822, y: 1.9905062, z: 1.0804962}
 --- !u!1 &1236845528
 GameObject:
   m_ObjectHideFlags: 0
@@ -8519,6 +8464,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DayNightControl
   sunLight: {fileID: 410087040}
   dayLabel: {fileID: 0}
+  playerEconomy: {fileID: 1023191086}
+  moneyPerDay: 10
   dayLengthSeconds: 60
   dayProgressSeconds: 0
   currentDay: 1
@@ -9308,6 +9255,52 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1299586774}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1301361890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1301361892}
+  - component: {fileID: 1301361891}
+  m_Layer: 0
+  m_Name: Shop Spawn Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1301361891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301361890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 304ceb64b3dd0654389d6abed4dd9801, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnManager
+  shopSpawn: {fileID: 1301361892}
+  spawnPointName: FarmSpawn
+--- !u!4 &1301361892
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1301361890}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.902, y: 0.65, z: 9.52}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1322298143
 GameObject:
   m_ObjectHideFlags: 0
@@ -12601,6 +12594,56 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656558828}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1667879668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1667879669}
+  - component: {fileID: 1667879670}
+  m_Layer: 0
+  m_Name: Entrance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1667879669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667879668}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.673, z: 2.411}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1173184620}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1667879670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1667879668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d7bac98facd94028b2eed41018c3873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ShopEntrance
+  shopSceneName: Store
+  spawnPointName: ShopSpawn
+  interactKey: 20
+  promptMessage: Enter Shop
+  promptCanvas: {fileID: 0}
+  uiHeight: 2
 --- !u!4 &1668335272 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400006, guid: 158f788eeb1973d45933b060a20c6a8b, type: 3}
@@ -12881,6 +12924,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: b81ad75952811d842aac7eb5ec1e8292, type: 3}
       propertyPath: m_Name
       value: Ch19_nonPBR
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: b81ad75952811d842aac7eb5ec1e8292, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: b81ad75952811d842aac7eb5ec1e8292, type: 3}
       propertyPath: m_Enabled
@@ -15870,6 +15917,14 @@ PrefabInstance:
       value: -4
       objectReference: {fileID: 0}
     - target: {fileID: 5485089592789745108, guid: 6b079cfe482d2fe41b4315e111d183d8, type: 3}
+      propertyPath: minDistance
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485089592789745108, guid: 6b079cfe482d2fe41b4315e111d183d8, type: 3}
+      propertyPath: storeDistance
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5485089592789745108, guid: 6b079cfe482d2fe41b4315e111d183d8, type: 3}
       propertyPath: rotationSmoothness
       value: 10
       objectReference: {fileID: 0}
@@ -15891,6 +15946,7 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 1376645740}
   - {fileID: 83961237}
+  - {fileID: 1301361892}
   - {fileID: 1248295911}
   - {fileID: 657775634}
   - {fileID: 1135064476}

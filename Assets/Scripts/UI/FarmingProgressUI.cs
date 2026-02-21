@@ -246,16 +246,12 @@ public class FarmingProgressUI : MonoBehaviour
 
     /// <summary>
     /// Called every time a square reaches 100% opacity (every pointsRequiredPerSquare points).
+    /// Money rewards disabled - handled by DayController and FarmTileManager instead.
     /// </summary>
     void OnSquareCompleted(int squareIndex)
     {
-        FindEconomy();
-        if (playerEconomy != null)
-        {
-            int moneyEarned = playerEconomy.MoneyPerSquare;
-            playerEconomy.EarnMoney(moneyEarned);
-            Debug.Log($"[ProgressUI] Square {squareIndex} completed! Earned ${moneyEarned}");
-        }
+        // Progress tracking only - no money reward
+        Debug.Log($"[ProgressUI] Square {squareIndex} completed!");
     }
 
     // Public methods for external control
