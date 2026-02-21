@@ -81,6 +81,9 @@ public class HotbarUI : MonoBehaviour
         WaterResource.OnWaterChanged += UpdateWaterDisplay;
         PlayerEconomy.OnMoneyChanged += UpdateMoneyDisplay;
         SeedInventory.OnSeedsChanged += UpdateSeedDisplay;
+        
+        // Request initial values after subscribing
+        RefreshDisplays();
     }
 
     void OnDisable()
@@ -312,6 +315,32 @@ public class HotbarUI : MonoBehaviour
             seedCountText.color = count > 0
                 ? new Color(0.6f, 0.9f, 0.3f)   // green — seeds available
                 : Color.red;                      // red — out of seeds
+        }
+    }
+    
+    void RefreshDisplays()
+    {
+        // Find and request current values from all systems
+        var player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            var waterResource = player.GetComponent<Character.WaterResource>();
+            if (waterResource != null)
+            {
+                UpdateWaterDisplay(waterResource.CurrentWater, waterResource.MaxWater);
+            }
+            
+            var seedInventory = player.GetComponent<Farming.SeedInventory>();
+            if (seedInventory != null)
+            {
+                UpdateSeedDisplay(seedInventory.CurrentSeeds);
+            }
+        }
+        
+        var economy = FindFirstObjectByType<PlayerEconomy>();
+        if (economy != null)
+        {
+            UpdateMoneyDisplay(economy.CurrentMoney);
         }
     }
 
