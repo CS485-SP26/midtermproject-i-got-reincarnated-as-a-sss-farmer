@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEngine.SceneManagement;
 using Environment;
 
 namespace Farming
@@ -26,18 +27,73 @@ namespace Farming
         {
             Debug.Assert(farmTilePrefab, "FarmTileManager requires a farmTilePrefab");
             Debug.Assert(dayController, "FarmTileManager requires a dayController");
+            
+            // Ensure tiles list is populated from children
+            if (tiles.Count == 0)
+            {
+                foreach (Transform child in transform)
+                {
+                    if (child.gameObject.TryGetComponent<FarmTile>(out var tile))
+                    {
+                        tiles.Add(tile);
+                    }
+                }
+                Debug.Log($"[FarmTileManager] Found {tiles.Count} tiles in scene");
+            }
+            
+            // Small delay to ensure tiles are fully initialized before loading states
+            Invoke(nameof(LoadTileStates), 0.1f);
         }
 
         void OnEnable()
         {
             dayController.dayPassedEvent.AddListener(this.OnDayPassed);
             FarmingEvents.OnTileFarmed += OnTileFarmed;
+            SceneManager.sceneUnloaded += OnSceneUnloaded;
         }
 
         void OnDisable()
         {
             dayController.dayPassedEvent.RemoveListener(this.OnDayPassed);
             FarmingEvents.OnTileFarmed -= OnTileFarmed;
+            SceneManager.sceneUnloaded -= OnSceneUnloaded;
+        }
+
+        void OnDestroy()
+        {
+            // Save tiles when the manager is destroyed (scene unload or game quit)
+            // Only save if the system already exists to avoid creating objects during destruction
+            if (FarmTileSaveSystem.HasInstance)
+            {
+                SaveTileStates();
+            }
+        }
+
+        void OnSceneUnloaded(Scene scene)
+        {
+            // Save tile states when this specific scene is being unloaded
+            // Use the scene parameter to get the correct scene name
+            if (FarmTileSaveSystem.Instance != null)
+            {
+                FarmTileSaveSystem.Instance.SaveTileStates(scene.name, tiles);
+                Debug.Log($"[FarmTileManager] Scene {scene.name} unloading, saving tile states");
+            }
+        }
+
+        void SaveTileStates()
+        {
+            if (FarmTileSaveSystem.Instance != null)
+            {
+                string sceneName = SceneManager.GetActiveScene().name;
+                FarmTileSaveSystem.Instance.SaveTileStates(sceneName, tiles);
+            }
+        }
+
+        void LoadTileStates()
+        {
+            // Accessing Instance here is safe - it will create the system if needed
+            string sceneName = SceneManager.GetActiveScene().name;
+            FarmTileSaveSystem.Instance.LoadTileStates(sceneName, tiles);
         }
 
         private void OnTileFarmed(FarmTile tile, FarmTile.Condition previous, FarmTile.Condition next)

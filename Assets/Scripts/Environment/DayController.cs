@@ -10,6 +10,10 @@ namespace Environment
         [Header("Object References")]
         [SerializeField] private Light sunLight;
         [SerializeField] private TMP_Text dayLabel;
+        [SerializeField] private PlayerEconomy playerEconomy;
+        
+        [Header("Economy")]
+        [SerializeField] private int moneyPerDay = 10; // Money earned each day
         
         [Header("Time Constraints")]
         [SerializeField] private float dayLengthSeconds = 60f;
@@ -37,6 +41,23 @@ namespace Environment
 
                 // Do this instead
                 dayLabel.SetText("Days: {0}", currentDay);                
+            }
+
+            // Award daily money
+            if (playerEconomy != null)
+            {
+                playerEconomy.EarnMoney(moneyPerDay);
+                Debug.Log($"[DayController] New day! Earned ${moneyPerDay}");
+            }
+            else
+            {
+                // Try to find PlayerEconomy if not assigned
+                playerEconomy = FindFirstObjectByType<PlayerEconomy>();
+                if (playerEconomy != null)
+                {
+                    playerEconomy.EarnMoney(moneyPerDay);
+                    Debug.Log($"[DayController] New day! Earned ${moneyPerDay}");
+                }
             }
 
             dayPassedEvent.Invoke(); //make announcement to all listeners

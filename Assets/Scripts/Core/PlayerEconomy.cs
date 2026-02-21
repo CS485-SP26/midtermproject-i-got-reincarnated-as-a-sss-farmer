@@ -8,6 +8,8 @@ namespace Farming
     /// </summary>
     public class PlayerEconomy : MonoBehaviour
     {
+        private static PlayerEconomy instance;
+        
         [Header("Economy Settings")]
         [SerializeField] private int startingMoney = 0;
     [SerializeField] private int moneyPerSquare = 10; // Money earned per completed progress square
@@ -25,6 +27,21 @@ namespace Farming
 
     void Awake()
     {
+        // If this is a standalone GameObject, make it persist
+        if (transform.parent == null) // Only persist if it's a root GameObject
+        {
+            if (instance == null)
+            {
+                instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
+        
         currentMoney = startingMoney;
     }
 

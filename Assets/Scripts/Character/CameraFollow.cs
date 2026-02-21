@@ -1,17 +1,25 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 namespace Character 
 {
     public class CameraFollow : MonoBehaviour
     {
+        private static CameraFollow instance;
+        
         [Header("Target")]
         [SerializeField] public GameObject player;
         
         [Header("Camera Position")]
         [SerializeField] private float distance = 8f;              // Distance from player
         [SerializeField] private float height = 6f;                // Height above player
+        [SerializeField] private float storeDistance = 5f;         // Closer distance when in store
+        [SerializeField] private float storeHeight = 4f;           // Lower height when in store
+        
+        [Header("Store Scene")]
+        [SerializeField] private string storeSceneName = "Store"; // Name of store scene
         
         [Header("Camera Controls")]
         [SerializeField] private bool allowZoom = true;
@@ -28,6 +36,21 @@ namespace Character
 
         private Vector3 velocity = Vector3.zero;
         private float currentRotationY = 0f;  // Manual camera rotation around player
+
+        void Awake()
+        {
+            // Singleton pattern with DontDestroyOnLoad
+            if (instance == null)
+            {
+                instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+                return;
+            }
+        }
 
         void Start()
         {
@@ -87,14 +110,24 @@ namespace Character
 
         private Vector3 CalculateTargetPosition()
         {
+            // Use different distance/height if in store
+            float currentDistance = distance;
+            float currentHeight = height;
+            
+            if (SceneManager.GetActiveScene().name == storeSceneName)
+            {
+                currentDistance = storeDistance;
+                currentHeight = storeHeight;
+            }
+            
             // Calculate position based on distance, height, and rotation
             float radians = currentRotationY * Mathf.Deg2Rad;
             
             // Position camera at an angle behind the player
             Vector3 offset = new Vector3(
-                Mathf.Sin(radians) * distance,
-                height,
-                Mathf.Cos(radians) * distance
+                Mathf.Sin(radians) * currentDistance,
+                currentHeight,
+                Mathf.Cos(radians) * currentDistance
             );
             
             return player.transform.position + offset;
@@ -119,11 +152,6 @@ namespace Character
                 targetRotation,
                 rotationSmoothSpeed * Time.deltaTime
             );
-        }
-
-        // this is so the camera persists when new scenes are loaded
-        void Awake() {
-            DontDestroyOnLoad(gameObject);
         }
     }
 }

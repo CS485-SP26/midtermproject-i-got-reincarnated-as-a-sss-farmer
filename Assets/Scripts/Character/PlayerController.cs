@@ -6,9 +6,28 @@ namespace Character
     [RequireComponent(typeof(PlayerInput))]
     public class PlayerController : MonoBehaviour
     {
+        private static PlayerController instance;
+        
         MovementController moveController;
         PhysicsMovement physicsMovement;
         bool isRunning;
+
+        // prevents Doozy from getting obliterated when moving across scenes
+        void Awake()
+        {
+            // Singleton pattern to prevent duplicate players across scenes
+            if (instance == null)
+            {
+                instance = this;
+                DontDestroyOnLoad(gameObject);
+            }
+            else
+            {
+                // Destroy duplicate player that may be in the new scene
+                Destroy(gameObject);
+                return;
+            }
+        }
 
         void Start()
         {
@@ -16,12 +35,6 @@ namespace Character
             physicsMovement = GetComponent<PhysicsMovement>();
 
             Debug.Assert(moveController, "PlayerController requires a MovementController");
-        }
-
-        // prevents Doozy from getting obliterated when moving across scenes
-        void Awake() {
-            DontDestroyOnLoad(gameObject);
-
         }
 
         public void OnMove(InputValue inputValue)
