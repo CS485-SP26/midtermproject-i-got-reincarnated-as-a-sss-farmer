@@ -57,6 +57,8 @@ public class FarmingProgressUI : MonoBehaviour
             progressCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
             progressCanvas.sortingOrder = 100; // Above other UI
             
+            DontDestroyOnLoad(canvasObj);
+
             // Add CanvasScaler for responsive UI
             CanvasScaler scaler = canvasObj.AddComponent<CanvasScaler>();
             scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;

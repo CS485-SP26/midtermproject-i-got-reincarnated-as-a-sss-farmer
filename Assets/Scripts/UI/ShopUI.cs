@@ -16,7 +16,7 @@ public class ShopUI : MonoBehaviour
     
     [Header("UI Sizing")]
     [SerializeField] private float panelWidth = 300f;
-    [SerializeField] private float panelHeight = 200f;
+    [SerializeField] private float panelHeight = 400f;
     
     private Canvas shopCanvas;
     private GameObject shopPanel;

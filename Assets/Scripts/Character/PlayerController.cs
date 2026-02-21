@@ -18,6 +18,12 @@ namespace Character
             Debug.Assert(moveController, "PlayerController requires a MovementController");
         }
 
+        // prevents Doozy from getting obliterated when moving across scenes
+        void Awake() {
+            DontDestroyOnLoad(gameObject);
+
+        }
+
         public void OnMove(InputValue inputValue)
         {
             Vector2 inputVector = inputValue.Get<Vector2>();

@@ -35,6 +35,7 @@ namespace Core
 
         }
         
+        public string pendingSpawnPoint = null;
         void Awake()
         {
             if (instance != null && instance != this)
@@ -45,7 +46,7 @@ namespace Core
             }
 
                 instance = this;
-            DontDestroyOnLoad(gameObject);
+                DontDestroyOnLoad(gameObject);
             }
             
             

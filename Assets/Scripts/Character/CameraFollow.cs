@@ -120,5 +120,10 @@ namespace Character
                 rotationSmoothSpeed * Time.deltaTime
             );
         }
+
+        // this is so the camera persists when new scenes are loaded
+        void Awake() {
+            DontDestroyOnLoad(gameObject);
+        }
     }
 }

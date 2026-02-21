@@ -50,6 +50,8 @@ public class HotbarUI : MonoBehaviour
         hotbarCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
         hotbarCanvas.sortingOrder = 90;
 
+        DontDestroyOnLoad(canvasObj);
+
         CanvasScaler scaler = canvasObj.AddComponent<CanvasScaler>();
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         scaler.referenceResolution = new Vector2(1920, 1080);
