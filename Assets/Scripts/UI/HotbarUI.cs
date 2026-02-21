@@ -10,9 +10,14 @@ using Farming;
 /// </summary>
 public class HotbarUI : MonoBehaviour
 {
+    public enum ToolType { WateringCan = 0, Seeds = 1 }
+
+    private static HotbarUI instance;
+    public static HotbarUI Instance => instance;
     [Header("References (auto-created if null)")]
     [SerializeField] private Canvas hotbarCanvas;
     [SerializeField] private Texture2D wateringCanTexture; // Art/UI/Adament_Watering_can.webp
+    [SerializeField] private Texture2D seedTexture;        // Art/UI/seeds.png
     
     [Header("Sizing")]
     [SerializeField] private float iconSize = 64f;
@@ -22,23 +27,58 @@ public class HotbarUI : MonoBehaviour
     private Image wateringCanImage;
     private TextMeshProUGUI waterCountText;
     private TextMeshProUGUI moneyText;
+    private Image seedImage;
+    private TextMeshProUGUI seedCountText;
+
+    // Tool selection
+    private int selectedSlot = 0; // 0 = watering can, 1 = seeds
+    private GameObject wateringCanSlot;
+    private GameObject seedSlot;
+    private Image wateringCanBorder;
+    private Image seedBorder;
+
+    public ToolType SelectedTool => (ToolType)selectedSlot;
+
+    void Awake()
+    {
+        if (instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
 
     void Start()
     {
         SetupCanvas();
         CreateHotbar();
+        SelectSlot(0); // Start with watering can selected
+    }
+
+    void Update()
+    {
+        // Number key input for slot selection
+        if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
+        {
+            SelectSlot(0);
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
+        {
+            SelectSlot(1);
+        }
     }
 
     void OnEnable()
     {
         WaterResource.OnWaterChanged += UpdateWaterDisplay;
         PlayerEconomy.OnMoneyChanged += UpdateMoneyDisplay;
+        SeedInventory.OnSeedsChanged += UpdateSeedDisplay;
     }
 
     void OnDisable()
     {
         WaterResource.OnWaterChanged -= UpdateWaterDisplay;
         PlayerEconomy.OnMoneyChanged -= UpdateMoneyDisplay;
+        SeedInventory.OnSeedsChanged -= UpdateSeedDisplay;
     }
 
     void SetupCanvas()
@@ -62,6 +102,12 @@ public class HotbarUI : MonoBehaviour
 
     void CreateHotbar()
     {
+        float slotWidth  = iconSize + 40f;
+        float slotHeight = iconSize + 50f;
+        float slotSpacing = 8f;
+        int   slotCount  = 2;
+        float totalWidth = slotWidth * slotCount + slotSpacing * (slotCount - 1);
+
         // =============================
         // HOTBAR CONTAINER (bottom center)
         // =============================
@@ -69,63 +115,42 @@ public class HotbarUI : MonoBehaviour
         hotbarObj.transform.SetParent(hotbarCanvas.transform, false);
 
         RectTransform hotbarRect = hotbarObj.AddComponent<RectTransform>();
-        hotbarRect.anchorMin = new Vector2(0.5f, 0f); // Bottom center
+        hotbarRect.anchorMin = new Vector2(0.5f, 0f);
         hotbarRect.anchorMax = new Vector2(0.5f, 0f);
-        hotbarRect.pivot = new Vector2(0.5f, 0f);
+        hotbarRect.pivot     = new Vector2(0.5f, 0f);
         hotbarRect.anchoredPosition = new Vector2(0, bottomMargin);
-        hotbarRect.sizeDelta = new Vector2(iconSize + 40f, iconSize + 50f);
+        hotbarRect.sizeDelta = new Vector2(totalWidth, slotHeight);
 
-        // Semi-transparent background
         Image hotbarBg = hotbarObj.AddComponent<Image>();
         hotbarBg.color = new Color(0f, 0f, 0f, 0.4f);
 
         // =============================
-        // WATERING CAN ICON
+        // SLOT 1 — WATERING CAN (left)
         // =============================
-        GameObject iconObj = new GameObject("Watering Can Icon");
-        iconObj.transform.SetParent(hotbarObj.transform, false);
+        float leftX = -(slotWidth * 0.5f + slotSpacing * 0.5f);
+        
+        wateringCanSlot = CreateSlotContainer(hotbarObj.transform, "Watering Can Slot", new Vector2(leftX, 0f), slotWidth, slotHeight, out wateringCanBorder);
+        
+        wateringCanImage = CreateSlotIcon(wateringCanSlot.transform, "Watering Can Icon",
+            wateringCanTexture, new Color(0.3f, 0.6f, 1f, 1f), new Vector2(0f, -5f));
 
-        wateringCanImage = iconObj.AddComponent<Image>();
-        if (wateringCanTexture != null)
-        {
-            Sprite canSprite = Sprite.Create(
-                wateringCanTexture,
-                new Rect(0, 0, wateringCanTexture.width, wateringCanTexture.height),
-                Vector2.one * 0.5f
-            );
-            wateringCanImage.sprite = canSprite;
-        }
-        else
-        {
-            wateringCanImage.color = new Color(0.3f, 0.6f, 1f, 1f); // Blue placeholder
-        }
-        wateringCanImage.preserveAspect = true;
-
-        RectTransform iconRect = wateringCanImage.rectTransform;
-        iconRect.anchorMin = new Vector2(0.5f, 0.5f);
-        iconRect.anchorMax = new Vector2(0.5f, 0.5f);
-        iconRect.pivot = new Vector2(0.5f, 0.5f);
-        iconRect.sizeDelta = new Vector2(iconSize, iconSize);
-        iconRect.anchoredPosition = new Vector2(0, -5f); // Slightly below center to make room for text
-
-        // =============================
-        // WATER COUNT TEXT (above the watering can)
-        // =============================
-        GameObject waterTextObj = new GameObject("Water Count");
-        waterTextObj.transform.SetParent(hotbarObj.transform, false);
-
-        waterCountText = waterTextObj.AddComponent<TextMeshProUGUI>();
+        waterCountText = CreateSlotLabel(wateringCanSlot.transform, "Water Count",
+            new Color(0.4f, 0.8f, 1f), new Vector2(0f, 25f));
         waterCountText.text = "10";
-        waterCountText.fontSize = fontSize;
-        waterCountText.alignment = TextAlignmentOptions.Center;
-        waterCountText.color = new Color(0.4f, 0.8f, 1f); // Light blue
 
-        RectTransform waterTextRect = waterCountText.rectTransform;
-        waterTextRect.anchorMin = new Vector2(0.5f, 1f); // Top of hotbar
-        waterTextRect.anchorMax = new Vector2(0.5f, 1f);
-        waterTextRect.pivot = new Vector2(0.5f, 1f);
-        waterTextRect.sizeDelta = new Vector2(100f, 30f);
-        waterTextRect.anchoredPosition = new Vector2(0, -2f);
+        // =============================
+        // SLOT 2 — SEEDS (right)
+        // =============================
+        float rightX = slotWidth * 0.5f + slotSpacing * 0.5f;
+        
+        seedSlot = CreateSlotContainer(hotbarObj.transform, "Seed Slot", new Vector2(rightX, 0f), slotWidth, slotHeight, out seedBorder);
+        
+        seedImage = CreateSlotIcon(seedSlot.transform, "Seed Icon",
+            seedTexture, new Color(0.4f, 0.8f, 0.2f, 1f), new Vector2(0f, -5f));
+
+        seedCountText = CreateSlotLabel(seedSlot.transform, "Seed Count",
+            new Color(0.6f, 0.9f, 0.3f), new Vector2(0f, 25f));
+        seedCountText.text = "0";
 
         // =============================
         // MONEY DISPLAY (top right)
@@ -133,32 +158,119 @@ public class HotbarUI : MonoBehaviour
         GameObject moneyObj = new GameObject("Money Display");
         moneyObj.transform.SetParent(hotbarCanvas.transform, false);
 
-        // Background
         Image moneyBg = moneyObj.AddComponent<Image>();
         moneyBg.color = new Color(0f, 0f, 0f, 0.4f);
 
         RectTransform moneyRect = moneyBg.rectTransform;
-        moneyRect.anchorMin = new Vector2(1f, 1f); // Top right
+        moneyRect.anchorMin = new Vector2(1f, 1f);
         moneyRect.anchorMax = new Vector2(1f, 1f);
-        moneyRect.pivot = new Vector2(1f, 1f);
+        moneyRect.pivot     = new Vector2(1f, 1f);
         moneyRect.sizeDelta = new Vector2(160f, 40f);
         moneyRect.anchoredPosition = new Vector2(-20f, -20f);
 
-        // Money text
         GameObject moneyTextObj = new GameObject("Money Text");
         moneyTextObj.transform.SetParent(moneyObj.transform, false);
 
         moneyText = moneyTextObj.AddComponent<TextMeshProUGUI>();
-        moneyText.text = "$0";
-        moneyText.fontSize = fontSize;
+        moneyText.text      = "$0";
+        moneyText.fontSize  = fontSize;
         moneyText.alignment = TextAlignmentOptions.Center;
-        moneyText.color = new Color(1f, 0.9f, 0.3f); // Gold color
+        moneyText.color     = new Color(1f, 0.9f, 0.3f);
 
         RectTransform moneyTextRect = moneyText.rectTransform;
-        moneyTextRect.anchorMin = Vector2.zero;
-        moneyTextRect.anchorMax = Vector2.one;
-        moneyTextRect.sizeDelta = Vector2.zero;
+        moneyTextRect.anchorMin       = Vector2.zero;
+        moneyTextRect.anchorMax       = Vector2.one;
+        moneyTextRect.sizeDelta       = Vector2.zero;
         moneyTextRect.anchoredPosition = Vector2.zero;
+    }
+
+    // -------------------------------------------------- helpers
+
+    GameObject CreateSlotContainer(Transform parent, string name, Vector2 pos, float width, float height, out Image border)
+    {
+        GameObject container = new GameObject(name);
+        container.transform.SetParent(parent, false);
+
+        RectTransform rt = container.AddComponent<RectTransform>();
+        rt.anchorMin = new Vector2(0.5f, 0.5f);
+        rt.anchorMax = new Vector2(0.5f, 0.5f);
+        rt.pivot = new Vector2(0.5f, 0.5f);
+        rt.sizeDelta = new Vector2(width, height);
+        rt.anchoredPosition = pos;
+
+        // Selection border (initially hidden)
+        GameObject borderObj = new GameObject("Border");
+        borderObj.transform.SetParent(container.transform, false);
+
+        border = borderObj.AddComponent<Image>();
+        border.color = new Color(1f, 1f, 0f, 0.8f); // Yellow highlight
+
+        RectTransform borderRt = border.rectTransform;
+        borderRt.anchorMin = Vector2.zero;
+        borderRt.anchorMax = Vector2.one;
+        borderRt.sizeDelta = new Vector2(4f, 4f); // Slightly larger for border effect
+        borderRt.anchoredPosition = Vector2.zero;
+        border.enabled = false;
+
+        return container;
+    }
+
+    Image CreateSlotIcon(Transform parent, string name, Texture2D tex, Color fallbackColor, Vector2 pos)
+    {
+        GameObject obj = new GameObject(name);
+        obj.transform.SetParent(parent, false);
+
+        Image img = obj.AddComponent<Image>();
+        if (tex != null)
+        {
+            img.sprite = Sprite.Create(tex,
+                new Rect(0, 0, tex.width, tex.height), Vector2.one * 0.5f);
+        }
+        else
+        {
+            img.color = fallbackColor;
+        }
+        img.preserveAspect = true;
+
+        RectTransform rt = img.rectTransform;
+        rt.anchorMin        = new Vector2(0.5f, 0.5f);
+        rt.anchorMax        = new Vector2(0.5f, 0.5f);
+        rt.pivot            = new Vector2(0.5f, 0.5f);
+        rt.sizeDelta        = new Vector2(iconSize, iconSize);
+        rt.anchoredPosition = pos;
+        return img;
+    }
+
+    TextMeshProUGUI CreateSlotLabel(Transform parent, string name, Color color, Vector2 anchorPos)
+    {
+        GameObject obj = new GameObject(name);
+        obj.transform.SetParent(parent, false);
+
+        TextMeshProUGUI label = obj.AddComponent<TextMeshProUGUI>();
+        label.fontSize  = fontSize;
+        label.alignment = TextAlignmentOptions.Center;
+        label.color     = color;
+
+        RectTransform rt = label.rectTransform;
+        rt.anchorMin        = new Vector2(0.5f, 0.5f);
+        rt.anchorMax        = new Vector2(0.5f, 0.5f);
+        rt.pivot            = new Vector2(0.5f, 0.5f);
+        rt.sizeDelta        = new Vector2(100f, 30f);
+        rt.anchoredPosition = anchorPos;
+        return label;
+    }
+
+    void SelectSlot(int slotIndex)
+    {
+        selectedSlot = slotIndex;
+
+        // Update visual indicators
+        if (wateringCanBorder != null)
+            wateringCanBorder.enabled = (slotIndex == 0);
+        if (seedBorder != null)
+            seedBorder.enabled = (slotIndex == 1);
+
+        Debug.Log($"[HotbarUI] Selected tool: {(ToolType)slotIndex}");
     }
 
     void UpdateWaterDisplay(int current, int max)
@@ -167,22 +279,36 @@ public class HotbarUI : MonoBehaviour
         {
             waterCountText.text = current.ToString();
 
-            // Color changes based on water level
             float ratio = (float)current / max;
             if (ratio <= 0f)
                 waterCountText.color = Color.red;
             else if (ratio <= 0.3f)
-                waterCountText.color = new Color(1f, 0.5f, 0.2f); // Orange warning
+                waterCountText.color = new Color(1f, 0.5f, 0.2f);
             else
-                waterCountText.color = new Color(0.4f, 0.8f, 1f); // Light blue
+                waterCountText.color = new Color(0.4f, 0.8f, 1f);
         }
     }
 
     void UpdateMoneyDisplay(int amount)
     {
         if (moneyText != null)
-        {
             moneyText.text = $"${amount}";
+    }
+
+    void UpdateSeedDisplay(int count)
+    {
+        if (seedCountText != null)
+        {
+            seedCountText.text = count.ToString();
+            seedCountText.color = count > 0
+                ? new Color(0.6f, 0.9f, 0.3f)   // green — seeds available
+                : Color.red;                      // red — out of seeds
         }
+    }
+
+    void OnDestroy()
+    {
+        if (instance == this)
+            instance = null;
     }
 }
