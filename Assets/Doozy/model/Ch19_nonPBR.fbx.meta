@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<< Updated upstream
-guid: c49a7c483cbdabd40905b620cbf308f8
-=======
 guid: b81ad75952811d842aac7eb5ec1e8292
->>>>>>> Stashed changes
 ModelImporter:
   serializedVersion: 24200
   internalIDToNameTable: []
@@ -33,9 +29,6 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-<<<<<<< Updated upstream
-    clipAnimations: []
-=======
     clipAnimations:
     - serializedVersion: 16
       name: Take 001
@@ -95,7 +88,6 @@ ModelImporter:
       maskType: 3
       maskSource: {instanceID: 0}
       additiveReferencePoseFrame: 0
->>>>>>> Stashed changes
     isReadable: 0
   meshes:
     lODScreenPercentages: []
@@ -148,10 +140,6 @@ ModelImporter:
   importAnimation: 1
   humanDescription:
     serializedVersion: 3
-<<<<<<< Updated upstream
-    human: []
-    skeleton: []
-=======
     human:
     - boneName: mixamorig1:Hips
       humanName: Hips
@@ -817,7 +805,6 @@ ModelImporter:
       position: {x: -5.3240096e-11, y: 0.07209187, z: -1.2493328e-11}
       rotation: {x: 0, y: -0, z: -0, w: 1}
       scale: {x: 1, y: 1, z: 1}
->>>>>>> Stashed changes
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
