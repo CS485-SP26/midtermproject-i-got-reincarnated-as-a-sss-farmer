@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 using TMPro;
 using Character;
 using Farming;
@@ -57,13 +58,16 @@ public class HotbarUI : MonoBehaviour
     void Update()
     {
         // Number key input for slot selection
-        if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
+        if (Keyboard.current != null)
         {
-            SelectSlot(0);
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
-        {
-            SelectSlot(1);
+            if (Keyboard.current[Key.Digit1].wasPressedThisFrame || Keyboard.current[Key.Numpad1].wasPressedThisFrame)
+            {
+                SelectSlot(0);
+            }
+            else if (Keyboard.current[Key.Digit2].wasPressedThisFrame || Keyboard.current[Key.Numpad2].wasPressedThisFrame)
+            {
+                SelectSlot(1);
+            }
         }
     }
 

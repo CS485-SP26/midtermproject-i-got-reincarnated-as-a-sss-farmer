@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using Farming;
 using System.Collections.Generic;
 
@@ -18,10 +19,10 @@ namespace Character
         [SerializeField] Transform gridOrigin;
         
         [Header("Input")]
-        [SerializeField] KeyCode moveUpKey = KeyCode.UpArrow;
-        [SerializeField] KeyCode moveDownKey = KeyCode.DownArrow;
-        [SerializeField] KeyCode moveLeftKey = KeyCode.LeftArrow;
-        [SerializeField] KeyCode moveRightKey = KeyCode.RightArrow;
+        [SerializeField] Key moveUpKey = Key.UpArrow;
+        [SerializeField] Key moveDownKey = Key.DownArrow;
+        [SerializeField] Key moveLeftKey = Key.LeftArrow;
+        [SerializeField] Key moveRightKey = Key.RightArrow;
         
         private float lastMoveTime;
         private FarmTile[,] tileGrid;
@@ -99,10 +100,13 @@ namespace Character
 
             Vector2Int inputDirection = Vector2Int.zero;
 
-            if (Input.GetKey(moveUpKey))    inputDirection.y = 1;
-            if (Input.GetKey(moveDownKey))  inputDirection.y = -1;
-            if (Input.GetKey(moveLeftKey))  inputDirection.x = -1;
-            if (Input.GetKey(moveRightKey)) inputDirection.x = 1;
+            if (Keyboard.current != null)
+            {
+                if (Keyboard.current[moveUpKey].isPressed)    inputDirection.y = 1;
+                if (Keyboard.current[moveDownKey].isPressed)  inputDirection.y = -1;
+                if (Keyboard.current[moveLeftKey].isPressed)  inputDirection.x = -1;
+                if (Keyboard.current[moveRightKey].isPressed) inputDirection.x = 1;
+            }
 
             if (inputDirection != Vector2Int.zero)
             {
