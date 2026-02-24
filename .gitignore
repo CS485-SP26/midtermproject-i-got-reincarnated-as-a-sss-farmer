@@ -97,6 +97,3 @@ InitTestScene*.unity*
 
 # Auto-generated scenes by play mode tests
 /[Aa]ssets/[Ii]nit[Tt]est[Ss]cene*.unity*
-
-# .fbx files can be very large, and are often re-exported from 3D modeling software. It's usually best to exclude them from version control and re-import them as needed.
-*.fbx
