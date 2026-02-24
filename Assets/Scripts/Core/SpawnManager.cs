@@ -20,6 +20,10 @@ public class SpawnManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
+    private void OnDestroy() {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
         var player = GameObject.FindGameObjectWithTag("Player");
         // "if our player loaded & a valid spawn point was detected, spawn the player there"

@@ -38,6 +38,19 @@ namespace Character
                 Debug.LogWarning("No SeedInventory found on Player - planting will be unavailable.");
         }
 
+        void OnEnable()
+        {
+            // Reset watering state when re-enabled (e.g., after scene transition)
+            if (isWateringActive)
+            {
+                Debug.Log("[PlayerFarmingController] OnEnable: Resetting stuck watering state");
+                isWateringActive = false;
+                if (animatedController)
+                    animatedController.SetWatering(false);
+            }
+            CancelInvoke(nameof(StopWatering));
+        }
+
         void Update()
         {
             // Safety: force-reset watering state if stuck for too long
@@ -45,6 +58,30 @@ namespace Character
             {
                 Debug.LogWarning("[PlayerFarmingController] Watering stuck for too long - forcing reset!");
                 StopWatering();
+            }
+            
+            // Check for tool switches to ensure animation state is clean
+            CheckToolSwitch();
+        }
+
+        // Track last selected tool to detect switches
+        private HotbarUI.ToolType lastSelectedTool = HotbarUI.ToolType.WateringCan;
+        
+        void CheckToolSwitch()
+        {
+            if (HotbarUI.Instance == null) return;
+            
+            HotbarUI.ToolType currentTool = HotbarUI.Instance.SelectedTool;
+            
+            // If tool changed, ensure we're not stuck in watering animation
+            if (currentTool != lastSelectedTool)
+            {
+                if (isWateringActive)
+                {
+                    Debug.Log($"[PlayerFarmingController] Tool switched from {lastSelectedTool} to {currentTool} - stopping watering animation");
+                    StopWatering();
+                }
+                lastSelectedTool = currentTool;
             }
         }
 
@@ -95,10 +132,19 @@ namespace Character
                 return;
             }
 
-            // WATERING CAN: Till grass, water tilled land
+            // WATERING CAN: Till grass, water tilled land, harvest planted tiles
             if (selectedTool == HotbarUI.ToolType.WateringCan)
             {
+                // Handle harvesting planted tiles
+                if (tile.GetCondition == FarmTile.Condition.Planted)
+                {
+                    tile.Harvest();
+                    Debug.Log("[PlayerFarmingController] Harvested planted tile");
+                    return;
+                }
+                
                 bool success = tile.InteractWithWater(waterResource);
+                Debug.Log($"[PlayerFarmingController] Watering can interaction - Success: {success}, Tile condition: {tile.GetCondition}");
 
                 if (success && tile.GetCondition == FarmTile.Condition.Watered)
                 {
