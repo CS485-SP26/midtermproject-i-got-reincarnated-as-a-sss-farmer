@@ -26,6 +26,7 @@ namespace Character
         {
             base.Start();
             rb.linearDamping = drag; // prevents sliding
+            rb.angularDamping = 10f; // prevents unwanted spinning - HIGH VALUE for quick stop
             
             // Setup camera reference if not assigned
             if (!cameraTransform)
@@ -70,7 +71,11 @@ namespace Character
         {
             // Skip if no input
             if (moveInput.sqrMagnitude < 0.01f)
+            {
+                // Stop any residual angular velocity when no input
+                rb.angularVelocity = Vector3.zero;
                 return;
+            }
             
             // Camera-relative movement direction
             Vector3 moveDirection;
@@ -98,8 +103,9 @@ namespace Character
             // Store for rotation (only when there's actual input)
             lastInputDirection = moveDirection;
 
-            // Apply force
-            rb.AddForce(moveDirection * acceleration, ForceMode.Acceleration);
+            // Apply force - boost acceleration when running to reach higher speeds
+            float currentAcceleration = isRunning ? acceleration * 2f : acceleration;
+            rb.AddForce(moveDirection * currentAcceleration, ForceMode.Acceleration);
         }
 
         // -------- COLLISION SUPPORT (Week 2–3 integration) --------
@@ -165,7 +171,11 @@ namespace Character
         {
             // Only rotate when there is active input (prevents phantom spinning)
             if (moveInput.sqrMagnitude < 0.01f)
+            {
+                // Ensure angular velocity is zero when not moving
+                rb.angularVelocity = Vector3.zero;
                 return;
+            }
             
             // Rotate toward input direction, not velocity
             if (lastInputDirection.sqrMagnitude < 0.01f)
@@ -182,6 +192,19 @@ namespace Character
         public void SetRunning(bool running)
         {
             isRunning = running;
+            Debug.Log($"[PhysicsMovement] SetRunning({running}), walkSpeed={walkSpeed}, runSpeed={runSpeed}");
+            
+            // Immediately clamp velocity if stopping sprint
+            if (!running)
+            {
+                Vector3 horizontalVelocity = new Vector3(rb.linearVelocity.x, 0f, rb.linearVelocity.z);
+                if (horizontalVelocity.magnitude > walkSpeed)
+                {
+                    Debug.Log($"[PhysicsMovement] Clamping velocity from {horizontalVelocity.magnitude} to {walkSpeed}");
+                    horizontalVelocity = horizontalVelocity.normalized * walkSpeed;
+                    rb.linearVelocity = new Vector3(horizontalVelocity.x, rb.linearVelocity.y, horizontalVelocity.z);
+                }
+            }
         }
     }
 }
