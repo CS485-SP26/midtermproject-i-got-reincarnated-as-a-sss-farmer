@@ -23,6 +23,14 @@ public class WaterMeterUI : MonoBehaviour
 
         if (!waterResource)
             Debug.LogError("WaterMeterUI: No WaterResource found.");
+        
+        // Configure slider settings
+        if (slider)
+        {
+            slider.minValue = 0f;
+            slider.maxValue = 1f;
+            slider.wholeNumbers = false;
+        }
     }
 
     void Update()

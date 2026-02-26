@@ -10,6 +10,7 @@ namespace Character
 
         AnimatedController animatedController;
         WaterResource waterResource;
+        EnergyResource energyResource;
         SeedInventory seedInventory;
 
         bool isWateringActive; // prevents multi-drain per animation
@@ -21,6 +22,7 @@ namespace Character
         {
             animatedController = GetComponent<AnimatedController>();
             waterResource = GetComponent<WaterResource>();
+            energyResource = GetComponent<EnergyResource>();
             seedInventory = GetComponent<SeedInventory>();
 
             if (selectorManager == null)
@@ -33,6 +35,9 @@ namespace Character
 
             if (!waterResource)
                 Debug.LogError("No WaterResource found on Player.");
+
+            if (!energyResource)
+                Debug.LogError("No EnergyResource found on Player.");
 
             if (!seedInventory)
                 Debug.LogWarning("No SeedInventory found on Player - planting will be unavailable.");
@@ -141,6 +146,26 @@ namespace Character
                     tile.Harvest();
                     Debug.Log("[PlayerFarmingController] Harvested planted tile");
                     return;
+                }
+                
+                // Check if action requires energy (tilling grass)
+                bool requiresEnergy = tile.GetCondition == FarmTile.Condition.Grass;
+                
+                // Check resources before interaction
+                if (requiresEnergy && energyResource != null && !energyResource.HasEnergy)
+                {
+                    Debug.Log("[PlayerFarmingController] Not enough energy to till!");
+                    return;
+                }
+                
+                // Try to consume energy for digging/tilling
+                if (requiresEnergy && energyResource != null)
+                {
+                    if (!energyResource.TryConsumeEnergy())
+                    {
+                        Debug.Log("[PlayerFarmingController] Failed to consume energy for tilling");
+                        return;
+                    }
                 }
                 
                 bool success = tile.InteractWithWater(waterResource);
