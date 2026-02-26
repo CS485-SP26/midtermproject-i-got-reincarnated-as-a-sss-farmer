@@ -11,6 +11,7 @@ namespace Character
         [Header("Speed Settings")]
         [SerializeField] float walkSpeed = 2.5f;
         [SerializeField] float runSpeed = 5.5f;
+        [SerializeField] float runAccelerationMultiplier = 2f;
 
         [Header("Jump")]
         [SerializeField] float jumpForce = 5f;
@@ -104,7 +105,7 @@ namespace Character
             lastInputDirection = moveDirection;
 
             // Apply force - boost acceleration when running to reach higher speeds
-            float currentAcceleration = isRunning ? acceleration * 2f : acceleration;
+            float currentAcceleration = isRunning ? acceleration * runAccelerationMultiplier : acceleration;
             rb.AddForce(moveDirection * currentAcceleration, ForceMode.Acceleration);
         }
 
