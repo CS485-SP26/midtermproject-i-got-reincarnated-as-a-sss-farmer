@@ -13,6 +13,7 @@ public class Plant : MonoBehaviour
     public GameObject witheredModel;
 
     [Header("Settings")]
+    [Min(0.1f)]
     public float timeToNextStage = 5.0f; // Seconds between growth stages
     private float timer;
 
@@ -52,7 +53,16 @@ public class Plant : MonoBehaviour
     public void ChangeState(PlantState newState)
     {
         currentState = newState;
+        if (newState == PlantState.Planted || newState == PlantState.Growing)
+        {
+            timer = timeToNextStage;
+        }
         UpdatePlantVisuals();
+    }
+
+    void OnValidate()
+    {
+        timeToNextStage = Mathf.Max(0.1f, timeToNextStage);
     }
 
     void UpdatePlantVisuals()
