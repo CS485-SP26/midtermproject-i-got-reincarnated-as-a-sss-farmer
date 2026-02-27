@@ -1,65 +1,68 @@
 using UnityEngine;
 
-public enum PlantState { Planted, Growing, Mature, Withered }
-
-public class Plant : MonoBehaviour
+namespace Farming
 {
-    public PlantState currentState;
+    public enum PlantState { Planted, Growing, Mature, Withered }
 
-    [Header("Visual Models")]
-    public GameObject plantedModel;
-    public GameObject growingModel;
-    public GameObject matureModel;
-    public GameObject witheredModel;
-
-    [Header("Settings")]
-    public float timeToNextStage = 5.0f; // Seconds between growth stages
-    private float timer;
-
-    void Start()
+    public class Plant : MonoBehaviour
     {
-        timer = timeToNextStage;
-        UpdatePlantVisuals();
-    }
+        public PlantState currentState;
 
-    void Update()
-    {
-        // Only grow if the plant hasn't reached Mature or Withered yet
-        if (currentState == PlantState.Planted || currentState == PlantState.Growing)
+        [Header("Visual Models")]
+        public GameObject plantedModel;
+        public GameObject growingModel;
+        public GameObject matureModel;
+        public GameObject witheredModel;
+
+        [Header("Settings")]
+        public float timeToNextStage = 5.0f; // Seconds between growth stages
+        private float timer;
+
+        void Start()
         {
-            timer -= Time.deltaTime;
+            timer = timeToNextStage;
+            UpdatePlantVisuals();
+        }
 
-            if (timer <= 0)
+        void Update()
+        {
+            // Only grow if the plant hasn't reached Mature or Withered yet
+            if (currentState == PlantState.Planted || currentState == PlantState.Growing)
             {
-                Grow();
-                timer = timeToNextStage; // Reset timer for the next stage
+                timer -= Time.deltaTime;
+
+                if (timer <= 0)
+                {
+                    Grow();
+                    timer = timeToNextStage; // Reset timer for the next stage
+                }
             }
         }
-    }
 
-    void Grow()
-    {
-        if (currentState == PlantState.Planted)
+        void Grow()
         {
-            ChangeState(PlantState.Growing);
+            if (currentState == PlantState.Planted)
+            {
+                ChangeState(PlantState.Growing);
+            }
+            else if (currentState == PlantState.Growing)
+            {
+                ChangeState(PlantState.Mature);
+            }
         }
-        else if (currentState == PlantState.Growing)
+
+        public void ChangeState(PlantState newState)
         {
-            ChangeState(PlantState.Mature);
+            currentState = newState;
+            UpdatePlantVisuals();
         }
-    }
 
-    public void ChangeState(PlantState newState)
-    {
-        currentState = newState;
-        UpdatePlantVisuals();
-    }
-
-    void UpdatePlantVisuals()
-    {
-        plantedModel.SetActive(currentState == PlantState.Planted);
-        growingModel.SetActive(currentState == PlantState.Growing);
-        matureModel.SetActive(currentState == PlantState.Mature);
-        witheredModel.SetActive(currentState == PlantState.Withered);
+        void UpdatePlantVisuals()
+        {
+            plantedModel.SetActive(currentState == PlantState.Planted);
+            growingModel.SetActive(currentState == PlantState.Growing);
+            matureModel.SetActive(currentState == PlantState.Mature);
+            witheredModel.SetActive(currentState == PlantState.Withered);
+        }
     }
 }
