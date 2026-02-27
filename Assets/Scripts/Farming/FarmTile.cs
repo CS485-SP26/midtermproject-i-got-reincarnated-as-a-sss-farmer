@@ -1,6 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Environment;
+using System.Numerics;
+using Unity.VisualScripting;
+using UnityEngine.Tilemaps;
+using System;
 
 namespace Farming 
 {
@@ -9,11 +13,12 @@ namespace Farming
         public enum Condition { Grass, Tilled, Watered, Planted }
 
         [SerializeField] private Condition tileCondition = Condition.Grass; 
-<<<<<<< HEAD
-=======
+        // our plant object
+        [SerializeField] private Plant plantPrefab;
+        // reference to the actual plant object
+        private Plant currentPlant;
         [SerializeField] private Transform plantSpawn;
 
->>>>>>> eb142f3 (Remove plantPrefab and currentPlant from FarmTile)
 
         [Header("Visuals")]
         [SerializeField] private Material grassMaterial;
@@ -166,31 +171,9 @@ namespace Farming
                 case FarmTile.Condition.Watered:
                     // already watered
                     break;
-<<<<<<< HEAD
-                // case FarmTile.Condition.Planted:
-                //     Harvest();
-                //     break;
-=======
                 case FarmTile.Condition.Planted:
-                    if (currentPlant != null)
-                    {
-                    // only waters if plant is not Mature or Withered state
-                        if (currentPlant.currentState != PlantState.Mature && currentPlant.currentState != PlantState.Withered)
-                        {
-                            if (waterResource != null && currentPlant.TryWater() && waterResource.TryConsumeWater())
-                            {
-                                // watered successfully
-                            }
-                        }
-
-                        // Harvest only if the plant is Mature
-                        if (currentPlant.currentState == PlantState.Mature)
-                        {
-                            Harvest();
-                        }
-                    }
+                    Harvest();
                     break;
->>>>>>> 553f965 (Small change to Part 10 and additions for Part 11)
             }
             daysSinceLastInteraction = 0;
         }
@@ -296,115 +279,13 @@ namespace Farming
             tillAudio?.Play(); // reuse till audio for planting sound
             daysSinceLastInteraction = 0;
 
-<<<<<<< HEAD
-            // Spawn the plant object
-            SpawnPlant(wasWatered);
-=======
             // creating a Plant object relative to that tile's position (using the tile's plantSpawn)
             // note: this *should* be a child of the respective farm tile, however the model "squishes" when I do & that shouldn't be happening
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
-=======
->>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
-            Vector3 spawnPosition = plantSpawn != null ? plantSpawn.position : transform.position;
-            currentPlant = Instantiate(plantPrefab, spawnPosition, UnityEngine.Quaternion.identity);
-            currentPlant.ChangeState(PlantState.Planted);
->>>>>>> a1d5ff0 (Apply PR review feedback to FarmTile.cs)
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
             if(plantPrefab)
             {
-<<<<<<< HEAD
-                Vector3 spawnPosition;
-                if (plantSpawn != null)
-                {
-                    spawnPosition = plantSpawn.position;
-                }
-                else
-                {
-                    Debug.LogWarning($"[FarmTile] {gameObject.name} has no plantSpawn assigned; falling back to transform.position.");
-                    spawnPosition = transform.position;
-                }
-                currentPlant = Instantiate(plantPrefab, spawnPosition, UnityEngine.Quaternion.identity);
-=======
-                if (plantSpawn == null)
-                {
-                    Debug.LogWarning($"FarmTile '{name}' is missing a plantSpawn reference. Cannot instantiate plant prefab.", this);
-                }
-                else
-                {
-                    currentPlant = Instantiate(plantPrefab, plantSpawn.position, UnityEngine.Quaternion.identity);
-                    //currentPlant.ChangeState(PlantState.Planted);
-                }
->>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
+                currentPlant = Instantiate(plantPrefab, plantSpawn.position, UnityEngine.Quaternion.identity);
+                currentPlant.ChangeState(PlantState.Planted);
             }
->>>>>>> 553f965 (Small change to Part 10 and additions for Part 11)
-=======
-=======
->>>>>>> 0c82600 (Apply PR review feedback to FarmTile.cs)
-=======
->>>>>>> 8ac7de1 (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
-            if(plantPrefab)
-            {
-                if (plantSpawn == null)
-                {
-                    Debug.LogWarning($"FarmTile '{name}' is missing a plantSpawn reference. Cannot instantiate plant prefab.", this);
-                }
-                else
-                {
-                    currentPlant = Instantiate(plantPrefab, plantSpawn.position, UnityEngine.Quaternion.identity);
-                    //currentPlant.ChangeState(PlantState.Planted);
-                }
-            }
->>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
-<<<<<<< HEAD
->>>>>>> 1a943be (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
-=======
-=======
-=======
->>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
-            Vector3 spawnPosition = plantSpawn != null ? plantSpawn.position : transform.position;
-            currentPlant = Instantiate(plantPrefab, spawnPosition, UnityEngine.Quaternion.identity);
-            currentPlant.ChangeState(PlantState.Planted);
->>>>>>> a1d5ff0 (Apply PR review feedback to FarmTile.cs)
-<<<<<<< HEAD
->>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
-<<<<<<< HEAD
->>>>>>> 0c82600 (Apply PR review feedback to FarmTile.cs)
-=======
-=======
-=======
->>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
-=======
-            if(plantPrefab)
-            {
-                Vector3 spawnPosition;
-                if (plantSpawn != null)
-                {
-                    spawnPosition = plantSpawn.position;
-                }
-                else
-                {
-                    Debug.LogWarning($"[FarmTile] {gameObject.name} has no plantSpawn assigned; falling back to transform.position.");
-                    spawnPosition = transform.position;
-                }
-                currentPlant = Instantiate(plantPrefab, spawnPosition, UnityEngine.Quaternion.identity);
-            }
->>>>>>> 7545cdd (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
-<<<<<<< HEAD
->>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
->>>>>>> 8ac7de1 (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
-=======
->>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
-=======
->>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
 
             FarmingEvents.TileFarmed(this, previousCondition, tileCondition);
             return true;
@@ -570,23 +451,16 @@ namespace Farming
             if (active) stepAudio.Play();
         }
 
+        // [Ryan] rewrote this function to better suit having plant objects inside each farm tile (given the plant growing logic comes from Plant.cs)
         public void OnDayPassed()
         {
+
             daysSinceLastInteraction++;
             if(daysSinceLastInteraction >= 2)
             {
-                if(tileCondition == FarmTile.Condition.Planted)
+                // switch-case statement based on the tile's condition
+                switch(tileCondition)
                 {
-<<<<<<< HEAD
-                    // Destroy the plant if tile is reverting
-                    if (currentPlant != null)
-                    {
-                        Destroy(currentPlant.gameObject);
-                        currentPlant = null;
-                    }
-                    isPlantedSoilWatered = false;
-                    tileCondition = FarmTile.Condition.Grass;
-=======
                     case Condition.Tilled:
                         if(currentPlant == null) {tileCondition = Condition.Grass;}
 
@@ -596,144 +470,27 @@ namespace Farming
                         if(currentPlant == null) {tileCondition = Condition.Tilled;}
                         break;
 
-                    // "in the event the tile's already planted, if the plant's withered then change the tile to dirt (instead of just grass)"
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
-                    // note: this code runs only when the tile has gone at least two days without interaction
-=======
-                    // note: this code runs only when the days passed
->>>>>>> f9fffec (Confirmation of Merge with Salvador's Branch)
-<<<<<<< HEAD
-=======
-                    // note: this code runs only when the tile has gone at least two days without interaction
->>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
-=======
->>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+                    // "in the event the tile's already planted, if the plant's witheed then change the tile to dirt (instead of just grass)"
                     case Condition.Planted:
-                        // "if the currentPlant still exists, check if it's withered"
-                        if(currentPlant != null) {
-                            // "if the currentPlant's state is withered, destroy it & set that tile to tilled / dirt"
-                            if(currentPlant.currentState == PlantState.Withered)
-                            {
-                                Debug.Log("[FarmTile] Plant has withered, turning into dirt");
-                                tileCondition = Condition.Tilled;
-                                Destroy(currentPlant.gameObject);
-                                currentPlant = null;
-                            }
-                        }
-                        else
-                        {
-                            // Plant reference lost (e.g., destroyed externally); revert tile to tilled
-                            tileCondition = Condition.Tilled;
-                        }
-<<<<<<< HEAD
-=======
-=======
->>>>>>> d3dc40d (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 0c82600 (Apply PR review feedback to FarmTile.cs)
-=======
->>>>>>> b35b409 (Confirmation of Merge with Salvador's Branch)
-                    case Condition.Planted:
-=======
-                    case Condition.Planted:
->>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
-                        if(currentPlant == null)
-                        {
-                            // Plant reference lost - revert to tilled to prevent stuck state
-                            tileCondition = Condition.Tilled;
-                        }
-                        else if(currentPlant.currentState == PlantState.Withered)
+                        if(currentPlant && currentPlant.currentState == PlantState.Withered)
                         {
                             tileCondition = Condition.Tilled;
                             Destroy(currentPlant.gameObject);
                             currentPlant = null;
                         }
 
-<<<<<<< HEAD
->>>>>>> 1a943be (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
-=======
-=======
-                    // note: this code runs only when the 
-=======
-                    // note: this code runs only when the tile has gone at least two days without interaction
->>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
-=======
-                    // note: this code runs only when the tile has gone at least two days without interaction
-=======
-                    // note: this code runs only when the days passed
->>>>>>> f9fffec (Confirmation of Merge with Salvador's Branch)
->>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
-                    case Condition.Planted:
-                        // "if the currentPlant still exists, check if it's withered"
-=======
-                    // note: this code runs only when the 
-                    case Condition.Planted:
-                        // "if the currentPlant still xists, check if it's withered"
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-                        if(currentPlant != null) {
-                            // "if the currentPlant's state is withered, destroy it & set that tile to tilled / dirt"
-                            if(currentPlant.currentState == PlantState.Withered)
-                            {
-                                Debug.Log("[FarmTile] Plant has withered, turning into dirt");
-                                tileCondition = Condition.Tilled;
-                                Destroy(currentPlant.gameObject);
-                                currentPlant = null;
-                            }
-                        }
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> d3dc40d (Modified Planting & Harvesting Logic [RM])
-=======
-=======
-                        else
-                        {
-                            // Plant reference lost (e.g., destroyed externally); revert tile to tilled
-                            tileCondition = Condition.Tilled;
-                        }
->>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
->>>>>>> 0c82600 (Apply PR review feedback to FarmTile.cs)
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
                         break;
 
                     case Condition.Grass:
                         break;  
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
->>>>>>> 1a943be (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
-=======
->>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
-=======
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
->>>>>>> d3dc40d (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
                 }
-                else if(tileCondition == FarmTile.Condition.Watered) tileCondition = FarmTile.Condition.Tilled;
-                else if(tileCondition == FarmTile.Condition.Tilled) tileCondition = FarmTile.Condition.Grass;
+                // optional for now
+                daysSinceLastInteraction = 0;
             }
+            
             UpdateVisual();
+            
         }
 
         /// <summary>
@@ -894,10 +651,14 @@ namespace Farming
 
             // since we interacted with the tile, regardless of outcome, reset our interaction check
             daysSinceLastInteraction = 0;
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+
+            // removing the plant object after harvesting
+            if(currentPlant)
+            {
+                Destroy(currentPlant.gameObject);
+                currentPlant = null;
+            }
+
             UpdateVisual();
             FarmingEvents.TileHarvested(this);
             

@@ -751,6 +751,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 56034297}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &71212363
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 71212364}
+  m_Layer: 0
+  m_Name: plantSpawn4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &71212364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 71212363}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1697533641}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &71276868 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -2530251679569251172, guid: b81ad75952811d842aac7eb5ec1e8292, type: 3}
@@ -1815,6 +1846,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 123872198}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &143556231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 143556232}
+  m_Layer: 0
+  m_Name: plantSpawn1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &143556232
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 143556231}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 621895049}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &151697138
 GameObject:
   m_ObjectHideFlags: 0
@@ -2306,6 +2368,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 210742545}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &246211258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 246211259}
+  m_Layer: 0
+  m_Name: plantSpawn13
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &246211259
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 246211258}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1381054960}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &270971802
 GameObject:
   m_ObjectHideFlags: 0
@@ -2989,21 +3082,7 @@ Transform:
   - {fileID: 88119351}
   - {fileID: 543114693}
   - {fileID: 1720796704}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - {fileID: 1201180667}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   - {fileID: 1466921172}
-=======
-  - {fileID: 1201180667}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &383629374
@@ -3020,21 +3099,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmTile
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  plantSpawn: {fileID: 1201180667}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   plantSpawn: {fileID: 1466921172}
-=======
-  plantSpawn: {fileID: 1201180667}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -3614,21 +3679,7 @@ Transform:
   - {fileID: 570153904}
   - {fileID: 78836006}
   - {fileID: 372587994}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - {fileID: 1713704098}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   - {fileID: 1590805487}
-=======
-  - {fileID: 1713704098}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &400642160
@@ -3645,21 +3696,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmTile
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  plantSpawn: {fileID: 1713704098}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   plantSpawn: {fileID: 1590805487}
-=======
-  plantSpawn: {fileID: 1713704098}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -4204,21 +4241,7 @@ Transform:
   - {fileID: 210742546}
   - {fileID: 52824239}
   - {fileID: 1295579208}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - {fileID: 1260232420}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   - {fileID: 831865423}
-=======
-  - {fileID: 1260232420}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &413481108
@@ -4235,21 +4258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmTile
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  plantSpawn: {fileID: 1260232420}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   plantSpawn: {fileID: 831865423}
-=======
-  plantSpawn: {fileID: 1260232420}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -4819,21 +4828,7 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2300000, guid: 158f788eeb1973d45933b060a20c6a8b, type: 3}
   m_PrefabInstance: {fileID: 295940396}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-<<<<<<< HEAD
---- !u!1 &518463536
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
 --- !u!1 &522337235
-=======
---- !u!1 &518463536
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4841,85 +4836,28 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - component: {fileID: 518463537}
-  m_Layer: 0
-  m_Name: plantSpawn14
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   - component: {fileID: 522337236}
   m_Layer: 0
   m_Name: plantSpawn5
-=======
-  - component: {fileID: 518463537}
-  m_Layer: 0
-  m_Name: plantSpawn14
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
-<<<<<<< HEAD
---- !u!4 &518463537
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
 --- !u!4 &522337236
-=======
---- !u!4 &518463537
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_GameObject: {fileID: 518463536}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_GameObject: {fileID: 522337235}
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 0.5, y: 10, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-<<<<<<< HEAD
-  m_Father: {fileID: 2056574611}
-=======
   m_Father: {fileID: 749749632}
-=======
-  m_GameObject: {fileID: 518463536}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
-  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2056574611}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &531808571
 GameObject:
@@ -5409,21 +5347,7 @@ Transform:
   - {fileID: 769688830}
   - {fileID: 2025664199}
   - {fileID: 1738074294}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - {fileID: 1314965275}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   - {fileID: 1459352147}
-=======
-  - {fileID: 1314965275}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &575667305
@@ -5440,21 +5364,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmTile
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  plantSpawn: {fileID: 1314965275}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   plantSpawn: {fileID: 1459352147}
-=======
-  plantSpawn: {fileID: 1314965275}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -5908,21 +5818,7 @@ Transform:
   - {fileID: 1670784001}
   - {fileID: 1971078523}
   - {fileID: 1547236827}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - {fileID: 796450918}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   - {fileID: 1756160319}
-=======
-  - {fileID: 796450918}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &593384251
@@ -5939,21 +5835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmTile
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  plantSpawn: {fileID: 796450918}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   plantSpawn: {fileID: 1756160319}
-=======
-  plantSpawn: {fileID: 796450918}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -6418,21 +6300,7 @@ Transform:
   - {fileID: 1883107569}
   - {fileID: 5784182}
   - {fileID: 1513483820}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - {fileID: 19903955}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   - {fileID: 143556232}
-=======
-  - {fileID: 19903955}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &621895050
@@ -6449,21 +6317,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmTile
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  plantSpawn: {fileID: 19903955}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   plantSpawn: {fileID: 143556232}
-=======
-  plantSpawn: {fileID: 19903955}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -7284,21 +7138,7 @@ Transform:
   - {fileID: 2026638897}
   - {fileID: 2073044460}
   - {fileID: 71938159}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - {fileID: 883955340}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   - {fileID: 522337236}
-=======
-  - {fileID: 883955340}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &749749633
@@ -7315,21 +7155,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmTile
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  plantSpawn: {fileID: 883955340}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   plantSpawn: {fileID: 522337236}
-=======
-  plantSpawn: {fileID: 883955340}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -8006,21 +7832,7 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 778930465}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-<<<<<<< HEAD
-<<<<<<< HEAD
---- !u!1 &796450917
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
 --- !u!1 &779743008
-=======
---- !u!1 &796450917
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8028,85 +7840,28 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - component: {fileID: 796450918}
-  m_Layer: 0
-  m_Name: plantSpawn12
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   - component: {fileID: 779743009}
   m_Layer: 0
   m_Name: plantSpawn2
-=======
-  - component: {fileID: 796450918}
-  m_Layer: 0
-  m_Name: plantSpawn12
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
-<<<<<<< HEAD
---- !u!4 &796450918
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
 --- !u!4 &779743009
-=======
---- !u!4 &796450918
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_GameObject: {fileID: 796450917}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_GameObject: {fileID: 779743008}
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
   m_LocalScale: {x: 0.5, y: 10, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-<<<<<<< HEAD
-  m_Father: {fileID: 593384250}
-=======
   m_Father: {fileID: 1259173393}
-=======
-  m_GameObject: {fileID: 796450917}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
-  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 593384250}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &798747590
 GameObject:
@@ -8237,21 +7992,7 @@ Transform:
   - {fileID: 853512680}
   - {fileID: 1299586775}
   - {fileID: 1282850375}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - {fileID: 596519232}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   - {fileID: 1052762551}
-=======
-  - {fileID: 596519232}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &818270249
@@ -8268,21 +8009,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmTile
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  plantSpawn: {fileID: 596519232}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   plantSpawn: {fileID: 1052762551}
-=======
-  plantSpawn: {fileID: 596519232}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -8772,6 +8499,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830988745}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &831865422
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 831865423}
+  m_Layer: 0
+  m_Name: plantSpawn8
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &831865423
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831865422}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 413481107}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -9236,13 +8994,51 @@ Transform:
   m_LocalScale: {x: 0.5, y: 10, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1259173393}
+  m_Father: {fileID: 953783536}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
-=======
->>>>>>> 9733853 (minimap and plants merged)
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -69.5, y: 70.09993}
+  m_SizeDelta: {x: 178, y: 178}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &910582022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910582020}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 0.37999994, g: 0.5999999, b: 0, a: 1}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: e0a94c829e2258442bd0f0e4a446eab9, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &910582023
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910582020}
+  m_CullTransparentMesh: 1
 --- !u!1 &933086708 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1202967806258005865, guid: 9520bada6c169bd499d4f8d942ca249e, type: 3}
@@ -9472,6 +9268,108 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 953411548}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &953783535
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 953783536}
+  - component: {fileID: 953783539}
+  - component: {fileID: 953783538}
+  - component: {fileID: 953783537}
+  m_Layer: 5
+  m_Name: Canvas
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &953783536
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953783535}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 910582021}
+  m_Father: {fileID: 1666731132}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 0}
+--- !u!114 &953783537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953783535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+--- !u!114 &953783538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953783535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
+  m_UiScaleMode: 0
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 800, y: 600}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
+--- !u!223 &953783539
+Canvas:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953783535}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_RenderMode: 0
+  m_Camera: {fileID: 0}
+  m_PlaneDistance: 100
+  m_PixelPerfect: 0
+  m_ReceivesEvents: 1
+  m_OverrideSorting: 0
+  m_OverridePixelPerfect: 0
+  m_SortingBucketNormalizedSize: 0
+  m_VertexColorAlwaysGammaSpace: 0
+  m_AdditionalShaderChannelsFlag: 0
+  m_UpdateRectTransformForStandalone: 0
+  m_SortingLayerID: 0
+  m_SortingOrder: 0
+  m_TargetDisplay: 0
 --- !u!1 &1012865560
 GameObject:
   m_ObjectHideFlags: 0
@@ -9547,6 +9445,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1012865560}
   m_CullTransparentMesh: 1
+--- !u!1 &1016255623
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1016255624}
+  m_Layer: 0
+  m_Name: plantSpawn14
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1016255624
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1016255623}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2056574611}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1023191085
 GameObject:
   m_ObjectHideFlags: 0
@@ -9843,6 +9772,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1050106206}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1052762550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1052762551}
+  m_Layer: 0
+  m_Name: plantSpawn9
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1052762551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1052762550}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 818270248}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1089189113
 GameObject:
   m_ObjectHideFlags: 0
@@ -10667,21 +10627,7 @@ Transform:
   - {fileID: 1689763865}
   - {fileID: 1626224883}
   - {fileID: 151697139}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - {fileID: 899672485}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   - {fileID: 779743009}
-=======
-  - {fileID: 899672485}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1259173394
@@ -10698,21 +10644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmTile
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  plantSpawn: {fileID: 899672485}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   plantSpawn: {fileID: 779743009}
-=======
-  plantSpawn: {fileID: 899672485}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -11814,21 +11746,7 @@ Transform:
   - {fileID: 1093723935}
   - {fileID: 1719275787}
   - {fileID: 882808254}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - {fileID: 1624888690}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   - {fileID: 1498628658}
-=======
-  - {fileID: 1624888690}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1347809120
@@ -11845,21 +11763,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmTile
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  plantSpawn: {fileID: 1624888690}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   plantSpawn: {fileID: 1498628658}
-=======
-  plantSpawn: {fileID: 1624888690}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -12502,21 +12406,7 @@ Transform:
   - {fileID: 1537101410}
   - {fileID: 1617809759}
   - {fileID: 1757914154}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - {fileID: 1209371883}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   - {fileID: 246211259}
-=======
-  - {fileID: 1209371883}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1381054961
@@ -12533,21 +12423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmTile
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  plantSpawn: {fileID: 1209371883}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   plantSpawn: {fileID: 246211259}
-=======
-  plantSpawn: {fileID: 1209371883}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -12965,21 +12841,7 @@ Transform:
   - {fileID: 117417168}
   - {fileID: 455555336}
   - {fileID: 1656558829}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - {fileID: 349927078}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   - {fileID: 1507623085}
-=======
-  - {fileID: 349927078}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1393355531
@@ -12996,21 +12858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmTile
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  plantSpawn: {fileID: 349927078}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   plantSpawn: {fileID: 1507623085}
-=======
-  plantSpawn: {fileID: 349927078}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -13428,21 +13276,7 @@ Transform:
   - {fileID: 1611551586}
   - {fileID: 1516496667}
   - {fileID: 737488977}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - {fileID: 1698801837}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   - {fileID: 1922354312}
-=======
-  - {fileID: 1698801837}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1403734915
@@ -13459,21 +13293,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmTile
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  plantSpawn: {fileID: 1698801837}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   plantSpawn: {fileID: 1922354312}
-=======
-  plantSpawn: {fileID: 1698801837}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -14029,6 +13849,78 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1458930303}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1459352146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1459352147}
+  m_Layer: 0
+  m_Name: plantSpawn0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1459352147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1459352146}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 575667304}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1466921171
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1466921172}
+  m_Layer: 0
+  m_Name: plantSpawn10
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1466921172
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466921171}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 383629373}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1467241184 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
+  m_PrefabInstance: {fileID: 1979276883}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1467241187 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
+  m_PrefabInstance: {fileID: 1979276883}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1495047858
 GameObject:
   m_ObjectHideFlags: 0
@@ -14141,6 +14033,68 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495047858}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1498628657
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1498628658}
+  m_Layer: 0
+  m_Name: plantSpawn11
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1498628658
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1498628657}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1347809119}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1507623084
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1507623085}
+  m_Layer: 0
+  m_Name: plantSpawn15
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1507623085
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507623084}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1393355530}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1513483819
 GameObject:
   m_ObjectHideFlags: 0
@@ -14601,8 +14555,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b967766edf4c22645b84fc7a0a815c85, type: 3}
   m_PrefabInstance: {fileID: 451709065}
   m_PrefabAsset: {fileID: 0}
->>>>>>> 9733853 (minimap and plants merged)
---- !u!1 &1592728434
+--- !u!1 &1590805486
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -14610,70 +14563,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1592728435}
-  - component: {fileID: 1592728437}
-  - component: {fileID: 1592728436}
-  m_Layer: 5
-  m_Name: Minimap
+  - component: {fileID: 1590805487}
+  m_Layer: 0
+  m_Name: plantSpawn6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1592728435
-RectTransform:
+--- !u!4 &1590805487
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1592728434}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 1590805486}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 155555718}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.1, y: -0.1}
-  m_SizeDelta: {x: 167, y: 167}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1592728436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1592728434}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 8400000, guid: 4591c6e7150c2044091d217eb88e8e35, type: 2}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
---- !u!222 &1592728437
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1592728434}
-  m_CullTransparentMesh: 1
+  m_Father: {fileID: 400642159}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1611551585
 GameObject:
   m_ObjectHideFlags: 0
@@ -15096,8 +15008,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1639864496}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.81144, y: 0, z: 0.77751}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.26, y: 0, z: -4.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -15232,6 +15144,150 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656558828}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1666731129
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1666731132}
+  - component: {fileID: 1666731131}
+  - component: {fileID: 1666731130}
+  - component: {fileID: 1666731133}
+  m_Layer: 0
+  m_Name: MinimapCamera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1666731130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666731129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.RenderPipelines.Universal.Runtime::UnityEngine.Rendering.Universal.UniversalAdditionalCameraData
+  m_RenderShadows: 1
+  m_RequiresDepthTextureOption: 2
+  m_RequiresOpaqueTextureOption: 2
+  m_CameraType: 0
+  m_Cameras: []
+  m_RendererIndex: -1
+  m_VolumeLayerMask:
+    serializedVersion: 2
+    m_Bits: 1
+  m_VolumeTrigger: {fileID: 0}
+  m_VolumeFrameworkUpdateModeOption: 2
+  m_RenderPostProcessing: 0
+  m_Antialiasing: 0
+  m_AntialiasingQuality: 2
+  m_StopNaN: 0
+  m_Dithering: 0
+  m_ClearDepth: 1
+  m_AllowXRRendering: 1
+  m_AllowHDROutput: 1
+  m_UseScreenCoordOverride: 0
+  m_ScreenSizeOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_ScreenCoordScaleBias: {x: 0, y: 0, z: 0, w: 0}
+  m_RequiresDepthTexture: 0
+  m_RequiresColorTexture: 0
+  m_TaaSettings:
+    m_Quality: 3
+    m_FrameInfluence: 0.1
+    m_JitterScale: 1
+    m_MipBias: 0
+    m_VarianceClampScale: 0.9
+    m_ContrastAdaptiveSharpening: 0
+  m_Version: 2
+--- !u!20 &1666731131
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666731129}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 6.7
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 8400000, guid: 4591c6e7150c2044091d217eb88e8e35, type: 2}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &1666731132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666731129}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0.17, y: 15, z: 0.086}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 953783536}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &1666731133
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666731129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a275479ecce82b34e9eedf3e14d1e965, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Minimap
+  player: {fileID: 76249694}
+  rotateWithPlayer: 0
 --- !u!1 &1667879668
 GameObject:
   m_ObjectHideFlags: 0
@@ -15816,21 +15872,7 @@ Transform:
   - {fileID: 830988746}
   - {fileID: 1322298144}
   - {fileID: 1458930304}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - {fileID: 326990969}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   - {fileID: 71212364}
-=======
-  - {fileID: 326990969}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1697533642
@@ -15847,21 +15889,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmTile
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  plantSpawn: {fileID: 326990969}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   plantSpawn: {fileID: 71212364}
-=======
-  plantSpawn: {fileID: 326990969}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -16765,6 +16793,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1738074293}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1756160318
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1756160319}
+  m_Layer: 0
+  m_Name: plantSpawn12
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1756160319
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1756160318}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 593384250}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1757914153
 GameObject:
   m_ObjectHideFlags: 0
@@ -16992,7 +17051,7 @@ RectTransform:
   m_AnchoredPosition: {x: 2.5, y: 0}
   m_SizeDelta: {x: -5, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1871969008
+--- !u!1 &1874899675
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17000,100 +17059,29 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1871969009}
-  - component: {fileID: 1871969012}
-  - component: {fileID: 1871969011}
-  - component: {fileID: 1871969010}
-  m_Layer: 5
-  m_Name: Canvas
+  - component: {fileID: 1874899676}
+  m_Layer: 0
+  m_Name: plantSpawn3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &1871969009
-RectTransform:
+--- !u!4 &1874899676
+Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1871969008}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_GameObject: {fileID: 1874899675}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 155555718}
-  m_Father: {fileID: 22227629}
+  m_Children: []
+  m_Father: {fileID: 2096229165}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0}
---- !u!114 &1871969010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1871969008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.GraphicRaycaster
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
---- !u!114 &1871969011
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1871969008}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.CanvasScaler
-  m_UiScaleMode: 0
-  m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
-  m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
-  m_FallbackScreenDPI: 96
-  m_DefaultSpriteDPI: 96
-  m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
---- !u!223 &1871969012
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1871969008}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
-  m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
 --- !u!1 &1883107568
 GameObject:
   m_ObjectHideFlags: 0
@@ -17408,6 +17396,94 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900093294}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1922354311
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1922354312}
+  m_Layer: 0
+  m_Name: plantSpawn7
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1922354312
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922354311}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1403734914}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1968150292
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1639864498}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.20292
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.20291
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
+      propertyPath: m_Name
+      value: Decoration_Plant_05_01
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
 --- !u!1 &1971078522
 GameObject:
   m_ObjectHideFlags: 0
@@ -17520,6 +17596,67 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1971078522}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1979276883
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1639864498}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.20292
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.20291
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
+      propertyPath: m_Name
+      value: Decoration_Plant_04_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
 --- !u!1 &2007434626
 GameObject:
   m_ObjectHideFlags: 0
@@ -18040,21 +18177,7 @@ Transform:
   - {fileID: 934797990}
   - {fileID: 174265430}
   - {fileID: 1900093295}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - {fileID: 518463537}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   - {fileID: 1016255624}
-=======
-  - {fileID: 518463537}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2056574612
@@ -18071,21 +18194,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmTile
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  plantSpawn: {fileID: 518463537}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   plantSpawn: {fileID: 1016255624}
-=======
-  plantSpawn: {fileID: 518463537}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -18662,21 +18771,7 @@ Transform:
   - {fileID: 693635764}
   - {fileID: 552250509}
   - {fileID: 778930466}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  - {fileID: 2073145972}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   - {fileID: 1874899676}
-=======
-  - {fileID: 2073145972}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2096229166
@@ -18693,21 +18788,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FarmTile
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  plantSpawn: {fileID: 2073145972}
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   plantSpawn: {fileID: 1874899676}
-=======
-  plantSpawn: {fileID: 2073145972}
->>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
-<<<<<<< HEAD
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -19236,6 +19317,7 @@ SceneRoots:
   - {fileID: 1301361892}
   - {fileID: 1248295911}
   - {fileID: 657775634}
+  - {fileID: 1639864498}
   - {fileID: 1135064476}
   - {fileID: 697473047}
   - {fileID: 1692840434}
@@ -19243,9 +19325,4 @@ SceneRoots:
   - {fileID: 111998805}
   - {fileID: 1832991199}
   - {fileID: 2007434628}
-<<<<<<< HEAD
-  - {fileID: 5086469852691421147}
-=======
-  - {fileID: 1639864498}
->>>>>>> 9733853 (minimap and plants merged)
-  - {fileID: 22227629}
+  - {fileID: 1666731132}
