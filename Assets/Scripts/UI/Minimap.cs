@@ -5,6 +5,7 @@ public class Minimap : MonoBehaviour
     private static Minimap instance;
     
     public Transform player;
+    [SerializeField] private bool rotateWithPlayer = false;
 
     void Awake()
     {
@@ -29,7 +30,9 @@ public class Minimap : MonoBehaviour
         newPosition.y = transform.position.y;
         transform.position = newPosition;
 
-        // this line lets the minimap rotate based on if the player turns
-        transform.rotation = Quaternion.Euler(90f, player.eulerAngles.y, 0f);
+        if (rotateWithPlayer)
+        {
+            transform.rotation = Quaternion.Euler(90f, player.eulerAngles.y, 0f);
+        }
     }
 }
