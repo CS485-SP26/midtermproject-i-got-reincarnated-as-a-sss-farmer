@@ -63,20 +63,41 @@ namespace Farming
         /// Interact without water check (tilling only).
         /// For watering, use InteractWithWater() instead.
         /// </summary>
-        public void Interact()
+        public void Interact(Character.WaterResource waterResource)
         {
             switch(tileCondition)
             {
                 case FarmTile.Condition.Grass: Till(); break;
                 case FarmTile.Condition.Tilled:
-                    // Need water to irrigate tilled land
-                    break;
+                if(waterResource != null && waterResource.TryConsumeWater()){ Water(); } break;
                 case FarmTile.Condition.Watered:
-                    // Already watered - plants are growing
+                    // already watered
                     break;
+<<<<<<< HEAD
                 // case FarmTile.Condition.Planted:
                 //     Harvest();
                 //     break;
+=======
+                case FarmTile.Condition.Planted:
+                    if (currentPlant != null)
+                    {
+                    // only waters if plant is not Mature or Withered state
+                        if (currentPlant.currentState != PlantState.Mature && currentPlant.currentState != PlantState.Withered)
+                        {
+                            if (waterResource != null)
+                            {
+                                currentPlant.TryWater();
+                            }
+                        }
+
+                        // Harvest only if the plant is Mature
+                        if (currentPlant.currentState == PlantState.Mature)
+                        {
+                            Harvest();
+                        }
+                    }
+                    break;
+>>>>>>> 553f965 (Small change to Part 10 and additions for Part 11)
             }
             daysSinceLastInteraction = 0;
         }
@@ -109,6 +130,7 @@ namespace Farming
                     return false;
 
                 case FarmTile.Condition.Planted:
+<<<<<<< HEAD
                     // Water the plant to start/continue growth
                     if (waterResource != null && waterResource.TryConsumeWater())
                     {
@@ -117,6 +139,13 @@ namespace Farming
                         return true;
                     }
                     return false;
+=======
+                    if (currentPlant != null)
+                    {
+                        return currentPlant.TryWater();
+                    }
+                    return false; // Already planted
+>>>>>>> 553f965 (Small change to Part 10 and additions for Part 11)
             }
             return false;
         }
@@ -160,10 +189,18 @@ namespace Farming
 =======
             // creating a Plant object relative to that tile's position (using the tile's plantSpawn)
             // note: this *should* be a child of the respective farm tile, however the model "squishes" when I do & that shouldn't be happening
+<<<<<<< HEAD
             Vector3 spawnPosition = plantSpawn != null ? plantSpawn.position : transform.position;
             currentPlant = Instantiate(plantPrefab, spawnPosition, UnityEngine.Quaternion.identity);
             currentPlant.ChangeState(PlantState.Planted);
 >>>>>>> a1d5ff0 (Apply PR review feedback to FarmTile.cs)
+=======
+            if(plantPrefab)
+            {
+                currentPlant = Instantiate(plantPrefab, plantSpawn.position, UnityEngine.Quaternion.identity);
+                //currentPlant.ChangeState(PlantState.Planted);
+            }
+>>>>>>> 553f965 (Small change to Part 10 and additions for Part 11)
 
             FarmingEvents.TileFarmed(this, previousCondition, tileCondition);
             return true;
