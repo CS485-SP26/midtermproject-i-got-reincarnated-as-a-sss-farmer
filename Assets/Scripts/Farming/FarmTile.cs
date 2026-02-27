@@ -1,6 +1,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Environment;
+using System.Numerics;
+using Unity.VisualScripting;
+using UnityEngine.Tilemaps;
+using System;
 
 namespace Farming 
 {
@@ -9,6 +13,12 @@ namespace Farming
         public enum Condition { Grass, Tilled, Watered, Planted }
 
         [SerializeField] private Condition tileCondition = Condition.Grass; 
+        // our plant object
+        [SerializeField] private Plant plantPrefab;
+        // reference to the actual plant object
+        private Plant currentPlant;
+        [SerializeField] private Transform plantSpawn;
+
 
         [Header("Visuals")]
         [SerializeField] private Material grassMaterial;
@@ -56,9 +66,9 @@ namespace Farming
                 case FarmTile.Condition.Watered:
                     // Already watered - plants are growing
                     break;
-                // case FarmTile.Condition.Planted:
-                //     Harvest();
-                //     break;
+                case FarmTile.Condition.Planted:
+                    Harvest();
+                    break;
             }
             daysSinceLastInteraction = 0;
         }
@@ -110,6 +120,14 @@ namespace Farming
             UpdateVisual();
             tillAudio?.Play(); // reuse till audio for planting sound
             daysSinceLastInteraction = 0;
+
+            // creating a Plant object relative to that tile's position (using the tile's plantSpawn)
+            // note: this *should* be a child of the respective farm tile, however the model "squishes" when I do & that shouldn't be happening
+            if(plantPrefab)
+            {
+                currentPlant = Instantiate(plantPrefab, plantSpawn.position, UnityEngine.Quaternion.identity);
+                currentPlant.ChangeState(PlantState.Planted);
+            }
 
             FarmingEvents.TileFarmed(this, previousCondition, tileCondition);
             return true;
@@ -193,16 +211,46 @@ namespace Farming
             if (active) stepAudio.Play();
         }
 
+        // [Ryan] rewrote this function to better suit having plant objects inside each farm tile (given the plant growing logic comes from Plant.cs)
         public void OnDayPassed()
         {
+
             daysSinceLastInteraction++;
             if(daysSinceLastInteraction >= 2)
             {
-                if(tileCondition == FarmTile.Condition.Planted) tileCondition = FarmTile.Condition.Grass;
-                else if(tileCondition == FarmTile.Condition.Watered) tileCondition = FarmTile.Condition.Tilled;
-                else if(tileCondition == FarmTile.Condition.Tilled) tileCondition = FarmTile.Condition.Grass;
+                // switch-case statement based on the tile's condition
+                switch(tileCondition)
+                {
+                    case Condition.Tilled:
+                        if(currentPlant == null) {tileCondition = Condition.Grass;}
+
+                        break;
+                    
+                    case Condition.Watered:
+                        if(currentPlant == null) {tileCondition = Condition.Tilled;}
+                        break;
+
+                    // "in the event the tile's already planted, if the plant's witheed then change the tile to dirt (instead of just grass)"
+                    case Condition.Planted:
+                        if(currentPlant && currentPlant.currentState == PlantState.Withered)
+                        {
+                            tileCondition = Condition.Tilled;
+                            Destroy(currentPlant.gameObject);
+                            currentPlant = null;
+                        }
+
+                        break;
+
+                    case Condition.Grass:
+                        break;  
+
+                }
+                // optional for now
+                daysSinceLastInteraction = 0;
             }
+            
             UpdateVisual();
+            
         }
 
         /// <summary>
@@ -216,6 +264,14 @@ namespace Farming
             Condition previousCondition = tileCondition;
             tileCondition = Condition.Grass;
             daysSinceLastInteraction = 0;
+
+            // removing the plant object after harvesting
+            if(currentPlant)
+            {
+                Destroy(currentPlant.gameObject);
+                currentPlant = null;
+            }
+
             UpdateVisual();
             FarmingEvents.TileHarvested(this);
         }
