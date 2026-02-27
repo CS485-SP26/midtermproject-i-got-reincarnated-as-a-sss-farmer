@@ -131,8 +131,11 @@ namespace Character
                     // Force animator to update
                     animator.Update(0f);
                     
-                    // Double-check after a frame if we're still stuck
-                    StartCoroutine(VerifyAnimatorStateExit());
+                    // Double-check after a frame if we're still stuck (only if GameObject is active)
+                    if (gameObject.activeInHierarchy)
+                    {
+                        StartCoroutine(VerifyAnimatorStateExit());
+                    }
                 }
             }
 
