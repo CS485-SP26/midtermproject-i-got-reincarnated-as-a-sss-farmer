@@ -55,19 +55,34 @@ namespace Farming
         /// Interact without water check (tilling only).
         /// For watering, use InteractWithWater() instead.
         /// </summary>
-        public void Interact()
+        public void Interact(Character.WaterResource waterResource)
         {
             switch(tileCondition)
             {
                 case FarmTile.Condition.Grass: Till(); break;
                 case FarmTile.Condition.Tilled:
-                    // Need water to irrigate tilled land
-                    break;
+                if(waterResource != null && waterResource.TryConsumeWater()){ Water(); } break;
                 case FarmTile.Condition.Watered:
-                    // Already watered - plants are growing
+                    // already watered
                     break;
                 case FarmTile.Condition.Planted:
-                    Harvest();
+                    if (currentPlant != null)
+                    {
+                    // only waters if plant is not Mature or Withered state
+                        if (currentPlant.currentState != PlantState.Mature && currentPlant.currentState != PlantState.Withered)
+                        {
+                            if (waterResource != null)
+                            {
+                                currentPlant.TryWater();
+                            }
+                        }
+
+                        // Harvest only if the plant is Mature
+                        if (currentPlant.currentState == PlantState.Mature)
+                        {
+                            Harvest();
+                        }
+                    }
                     break;
             }
             daysSinceLastInteraction = 0;
@@ -101,6 +116,10 @@ namespace Farming
                     return false;
 
                 case FarmTile.Condition.Planted:
+                    if (currentPlant != null)
+                    {
+                        return currentPlant.TryWater();
+                    }
                     return false; // Already planted
             }
             return false;
@@ -126,7 +145,7 @@ namespace Farming
             if(plantPrefab)
             {
                 currentPlant = Instantiate(plantPrefab, plantSpawn.position, UnityEngine.Quaternion.identity);
-                currentPlant.ChangeState(PlantState.Planted);
+                //currentPlant.ChangeState(PlantState.Planted);
             }
 
             FarmingEvents.TileFarmed(this, previousCondition, tileCondition);
