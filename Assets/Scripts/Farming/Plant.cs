@@ -17,7 +17,6 @@ namespace Farming
         [Header("Settings")]
         public float timeToNextStage = 5.0f; // Seconds between growth stages
         private float timer;
-        private bool isWatered = false; // Plant needs to be watered to start growing
 
         [Header("Watering Plant Logic")]
         public GameObject waterReminderIcon;
@@ -45,9 +44,6 @@ namespace Farming
         
         public void Initialize()
         {
-            timer = timeToNextStage;
-            currentState = PlantState.Planted; // Ensure we start in Planted state
-=======
             
             //timer = timeToNextStage;
             //UpdatePlantVisuals();
@@ -59,8 +55,13 @@ namespace Farming
             growthStagesAutoGrow = Random.Range(1, 3);
             autoGrownStages = 0;
 
->>>>>>> 553f965 (Small change to Part 10 and additions for Part 11)
             UpdatePlantVisuals();
+
+            if (waterReminderIcon)
+            {
+                waterReminderIcon.SetActive(false);
+            }
+
 
             if (waterReminderIcon)
             {
@@ -71,8 +72,17 @@ namespace Farming
 
         void Update()
         {
-            // changed so the plants can now wither (will be needed as withered plants shouldn't increment the plantInventory counter)
-            if (currentState == PlantState.Planted || currentState == PlantState.Growing || currentState == PlantState.Mature)
+
+            totalLifetime += Time.deltaTime;
+
+            // first 15 seconds, cannot water plant, let it grow naturally
+            if (totalLifetime >= 15)
+            {
+                waterable = true;
+            }
+
+            // only grows if the plant hasn't reached Mature or Withered state yet
+            if (currentState == PlantState.Planted || currentState == PlantState.Growing)
             {
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -80,48 +90,31 @@ namespace Farming
 =======
                 timer -= Time.deltaTime;
 
-                if (timer <= 0f && (autoGrownStages < growthStagesAutoGrow || watered))
->>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
-=======
-                if (autoGrownStages < growthStagesAutoGrow)
->>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
+                if (timer <= 0f)
                 {
-                    timer -= Time.deltaTime;
-
-                    if (timer <= 0f)
-                    {
-                        Grow();
-                        autoGrownStages++;
-                        timer = 15f; // reset timer for the next stage
-                    }
+                    Grow();
+                    autoGrownStages++;
+                    timer = 15f; // reset timer for the next stage
                 }
             }
 
-            // show reminder at 30 seconds, but only while the plant still needs watering
-            if (totalLifetime >= 30f && !watered && (currentState == PlantState.Planted || currentState == PlantState.Growing))
+            //  show reminder at 30 seconds
+            if (totalLifetime >= 30f && !watered)
             {
                 if (waterReminderIcon)
-                    waterReminderIcon.SetActive(true);
+                waterReminderIcon.SetActive(true);
             }
 
-<<<<<<< HEAD
-            // wither after 60 seconds if not watered and not yet mature
-            if (totalLifetime >= 60f && !watered &&
-                currentState != PlantState.Mature &&
-                currentState != PlantState.Withered)
-=======
             // wither after 60 seconds if not watered
             if (totalLifetime >= 60f && !watered)
->>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
             {
                 ChangeState(PlantState.Withered);
->>>>>>> 7545cdd (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
             }
         }
 
         public bool TryWater()
         {
-            // for when you can't water in the first 15s or already watered or withered
+            // for when ypu can't water in the first 15s or already watered or withered
             if (!waterable || watered || currentState == PlantState.Withered || currentState == PlantState.Mature)
             {
                 return false;
@@ -178,7 +171,7 @@ namespace Farming
             UpdatePlantVisuals();
 
             // hide water reminder if plant is Mature or Withered, too late to water lol
-            if (waterReminderIcon != null && (currentState == PlantState.Mature || currentState == PlantState.Withered))
+            if (waterReminderIcon != null && currentState == PlantState.Mature || currentState == PlantState.Withered)
             {
                 waterReminderIcon.SetActive(false);
             }
