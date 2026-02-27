@@ -14,6 +14,7 @@ public class Plant : MonoBehaviour
 
     [Header("Settings")]
     public float timeToNextStage = 5.0f; // Seconds between growth stages
+    public float timeToWither = 10.0f;   // Seconds at Mature before withering
     private float timer;
 
     void Start()
@@ -24,7 +25,6 @@ public class Plant : MonoBehaviour
 
     void Update()
     {
-        // Only grow if the plant hasn't reached Mature or Withered yet
         if (currentState == PlantState.Planted || currentState == PlantState.Growing)
         {
             timer -= Time.deltaTime;
@@ -33,6 +33,15 @@ public class Plant : MonoBehaviour
             {
                 Grow();
                 timer = timeToNextStage; // Reset timer for the next stage
+            }
+        }
+        else if (currentState == PlantState.Mature)
+        {
+            timer -= Time.deltaTime;
+
+            if (timer <= 0)
+            {
+                ChangeState(PlantState.Withered);
             }
         }
     }
@@ -46,6 +55,7 @@ public class Plant : MonoBehaviour
         else if (currentState == PlantState.Growing)
         {
             ChangeState(PlantState.Mature);
+            timer = timeToWither; // Start the wither countdown
         }
     }
 
