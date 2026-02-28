@@ -58,6 +58,7 @@ public class HotbarUI : MonoBehaviour
         SetupCanvas();
         CreateHotbar();
         SelectSlot(0); // Start with watering can selected
+        RefreshDisplays(); // populate displays with current values instead of hardcoded defaults
     }
 
     void Update()
@@ -162,7 +163,6 @@ public class HotbarUI : MonoBehaviour
 
         seedCountText = CreateSlotLabel(seedSlot.transform, "Seed Count",
             new Color(0.6f, 0.9f, 0.3f), new Vector2(0f, 25f));
-        seedCountText.text = "0";
 
         // =============================
         // MONEY DISPLAY (top right)

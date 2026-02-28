@@ -39,6 +39,7 @@ namespace Farming
         {
             tileRenderer = GetComponent<MeshRenderer>();
             Debug.Assert(tileRenderer, "FarmTile requires a MeshRenderer");
+            // modified the for-loop so the transform "plantSpawn" doesn't cause errors in detecting mesh renders
             foreach (Transform edge in transform)
             {
                 MeshRenderer mesh = edge.GetComponent<MeshRenderer>();
@@ -61,22 +62,37 @@ namespace Farming
 
 
         /// <summary>
-        /// Interact without water check (tilling only).
-        /// For watering, use InteractWithWater() instead.
+        /// Interact with this farm tile using an optional water resource.
+        /// May till grass, consume water to water tilled soil or plants, and harvest mature plants.
         /// </summary>
-        public void Interact()
+        public void Interact(Character.WaterResource waterResource)
         {
             switch(tileCondition)
             {
                 case FarmTile.Condition.Grass: Till(); break;
                 case FarmTile.Condition.Tilled:
-                    // Need water to irrigate tilled land
-                    break;
+                if(waterResource != null && waterResource.TryConsumeWater()){ Water(); } break;
                 case FarmTile.Condition.Watered:
-                    // Already watered - plants are growing
+                    // already watered
                     break;
                 case FarmTile.Condition.Planted:
-                    Harvest();
+                    if (currentPlant != null)
+                    {
+                    // only waters if plant is not Mature or Withered state
+                        if (currentPlant.currentState != PlantState.Mature && currentPlant.currentState != PlantState.Withered)
+                        {
+                            if (waterResource != null)
+                            {
+                                currentPlant.TryWater();
+                            }
+                        }
+
+                        // Harvest only if the plant is Mature
+                        if (currentPlant.currentState == PlantState.Mature)
+                        {
+                            Harvest();
+                        }
+                    }
                     break;
             }
             daysSinceLastInteraction = 0;
@@ -110,6 +126,10 @@ namespace Farming
                     return false;
 
                 case FarmTile.Condition.Planted:
+                    if (currentPlant != null)
+                    {
+                        return currentPlant.TryWater();
+                    }
                     return false; // Already planted
             }
             return false;
@@ -140,9 +160,20 @@ namespace Farming
 
             // creating a Plant object relative to that tile's position (using the tile's plantSpawn)
             // note: this *should* be a child of the respective farm tile, however the model "squishes" when I do & that shouldn't be happening
-            Vector3 spawnPosition = plantSpawn != null ? plantSpawn.position : transform.position;
-            currentPlant = Instantiate(plantPrefab, spawnPosition, UnityEngine.Quaternion.identity);
-            currentPlant.ChangeState(PlantState.Planted);
+            if(plantPrefab)
+            {
+                Vector3 spawnPosition;
+                if (plantSpawn != null)
+                {
+                    spawnPosition = plantSpawn.position;
+                }
+                else
+                {
+                    Debug.LogWarning($"[FarmTile] {gameObject.name} has no plantSpawn assigned; falling back to transform.position.");
+                    spawnPosition = transform.position;
+                }
+                currentPlant = Instantiate(plantPrefab, spawnPosition, UnityEngine.Quaternion.identity);
+            }
 
             FarmingEvents.TileFarmed(this, previousCondition, tileCondition);
             return true;
@@ -169,23 +200,6 @@ namespace Farming
             // Fire farming event for progress tracking
             FarmingEvents.TileFarmed(this, previousCondition, tileCondition);
         }
-
-
-        /// <summary>
-        /// Called automatically when the growth timer completes.
-        /// Watered tile becomes a planted tile with crops.
-        /// Currently disabled - planted state uses grass material.
-        /// </summary>
-        // void GrowPlant()
-        // {
-        //     Condition previousCondition = tileCondition;
-        //     tileCondition = Condition.Planted;
-        //     isGrowing = false;
-        //     waterTimer = 0f;
-        //     UpdateVisual();
-        //     Debug.Log($"[FarmTile] {gameObject.name} has grown into a plant!");
-        //     FarmingEvents.TilePlanted(this);
-        // }
 
         private void UpdateVisual()
         {
