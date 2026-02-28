@@ -149,12 +149,11 @@ namespace Farming
                 {
                     timer -= Time.deltaTime;
 
-                    if (timer <= 0f)
-                    {
-                        Grow();
-                        autoGrownStages++;
-                        timer = 15f; // reset timer for the next stage
-                    }
+                if (timer <= 0f && (autoGrownStages < growthStagesAutoGrow || watered))
+                {
+                    Grow();
+                    autoGrownStages++;
+                    timer = 15f; // reset timer for the next stage
                 }
             }
 
@@ -165,8 +164,10 @@ namespace Farming
                     waterReminderIcon.SetActive(true);
             }
 
-            // wither after 60 seconds if not watered
-            if (totalLifetime >= 60f && !watered)
+            // wither after 60 seconds if not watered and not yet mature
+            if (totalLifetime >= 60f && !watered &&
+                currentState != PlantState.Mature &&
+                currentState != PlantState.Withered)
             {
                 ChangeState(PlantState.Withered);
 >>>>>>> 7545cdd (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
@@ -175,6 +176,7 @@ namespace Farming
 
         public bool TryWater()
         {
+            // for when you can't water in the first 15s or already watered or withered
             // for when you can't water in the first 15s or already watered or withered
             if (!waterable || watered || currentState == PlantState.Withered || currentState == PlantState.Mature)
             {
@@ -232,6 +234,7 @@ namespace Farming
             UpdatePlantVisuals();
 
             // hide water reminder if plant is Mature or Withered, too late to water lol
+            if (waterReminderIcon != null && (currentState == PlantState.Mature || currentState == PlantState.Withered))
             if (waterReminderIcon != null && (currentState == PlantState.Mature || currentState == PlantState.Withered))
             {
                 waterReminderIcon.SetActive(false);
