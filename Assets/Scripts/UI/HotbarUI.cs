@@ -63,6 +63,7 @@ public class HotbarUI : MonoBehaviour
         SetupCanvas();
         CreateHotbar();
         RefreshDisplays(); // Populate displays with actual values now that UI exists
+        RefreshDisplays(); // Populate displays with actual values now that UI exists
         SelectSlot(0); // Start with watering can selected
         RefreshDisplays(); // populate displays with current values instead of hardcoded defaults
     }
@@ -173,6 +174,23 @@ public class HotbarUI : MonoBehaviour
 
         seedCountText = CreateSlotLabel(seedSlot.transform, "Seed Count",
             new Color(0.6f, 0.9f, 0.3f), new Vector2(0f, 25f));
+<<<<<<< HEAD
+
+        // =============================
+        // SLOT 3 — HARVESTED PLANTS (right)
+        // =============================
+        float rightX = slotWidth + slotSpacing;
+        
+        plantSlot = CreateSlotContainer(hotbarObj.transform, "Plant Slot", new Vector2(rightX, 0f), slotWidth, slotHeight, out plantBorder);
+        
+        plantImage = CreateSlotIcon(plantSlot.transform, "Plant Icon",
+            plantTexture, new Color(0.9f, 0.5f, 0.2f, 1f), new Vector2(0f, -5f));
+
+        plantCountText = CreateSlotLabel(plantSlot.transform, "Plant Count",
+            new Color(0.9f, 0.7f, 0.3f), new Vector2(0f, 25f));
+        plantCountText.text = "0";
+=======
+>>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
 
         // =============================
         // MONEY DISPLAY (top right)
