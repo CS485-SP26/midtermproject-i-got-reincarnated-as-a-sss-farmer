@@ -73,6 +73,7 @@ namespace Farming
         void Update()
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             // Only grow if the plant has been watered and hasn't reached Mature or Withered yet
             if (isWatered && (currentState == PlantState.Planted || currentState == PlantState.Growing))
 =======
@@ -139,11 +140,12 @@ namespace Farming
                 {
                     timer -= Time.deltaTime;
 
-                if (timer <= 0f && (autoGrownStages < growthStagesAutoGrow || watered))
-                {
-                    Grow();
-                    autoGrownStages++;
-                    timer = 15f; // reset timer for the next stage
+                    if (timer <= 0f)
+                    {
+                        Grow();
+                        autoGrownStages++;
+                        timer = 15f; // reset timer for the next stage
+                    }
                 }
             }
 
@@ -154,47 +156,13 @@ namespace Farming
                     waterReminderIcon.SetActive(true);
             }
 
-            // wither after 60 seconds if not watered and not yet mature
-            if (totalLifetime >= 60f && !watered &&
-                currentState != PlantState.Mature &&
-                currentState != PlantState.Withered)
+            // wither after 60 seconds if not watered
+            if (totalLifetime >= 60f && !watered)
             {
                 ChangeState(PlantState.Withered);
 >>>>>>> 7545cdd (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
             }
         }
-
-        public bool TryWater()
-        {
-            // for when you can't water in the first 15s or already watered or withered
-            // for when you can't water in the first 15s or already watered or withered
-            if (!waterable || watered || currentState == PlantState.Withered || currentState == PlantState.Mature)
-            {
-                return false;
-  
-            }
-
-            watered = true;
-
-            // hide the droplet indicator
-            if (waterReminderIcon){
-                waterReminderIcon.SetActive(false);
-            }
-
-            if (currentState == PlantState.Planted)
-            {
-                ChangeState(PlantState.Growing);
-            }
-    
-            else if (currentState == PlantState.Growing)
-            {
-                ChangeState(PlantState.Mature);
-            }
-
-            Debug.Log($"[Plant] {gameObject.name} has been watered!");
-
-            return true;
-        }       
 
         void Grow()
         {
