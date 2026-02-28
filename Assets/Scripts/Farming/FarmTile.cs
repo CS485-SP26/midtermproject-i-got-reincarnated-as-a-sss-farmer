@@ -40,6 +40,7 @@ namespace Farming
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         [SerializeField] private PlantInventory counter;
 =======
         private PlantInventory counter;
@@ -50,6 +51,9 @@ namespace Farming
 =======
         private PlantInventory counter;
 >>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+        [SerializeField] private PlantInventory counter;
+>>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
 
         void Start()
         {
@@ -105,8 +109,11 @@ namespace Farming
         // to check for the player's PlantInventory
         private void Awake()
         {
-            counter = FindFirstObjectByType<PlantInventory>();
-            Debug.Assert(counter, "[FarmTile] needs a reference to player's PlantInventory");
+            if (counter == null)
+            {
+                counter = FindFirstObjectByType<PlantInventory>();
+                Debug.Assert(counter != null, "[FarmTile] needs a reference to player's PlantInventory");
+            }
         }
 
 
@@ -286,10 +293,14 @@ namespace Farming
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
             Vector3 spawnPosition = plantSpawn != null ? plantSpawn.position : transform.position;
             currentPlant = Instantiate(plantPrefab, spawnPosition, UnityEngine.Quaternion.identity);
             currentPlant.ChangeState(PlantState.Planted);
 >>>>>>> a1d5ff0 (Apply PR review feedback to FarmTile.cs)
+<<<<<<< HEAD
 =======
             if(plantPrefab)
             {
@@ -370,6 +381,8 @@ namespace Farming
 >>>>>>> 7545cdd (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
 >>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
 >>>>>>> 8ac7de1 (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
+=======
+>>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
 
             FarmingEvents.TileFarmed(this, previousCondition, tileCondition);
             return true;
@@ -464,12 +477,15 @@ namespace Farming
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> d3dc40d (Modified Planting & Harvesting Logic [RM])
 =======
 >>>>>>> 0c82600 (Apply PR review feedback to FarmTile.cs)
 =======
 >>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
                     // Show wet or dry soil based on watered state
                     if (plantedMaterial != null)
                     {
@@ -485,6 +501,7 @@ namespace Farming
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
                     tileRenderer.material = plantedMaterial != null ? plantedMaterial : tilledMaterial;
 >>>>>>> a1d5ff0 (Apply PR review feedback to FarmTile.cs)
@@ -497,6 +514,11 @@ namespace Farming
 >>>>>>> 0c82600 (Apply PR review feedback to FarmTile.cs)
 =======
 >>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+=======
+                    tileRenderer.material = plantedMaterial != null ? plantedMaterial : tilledMaterial;
+>>>>>>> a1d5ff0 (Apply PR review feedback to FarmTile.cs)
+>>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
                     break;
             }
         }
@@ -560,10 +582,14 @@ namespace Farming
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     // note: this code runs only when the tile has gone at least two days without interaction
 =======
                     // note: this code runs only when the days passed
 >>>>>>> f9fffec (Confirmation of Merge with Salvador's Branch)
+=======
+                    // note: this code runs only when the tile has gone at least two days without interaction
+>>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
                     case Condition.Planted:
                         // "if the currentPlant still exists, check if it's withered"
                         if(currentPlant != null) {
@@ -581,6 +607,7 @@ namespace Farming
                             // Plant reference lost (e.g., destroyed externally); revert tile to tilled
                             tileCondition = Condition.Tilled;
                         }
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> d3dc40d (Modified Planting & Harvesting Logic [RM])
@@ -651,6 +678,8 @@ namespace Farming
 >>>>>>> 0c82600 (Apply PR review feedback to FarmTile.cs)
 =======
 >>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
                         break;
 
                     case Condition.Grass:
@@ -793,16 +822,18 @@ namespace Farming
 
             if (tileCondition != Condition.Planted) {return;}
             Debug.Log($"[FarmTile] Harvested {gameObject.name}!");
-            // should be removed, but just in-case will leave commented out
-            // Condition previousCondition = tileCondition;
 
             // "if our plant exists, check its status to determine that tile's state"
             if(currentPlant != null)
             {
                 // "if the tile has a 'fresh' plant (i.e., not withered), add to our PlantInventory & set the tile to grass..."
                 if(currentPlant.currentState != PlantState.Withered) {
+<<<<<<< HEAD
                     counter.AddPlant(1);
 >>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+                    if (counter != null) counter.AddPlant(1);
+>>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
                     tileCondition = Condition.Grass;
                 
                 }
@@ -814,10 +845,14 @@ namespace Farming
                 }
                 // regardless of what kind of plant was harvested, show the player's plant count
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if (counter != null) Debug.Log("Plant Count: " + counter.PlantCount);
 =======
                 Debug.Log("Plant Count: " + counter.PlantCount);
 >>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+                if (counter != null) Debug.Log("Plant Count: " + counter.PlantCount);
+>>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
                 
                 // actually removing the plant & ensuring its reference is null
                 Destroy(currentPlant.gameObject);
