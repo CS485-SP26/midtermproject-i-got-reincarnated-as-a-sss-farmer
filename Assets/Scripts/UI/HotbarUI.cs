@@ -173,6 +173,7 @@ public class HotbarUI : MonoBehaviour
 
         seedCountText = CreateSlotLabel(seedSlot.transform, "Seed Count",
             new Color(0.6f, 0.9f, 0.3f), new Vector2(0f, 25f));
+<<<<<<< HEAD
 
         // =============================
         // SLOT 3 — HARVESTED PLANTS (right)
@@ -187,6 +188,8 @@ public class HotbarUI : MonoBehaviour
         plantCountText = CreateSlotLabel(plantSlot.transform, "Plant Count",
             new Color(0.9f, 0.7f, 0.3f), new Vector2(0f, 25f));
         plantCountText.text = "0";
+=======
+>>>>>>> e09e34a (Remove hardcoded seed count in HotbarUI; rely on RefreshDisplays() and event system)
 
         // =============================
         // MONEY DISPLAY (top right)
