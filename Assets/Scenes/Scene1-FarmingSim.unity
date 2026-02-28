@@ -1103,8 +1103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085a57479ea6cf049955d5ba2d4960ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character.WaterResource
-  maxWater: 16
-  currentWater: 16
+  maxWater: 10
+  currentWater: 10
 --- !u!114 &76249691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1941,7 +1941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: e0a94c829e2258442bd0f0e4a446eab9, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d6ea17afcbf481947ab2728fe423417b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
