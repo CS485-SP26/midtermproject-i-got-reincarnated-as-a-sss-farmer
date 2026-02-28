@@ -26,8 +26,8 @@ namespace Farming
 
         void Update()
         {
-            // Only grow if the plant hasn't reached Mature or Withered yet
-            if (currentState == PlantState.Planted || currentState == PlantState.Growing)
+            // changed so the plants can now wither (will be needed as withered plants shouldn't increment the plantInventory counter)
+            if (currentState == PlantState.Planted || currentState == PlantState.Growing || currentState == PlantState.Mature)
             {
                 timer -= Time.deltaTime;
 
@@ -48,6 +48,10 @@ namespace Farming
             else if (currentState == PlantState.Growing)
             {
                 ChangeState(PlantState.Mature);
+            }
+            else if(currentState == PlantState.Mature)
+            {
+                ChangeState(PlantState.Withered);
             }
         }
 
