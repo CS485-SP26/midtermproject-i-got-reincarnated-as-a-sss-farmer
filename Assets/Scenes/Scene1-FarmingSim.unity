@@ -231,6 +231,37 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5784181}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &19903954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 19903955}
+  m_Layer: 0
+  m_Name: plantSpawn1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &19903955
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19903954}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
+  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 621895049}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &22227625
 GameObject:
   m_ObjectHideFlags: 0
@@ -1185,8 +1216,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Farming.PlantInventory
 <<<<<<< HEAD
+<<<<<<< HEAD
   maxPlants: 999
   currentPlants: 0
+=======
+  plants: 0
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
 =======
   plants: 0
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
@@ -2666,141 +2701,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315949135}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
---- !u!1 &316771452
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 316771453}
-  - component: {fileID: 316771456}
-  - component: {fileID: 316771455}
-  - component: {fileID: 316771454}
-  - component: {fileID: 316771457}
-  m_Layer: 0
-  m_Name: WaterReminder
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &316771453
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 316771452}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.20292, y: 2, z: 1.20291}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1639864498}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!64 &316771454
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 316771452}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &316771455
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 316771452}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 8797e6d0ab760584a920fe66ea9a6ea5, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_MaskInteraction: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &316771456
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 316771452}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &316771457
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 316771452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a932991b74f4c7c43b8d58d4faca8582, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Billboard
-<<<<<<< HEAD
-=======
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
->>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
 --- !u!1 &326990968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2857,15 +2757,7 @@ Transform:
   m_GameObject: {fileID: 349927077}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
-=======
   m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
-  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
->>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
   m_LocalScale: {x: 0.5, y: 10, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3024,14 +2916,10 @@ Transform:
   - {fileID: 543114693}
   - {fileID: 1720796704}
 <<<<<<< HEAD
-  - {fileID: 1201180667}
-=======
-<<<<<<< HEAD
   - {fileID: 1466921172}
 =======
   - {fileID: 1201180667}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &383629374
@@ -3049,14 +2937,10 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
-  plantSpawn: {fileID: 1201180667}
-=======
-<<<<<<< HEAD
   plantSpawn: {fileID: 1466921172}
 =======
   plantSpawn: {fileID: 1201180667}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -3637,14 +3521,10 @@ Transform:
   - {fileID: 78836006}
   - {fileID: 372587994}
 <<<<<<< HEAD
-  - {fileID: 1713704098}
-=======
-<<<<<<< HEAD
   - {fileID: 1590805487}
 =======
   - {fileID: 1713704098}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &400642160
@@ -3662,14 +3542,10 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
-  plantSpawn: {fileID: 1713704098}
-=======
-<<<<<<< HEAD
   plantSpawn: {fileID: 1590805487}
 =======
   plantSpawn: {fileID: 1713704098}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -4215,14 +4091,10 @@ Transform:
   - {fileID: 52824239}
   - {fileID: 1295579208}
 <<<<<<< HEAD
-  - {fileID: 1260232420}
-=======
-<<<<<<< HEAD
   - {fileID: 831865423}
 =======
   - {fileID: 1260232420}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &413481108
@@ -4240,14 +4112,10 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
-  plantSpawn: {fileID: 1260232420}
-=======
-<<<<<<< HEAD
   plantSpawn: {fileID: 831865423}
 =======
   plantSpawn: {fileID: 1260232420}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -4818,14 +4686,10 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 295940396}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
---- !u!1 &518463536
-=======
-<<<<<<< HEAD
 --- !u!1 &522337235
 =======
 --- !u!1 &518463536
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4833,11 +4697,6 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
-  - component: {fileID: 518463537}
-  m_Layer: 0
-  m_Name: plantSpawn14
-=======
 <<<<<<< HEAD
   - component: {fileID: 522337236}
   m_Layer: 0
@@ -4847,29 +4706,21 @@ GameObject:
   m_Layer: 0
   m_Name: plantSpawn14
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< HEAD
---- !u!4 &518463537
-=======
-<<<<<<< HEAD
 --- !u!4 &522337236
 =======
 --- !u!4 &518463537
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 518463536}
-=======
 <<<<<<< HEAD
   m_GameObject: {fileID: 522337235}
 >>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
@@ -4893,7 +4744,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2056574611}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &531808571
 GameObject:
@@ -5384,14 +5234,10 @@ Transform:
   - {fileID: 2025664199}
   - {fileID: 1738074294}
 <<<<<<< HEAD
-  - {fileID: 1314965275}
-=======
-<<<<<<< HEAD
   - {fileID: 1459352147}
 =======
   - {fileID: 1314965275}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &575667305
@@ -5409,14 +5255,10 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
-  plantSpawn: {fileID: 1314965275}
-=======
-<<<<<<< HEAD
   plantSpawn: {fileID: 1459352147}
 =======
   plantSpawn: {fileID: 1314965275}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -5871,14 +5713,10 @@ Transform:
   - {fileID: 1971078523}
   - {fileID: 1547236827}
 <<<<<<< HEAD
-  - {fileID: 796450918}
-=======
-<<<<<<< HEAD
   - {fileID: 1756160319}
 =======
   - {fileID: 796450918}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &593384251
@@ -5896,14 +5734,10 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
-  plantSpawn: {fileID: 796450918}
-=======
-<<<<<<< HEAD
   plantSpawn: {fileID: 1756160319}
 =======
   plantSpawn: {fileID: 796450918}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -6306,15 +6140,7 @@ Transform:
   m_GameObject: {fileID: 596519231}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
-=======
   m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
-  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
->>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
   m_LocalScale: {x: 0.5, y: 10, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6361,14 +6187,10 @@ Transform:
   - {fileID: 5784182}
   - {fileID: 1513483820}
 <<<<<<< HEAD
-  - {fileID: 19903955}
-=======
-<<<<<<< HEAD
   - {fileID: 143556232}
 =======
   - {fileID: 19903955}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &621895050
@@ -6386,14 +6208,10 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
-  plantSpawn: {fileID: 19903955}
-=======
-<<<<<<< HEAD
   plantSpawn: {fileID: 143556232}
 =======
   plantSpawn: {fileID: 19903955}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -7215,14 +7033,10 @@ Transform:
   - {fileID: 2073044460}
   - {fileID: 71938159}
 <<<<<<< HEAD
-  - {fileID: 883955340}
-=======
-<<<<<<< HEAD
   - {fileID: 522337236}
 =======
   - {fileID: 883955340}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &749749633
@@ -7240,14 +7054,10 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
-  plantSpawn: {fileID: 883955340}
-=======
-<<<<<<< HEAD
   plantSpawn: {fileID: 522337236}
 =======
   plantSpawn: {fileID: 883955340}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -7925,14 +7735,10 @@ MeshFilter:
   m_GameObject: {fileID: 778930465}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 <<<<<<< HEAD
---- !u!1 &796450917
-=======
-<<<<<<< HEAD
 --- !u!1 &779743008
 =======
 --- !u!1 &796450917
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7940,11 +7746,6 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
-  - component: {fileID: 796450918}
-  m_Layer: 0
-  m_Name: plantSpawn12
-=======
 <<<<<<< HEAD
   - component: {fileID: 779743009}
   m_Layer: 0
@@ -7954,29 +7755,21 @@ GameObject:
   m_Layer: 0
   m_Name: plantSpawn12
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< HEAD
---- !u!4 &796450918
-=======
-<<<<<<< HEAD
 --- !u!4 &779743009
 =======
 --- !u!4 &796450918
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 796450917}
-=======
 <<<<<<< HEAD
   m_GameObject: {fileID: 779743008}
 >>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
@@ -8000,7 +7793,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 593384250}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &798747590
 GameObject:
@@ -8132,14 +7924,10 @@ Transform:
   - {fileID: 1299586775}
   - {fileID: 1282850375}
 <<<<<<< HEAD
-  - {fileID: 596519232}
-=======
-<<<<<<< HEAD
   - {fileID: 1052762551}
 =======
   - {fileID: 596519232}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &818270249
@@ -8157,14 +7945,10 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
-  plantSpawn: {fileID: 596519232}
-=======
-<<<<<<< HEAD
   plantSpawn: {fileID: 1052762551}
 =======
   plantSpawn: {fileID: 596519232}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -8989,37 +8773,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 749749632}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &883955339
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 883955340}
-  m_Layer: 0
-  m_Name: plantSpawn5
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &883955340
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 883955339}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
-  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 749749632}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &895203126
 GameObject:
   m_ObjectHideFlags: 0
@@ -9147,6 +8900,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173184620}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+--- !u!1 &899672484
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 899672485}
+  m_Layer: 0
+  m_Name: plantSpawn2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &899672485
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 899672484}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
+  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1259173393}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &933086708 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1202967806258005865, guid: 9520bada6c169bd499d4f8d942ca249e, type: 3}
@@ -10256,37 +10040,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 383629373}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1201180666
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1201180667}
-  m_Layer: 0
-  m_Name: plantSpawn10
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1201180667
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1201180666}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
-  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 383629373}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1205817924
 GameObject:
   m_ObjectHideFlags: 0
@@ -10435,15 +10188,7 @@ Transform:
   m_GameObject: {fileID: 1209371882}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
-=======
   m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
-  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
->>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
   m_LocalScale: {x: 0.5, y: 10, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10657,14 +10402,10 @@ Transform:
   - {fileID: 1626224883}
   - {fileID: 151697139}
 <<<<<<< HEAD
-  - {fileID: 899672485}
-=======
-<<<<<<< HEAD
   - {fileID: 779743009}
 =======
   - {fileID: 899672485}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1259173394
@@ -10682,14 +10423,10 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
-  plantSpawn: {fileID: 899672485}
-=======
-<<<<<<< HEAD
   plantSpawn: {fileID: 779743009}
 =======
   plantSpawn: {fileID: 899672485}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -11067,37 +10804,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1259173392}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1260232419
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1260232420}
-  m_Layer: 0
-  m_Name: plantSpawn8
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1260232420
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1260232419}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
-  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 413481107}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1260232419
 GameObject:
   m_ObjectHideFlags: 0
@@ -11536,15 +11242,7 @@ Transform:
   m_GameObject: {fileID: 1314965274}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
-=======
   m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
-  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
->>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
   m_LocalScale: {x: 0.5, y: 10, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11815,14 +11513,10 @@ Transform:
   - {fileID: 1719275787}
   - {fileID: 882808254}
 <<<<<<< HEAD
-  - {fileID: 1624888690}
-=======
-<<<<<<< HEAD
   - {fileID: 1498628658}
 =======
   - {fileID: 1624888690}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1347809120
@@ -11840,14 +11534,10 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
-  plantSpawn: {fileID: 1624888690}
-=======
-<<<<<<< HEAD
   plantSpawn: {fileID: 1498628658}
 =======
   plantSpawn: {fileID: 1624888690}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -12491,14 +12181,10 @@ Transform:
   - {fileID: 1617809759}
   - {fileID: 1757914154}
 <<<<<<< HEAD
-  - {fileID: 1209371883}
-=======
-<<<<<<< HEAD
   - {fileID: 246211259}
 =======
   - {fileID: 1209371883}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1381054961
@@ -12516,14 +12202,10 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
-  plantSpawn: {fileID: 1209371883}
-=======
-<<<<<<< HEAD
   plantSpawn: {fileID: 246211259}
 =======
   plantSpawn: {fileID: 1209371883}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -12942,14 +12624,10 @@ Transform:
   - {fileID: 455555336}
   - {fileID: 1656558829}
 <<<<<<< HEAD
-  - {fileID: 349927078}
-=======
-<<<<<<< HEAD
   - {fileID: 1507623085}
 =======
   - {fileID: 349927078}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1393355531
@@ -12967,14 +12645,10 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
-  plantSpawn: {fileID: 349927078}
-=======
-<<<<<<< HEAD
   plantSpawn: {fileID: 1507623085}
 =======
   plantSpawn: {fileID: 349927078}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -13393,14 +13067,10 @@ Transform:
   - {fileID: 1516496667}
   - {fileID: 737488977}
 <<<<<<< HEAD
-  - {fileID: 1698801837}
-=======
-<<<<<<< HEAD
   - {fileID: 1922354312}
 =======
   - {fileID: 1698801837}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1403734915
@@ -13418,14 +13088,10 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
-  plantSpawn: {fileID: 1698801837}
-=======
-<<<<<<< HEAD
   plantSpawn: {fileID: 1922354312}
 =======
   plantSpawn: {fileID: 1698801837}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -15014,37 +14680,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1347809119}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1624888689
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1624888690}
-  m_Layer: 0
-  m_Name: plantSpawn11
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1624888690
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1624888689}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
-  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1347809119}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1626224882
 GameObject:
   m_ObjectHideFlags: 0
@@ -15922,14 +15557,10 @@ Transform:
   - {fileID: 1322298144}
   - {fileID: 1458930304}
 <<<<<<< HEAD
-  - {fileID: 326990969}
-=======
-<<<<<<< HEAD
   - {fileID: 71212364}
 =======
   - {fileID: 326990969}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1697533642
@@ -15947,14 +15578,10 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
-  plantSpawn: {fileID: 326990969}
-=======
-<<<<<<< HEAD
   plantSpawn: {fileID: 71212364}
 =======
   plantSpawn: {fileID: 326990969}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -16363,37 +15990,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1403734914}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1698801836
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1698801837}
-  m_Layer: 0
-  m_Name: plantSpawn7
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1698801837
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1698801836}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
-  m_LocalScale: {x: 0.5, y: 10, z: 0.5}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1403734914}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1706251111
 GameObject:
   m_ObjectHideFlags: 0
@@ -16531,15 +16127,7 @@ Transform:
   m_GameObject: {fileID: 1713704097}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
-=======
   m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
-  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
->>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
   m_LocalScale: {x: 0.5, y: 10, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18337,14 +17925,10 @@ Transform:
   - {fileID: 174265430}
   - {fileID: 1900093295}
 <<<<<<< HEAD
-  - {fileID: 518463537}
-=======
-<<<<<<< HEAD
   - {fileID: 1016255624}
 =======
   - {fileID: 518463537}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2056574612
@@ -18362,14 +17946,10 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
-  plantSpawn: {fileID: 518463537}
-=======
-<<<<<<< HEAD
   plantSpawn: {fileID: 1016255624}
 =======
   plantSpawn: {fileID: 518463537}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -18884,15 +18464,7 @@ Transform:
   m_GameObject: {fileID: 2073145971}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
-=======
   m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
-=======
-  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
->>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
   m_LocalScale: {x: 0.5, y: 10, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18939,14 +18511,10 @@ Transform:
   - {fileID: 552250509}
   - {fileID: 778930466}
 <<<<<<< HEAD
-  - {fileID: 2073145972}
-=======
-<<<<<<< HEAD
   - {fileID: 1874899676}
 =======
   - {fileID: 2073145972}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2096229166
@@ -18964,14 +18532,10 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
-  plantSpawn: {fileID: 2073145972}
-=======
-<<<<<<< HEAD
   plantSpawn: {fileID: 1874899676}
 =======
   plantSpawn: {fileID: 2073145972}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
->>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}

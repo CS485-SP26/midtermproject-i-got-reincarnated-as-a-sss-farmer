@@ -73,7 +73,6 @@ namespace Farming
         void Update()
         {
 <<<<<<< HEAD
-<<<<<<< HEAD
             // Only grow if the plant has been watered and hasn't reached Mature or Withered yet
             if (isWatered && (currentState == PlantState.Planted || currentState == PlantState.Growing))
 =======
@@ -81,15 +80,6 @@ namespace Farming
             if (currentState == PlantState.Planted || currentState == PlantState.Growing || currentState == PlantState.Mature)
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
             {
-                waterable = true;
-            }
-
-            // only auto-grows for the randomly selected number of stages, then requires watering
-            if (currentState == PlantState.Planted || currentState == PlantState.Growing)
-            {
-<<<<<<< HEAD
-                if (autoGrownStages < growthStagesAutoGrow)
-=======
                 timer -= Time.deltaTime;
 
                 if (timer <= 0f && (autoGrownStages < growthStagesAutoGrow || watered))
@@ -217,10 +207,6 @@ namespace Farming
             {
                 Debug.Log("[Plant] Growing from Growing to Mature stage!");
                 ChangeState(PlantState.Mature);
-            }
-            else if(currentState == PlantState.Mature)
-            {
-                ChangeState(PlantState.Withered);
             }
             else if(currentState == PlantState.Mature)
             {
