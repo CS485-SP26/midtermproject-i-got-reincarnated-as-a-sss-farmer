@@ -17,17 +17,24 @@ namespace Farming
         [Header("Settings")]
         public float timeToNextStage = 5.0f; // Seconds between growth stages
         private float timer;
+        private bool isWatered = false; // Plant needs to be watered to start growing
 
         void Start()
         {
+            Initialize();
+        }
+        
+        public void Initialize()
+        {
             timer = timeToNextStage;
+            currentState = PlantState.Planted; // Ensure we start in Planted state
             UpdatePlantVisuals();
         }
 
         void Update()
         {
-            // Only grow if the plant hasn't reached Mature or Withered yet
-            if (currentState == PlantState.Planted || currentState == PlantState.Growing)
+            // Only grow if the plant has been watered and hasn't reached Mature or Withered yet
+            if (isWatered && (currentState == PlantState.Planted || currentState == PlantState.Growing))
             {
                 timer -= Time.deltaTime;
 
@@ -38,15 +45,30 @@ namespace Farming
                 }
             }
         }
+        
+        /// <summary>
+        /// Set the watered state of the plant. Plant will only grow when watered.
+        /// </summary>
+        public void SetWatered(bool watered)
+        {
+            bool wasWatered = isWatered;
+            isWatered = watered;
+            if (watered && !wasWatered)
+            {
+                Debug.Log($"[Plant] Plant watered - growth started!");
+            }
+        }
 
         void Grow()
         {
             if (currentState == PlantState.Planted)
             {
+                Debug.Log("[Plant] Growing from Planted to Growing stage!");
                 ChangeState(PlantState.Growing);
             }
             else if (currentState == PlantState.Growing)
             {
+                Debug.Log("[Plant] Growing from Growing to Mature stage!");
                 ChangeState(PlantState.Mature);
             }
         }
@@ -59,10 +81,10 @@ namespace Farming
 
         void UpdatePlantVisuals()
         {
-            plantedModel.SetActive(currentState == PlantState.Planted);
-            growingModel.SetActive(currentState == PlantState.Growing);
-            matureModel.SetActive(currentState == PlantState.Mature);
-            witheredModel.SetActive(currentState == PlantState.Withered);
+            if (plantedModel != null) plantedModel.SetActive(currentState == PlantState.Planted);
+            if (growingModel != null) growingModel.SetActive(currentState == PlantState.Growing);
+            if (matureModel != null) matureModel.SetActive(currentState == PlantState.Mature);
+            if (witheredModel != null) witheredModel.SetActive(currentState == PlantState.Withered);
         }
     }
 }

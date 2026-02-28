@@ -1141,6 +1141,20 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b81ad75952811d842aac7eb5ec1e8292, type: 3}
   m_PrefabInstance: {fileID: 1692840434}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &76249695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76249673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ca300d7018e920468c5c4c92c14ed4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Farming.PlantInventory
+  maxPlants: 999
+  currentPlants: 0
 --- !u!1 &78836005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1529,6 +1543,7 @@ MonoBehaviour:
   hotbarCanvas: {fileID: 0}
   wateringCanTexture: {fileID: 2800000, guid: 9bd27fb0e59474d4a923ee40cb50f45f, type: 3}
   seedTexture: {fileID: 2800000, guid: b4a735338a07942af8d2ab7d5b6a2bf0, type: 3}
+  plantTexture: {fileID: 0}
   iconSize: 64
   bottomMargin: 20
   fontSize: 24
@@ -1944,16 +1959,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 155555717}
   m_CullTransparentMesh: 1
---- !u!1 &156904217 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
-  m_PrefabInstance: {fileID: 1968150292}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &156904220 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
-  m_PrefabInstance: {fileID: 1968150292}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &174265429
 GameObject:
   m_ObjectHideFlags: 0
@@ -2658,6 +2663,7 @@ MonoBehaviour:
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
   plantedMaterial: {fileID: 0}
+  plantPrefab: {fileID: 3967171975692154798, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
   stepAudio: {fileID: 383629377}
   tillAudio: {fileID: 383629376}
   waterAudio: {fileID: 383629375}
@@ -3251,6 +3257,7 @@ MonoBehaviour:
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
   plantedMaterial: {fileID: 0}
+  plantPrefab: {fileID: 3967171975692154798, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
   stepAudio: {fileID: 400642163}
   tillAudio: {fileID: 400642162}
   waterAudio: {fileID: 400642161}
@@ -3809,6 +3816,7 @@ MonoBehaviour:
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
   plantedMaterial: {fileID: 0}
+  plantPrefab: {fileID: 3967171975692154798, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
   stepAudio: {fileID: 413481111}
   tillAudio: {fileID: 413481110}
   waterAudio: {fileID: 413481109}
@@ -4181,73 +4189,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413481106}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &439523674 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 435ecdbebb800a74bbae6e829100a47f, type: 3}
-  m_PrefabInstance: {fileID: 535311108}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &439523677 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 435ecdbebb800a74bbae6e829100a47f, type: 3}
-  m_PrefabInstance: {fileID: 535311108}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &451709065
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1639864498}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: b967766edf4c22645b84fc7a0a815c85, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.20292
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: b967766edf4c22645b84fc7a0a815c85, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: b967766edf4c22645b84fc7a0a815c85, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.20291
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: b967766edf4c22645b84fc7a0a815c85, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: b967766edf4c22645b84fc7a0a815c85, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: b967766edf4c22645b84fc7a0a815c85, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: b967766edf4c22645b84fc7a0a815c85, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: b967766edf4c22645b84fc7a0a815c85, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: b967766edf4c22645b84fc7a0a815c85, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: b967766edf4c22645b84fc7a0a815c85, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: b967766edf4c22645b84fc7a0a815c85, type: 3}
-      propertyPath: m_Name
-      value: Decoration_Plant_01_02
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: b967766edf4c22645b84fc7a0a815c85, type: 3}
 --- !u!1 &455555335
 GameObject:
   m_ObjectHideFlags: 0
@@ -4552,63 +4493,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 531808571}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &535311108
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1639864498}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 435ecdbebb800a74bbae6e829100a47f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.20292
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 435ecdbebb800a74bbae6e829100a47f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 435ecdbebb800a74bbae6e829100a47f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.20291
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 435ecdbebb800a74bbae6e829100a47f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 435ecdbebb800a74bbae6e829100a47f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 435ecdbebb800a74bbae6e829100a47f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 435ecdbebb800a74bbae6e829100a47f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 435ecdbebb800a74bbae6e829100a47f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 435ecdbebb800a74bbae6e829100a47f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 435ecdbebb800a74bbae6e829100a47f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 435ecdbebb800a74bbae6e829100a47f, type: 3}
-      propertyPath: m_Name
-      value: Decoration_Plant_08_01
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 435ecdbebb800a74bbae6e829100a47f, type: 3}
 --- !u!1 &543114692
 GameObject:
   m_ObjectHideFlags: 0
@@ -5004,6 +4888,7 @@ MonoBehaviour:
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
   plantedMaterial: {fileID: 0}
+  plantPrefab: {fileID: 3967171975692154798, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
   stepAudio: {fileID: 575667308}
   tillAudio: {fileID: 575667307}
   waterAudio: {fileID: 575667306}
@@ -5471,6 +5356,7 @@ MonoBehaviour:
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
   plantedMaterial: {fileID: 0}
+  plantPrefab: {fileID: 3967171975692154798, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
   stepAudio: {fileID: 593384254}
   tillAudio: {fileID: 593384253}
   waterAudio: {fileID: 593384252}
@@ -5902,6 +5788,7 @@ MonoBehaviour:
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
   plantedMaterial: {fileID: 0}
+  plantPrefab: {fileID: 3967171975692154798, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
   stepAudio: {fileID: 621895053}
   tillAudio: {fileID: 621895052}
   waterAudio: {fileID: 621895051}
@@ -6736,6 +6623,7 @@ MonoBehaviour:
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
   plantedMaterial: {fileID: 0}
+  plantPrefab: {fileID: 3967171975692154798, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
   stepAudio: {fileID: 749749636}
   tillAudio: {fileID: 749749635}
   waterAudio: {fileID: 749749634}
@@ -7555,6 +7443,7 @@ MonoBehaviour:
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
   plantedMaterial: {fileID: 0}
+  plantPrefab: {fileID: 3967171975692154798, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
   stepAudio: {fileID: 818270252}
   tillAudio: {fileID: 818270251}
   waterAudio: {fileID: 818270250}
@@ -9804,6 +9693,7 @@ MonoBehaviour:
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
   plantedMaterial: {fileID: 0}
+  plantPrefab: {fileID: 3967171975692154798, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
   stepAudio: {fileID: 1259173397}
   tillAudio: {fileID: 1259173396}
   waterAudio: {fileID: 1259173395}
@@ -10841,6 +10731,7 @@ MonoBehaviour:
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
   plantedMaterial: {fileID: 0}
+  plantPrefab: {fileID: 3967171975692154798, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
   stepAudio: {fileID: 1347809123}
   tillAudio: {fileID: 1347809122}
   waterAudio: {fileID: 1347809121}
@@ -11497,6 +11388,7 @@ MonoBehaviour:
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
   plantedMaterial: {fileID: 0}
+  plantPrefab: {fileID: 3967171975692154798, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
   stepAudio: {fileID: 1381054964}
   tillAudio: {fileID: 1381054963}
   waterAudio: {fileID: 1381054962}
@@ -11928,6 +11820,7 @@ MonoBehaviour:
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
   plantedMaterial: {fileID: 0}
+  plantPrefab: {fileID: 3967171975692154798, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
   stepAudio: {fileID: 1393355534}
   tillAudio: {fileID: 1393355533}
   waterAudio: {fileID: 1393355532}
@@ -12359,6 +12252,7 @@ MonoBehaviour:
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
   plantedMaterial: {fileID: 0}
+  plantPrefab: {fileID: 3967171975692154798, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
   stepAudio: {fileID: 1403734918}
   tillAudio: {fileID: 1403734917}
   waterAudio: {fileID: 1403734916}
@@ -12909,16 +12803,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1458930303}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1467241184 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
-  m_PrefabInstance: {fileID: 1979276883}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1467241187 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
-  m_PrefabInstance: {fileID: 1979276883}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1495047858
 GameObject:
   m_ObjectHideFlags: 0
@@ -13479,16 +13363,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1547236826}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1586137362 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: b967766edf4c22645b84fc7a0a815c85, type: 3}
-  m_PrefabInstance: {fileID: 451709065}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &1586137365 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: b967766edf4c22645b84fc7a0a815c85, type: 3}
-  m_PrefabInstance: {fileID: 451709065}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1592728434
 GameObject:
   m_ObjectHideFlags: 0
@@ -13897,60 +13771,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1626224882}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1 &1639864496
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1639864498}
-  - component: {fileID: 1639864497}
-  m_Layer: 0
-  m_Name: Plant
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1639864497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639864496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b0ca562a93327b4ea81ba7d62041e35, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Plant
-  currentState: 0
-  plantedModel: {fileID: 439523674}
-  growingModel: {fileID: 156904217}
-  matureModel: {fileID: 1467241184}
-  witheredModel: {fileID: 1586137362}
-  timeToNextStage: 5
---- !u!4 &1639864498
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1639864496}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.81144, y: 0, z: 0.77751}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 439523677}
-  - {fileID: 156904220}
-  - {fileID: 1467241187}
-  - {fileID: 1586137365}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1656558828
 GameObject:
   m_ObjectHideFlags: 0
@@ -14603,6 +14423,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b81ad75952811d842aac7eb5ec1e8292, type: 3}
       insertIndex: -1
       addedObject: {fileID: 76249693}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b81ad75952811d842aac7eb5ec1e8292, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 76249695}
   m_SourcePrefab: {fileID: 100100000, guid: b81ad75952811d842aac7eb5ec1e8292, type: 3}
 --- !u!1 &1697533640
 GameObject:
@@ -14663,6 +14486,7 @@ MonoBehaviour:
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
   plantedMaterial: {fileID: 0}
+  plantPrefab: {fileID: 3967171975692154798, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
   stepAudio: {fileID: 1697533645}
   tillAudio: {fileID: 1697533644}
   waterAudio: {fileID: 1697533643}
@@ -16126,63 +15950,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900093294}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &1968150292
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1639864498}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.20292
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.20291
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
-      propertyPath: m_Name
-      value: Decoration_Plant_05_01
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d5f41989d862b4242b54f888c150d97a, type: 3}
 --- !u!1 &1971078522
 GameObject:
   m_ObjectHideFlags: 0
@@ -16295,63 +16062,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1971078522}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!1001 &1979276883
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1639864498}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.20292
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.20291
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
-      propertyPath: m_Name
-      value: Decoration_Plant_04_01
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: ee377737e0e4af845988a6fd0b6bec4c, type: 3}
 --- !u!1 &2007434626
 GameObject:
   m_ObjectHideFlags: 0
@@ -16891,6 +16601,7 @@ MonoBehaviour:
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
   plantedMaterial: {fileID: 0}
+  plantPrefab: {fileID: 3967171975692154798, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
   stepAudio: {fileID: 2056574615}
   tillAudio: {fileID: 2056574614}
   waterAudio: {fileID: 2056574613}
@@ -17434,6 +17145,7 @@ MonoBehaviour:
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
   plantedMaterial: {fileID: 0}
+  plantPrefab: {fileID: 3967171975692154798, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
   stepAudio: {fileID: 2096229169}
   tillAudio: {fileID: 2096229168}
   waterAudio: {fileID: 2096229167}
@@ -17887,6 +17599,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6b079cfe482d2fe41b4315e111d183d8, type: 3}
+--- !u!1001 &5086469852691421147
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3967171975692154798, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
+      propertyPath: m_Name
+      value: Plant
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371994304301191135, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.81144
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371994304301191135, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371994304301191135, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.77751
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371994304301191135, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371994304301191135, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371994304301191135, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371994304301191135, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371994304301191135, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371994304301191135, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7371994304301191135, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d75d3595bc0a44b3484accdb2ef40c33, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -17907,5 +17676,5 @@ SceneRoots:
   - {fileID: 111998805}
   - {fileID: 1832991199}
   - {fileID: 2007434628}
-  - {fileID: 1639864498}
+  - {fileID: 5086469852691421147}
   - {fileID: 22227629}
