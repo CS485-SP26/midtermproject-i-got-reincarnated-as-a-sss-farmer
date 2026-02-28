@@ -74,7 +74,7 @@ namespace Farming
             {
                 timer -= Time.deltaTime;
 
-                if (timer <= 0f)
+                if (timer <= 0f && (autoGrownStages < growthStagesAutoGrow || watered))
                 {
                     Grow();
                     autoGrownStages++;
@@ -89,8 +89,10 @@ namespace Farming
                 waterReminderIcon.SetActive(true);
             }
 
-            // wither after 60 seconds if not watered
-            if (totalLifetime >= 60f && !watered)
+            // wither after 60 seconds if not watered and not yet mature
+            if (totalLifetime >= 60f && !watered &&
+                currentState != PlantState.Mature &&
+                currentState != PlantState.Withered)
             {
                 ChangeState(PlantState.Withered);
             }
@@ -98,7 +100,7 @@ namespace Farming
 
         public bool TryWater()
         {
-            // for when ypu can't water in the first 15s or already watered or withered
+            // for when you can't water in the first 15s or already watered or withered
             if (!waterable || watered || currentState == PlantState.Withered || currentState == PlantState.Mature)
             {
                 return false;
@@ -145,7 +147,7 @@ namespace Farming
             UpdatePlantVisuals();
 
             // hide water reminder if plant is Mature or Withered, too late to water lol
-            if (waterReminderIcon != null && currentState == PlantState.Mature || currentState == PlantState.Withered)
+            if (waterReminderIcon != null && (currentState == PlantState.Mature || currentState == PlantState.Withered))
             {
                 waterReminderIcon.SetActive(false);
             }
