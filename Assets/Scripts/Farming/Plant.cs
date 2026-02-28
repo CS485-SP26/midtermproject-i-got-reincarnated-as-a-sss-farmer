@@ -93,7 +93,13 @@ namespace Farming
             if (currentState == PlantState.Planted || currentState == PlantState.Growing)
 >>>>>>> 553f965 (Small change to Part 10 and additions for Part 11)
             {
+<<<<<<< HEAD
                 if (autoGrownStages < growthStagesAutoGrow)
+=======
+                timer -= Time.deltaTime;
+
+                if (timer <= 0f && (autoGrownStages < growthStagesAutoGrow || watered))
+>>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
                 {
                     timer -= Time.deltaTime;
 
@@ -113,8 +119,10 @@ namespace Farming
                     waterReminderIcon.SetActive(true);
             }
 
-            // wither after 60 seconds if not watered
-            if (totalLifetime >= 60f && !watered)
+            // wither after 60 seconds if not watered and not yet mature
+            if (totalLifetime >= 60f && !watered &&
+                currentState != PlantState.Mature &&
+                currentState != PlantState.Withered)
             {
                 ChangeState(PlantState.Withered);
             }
@@ -135,7 +143,7 @@ namespace Farming
 
         public bool TryWater()
         {
-            // for when ypu can't water in the first 15s or already watered or withered
+            // for when you can't water in the first 15s or already watered or withered
             if (!waterable || watered || currentState == PlantState.Withered || currentState == PlantState.Mature)
             {
                 return false;
