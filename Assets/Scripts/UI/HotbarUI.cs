@@ -163,7 +163,6 @@ public class HotbarUI : MonoBehaviour
 
         seedCountText = CreateSlotLabel(seedSlot.transform, "Seed Count",
             new Color(0.6f, 0.9f, 0.3f), new Vector2(0f, 25f));
-        seedCountText.text = "5";
 
         // =============================
         // MONEY DISPLAY (top right)
