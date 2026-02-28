@@ -63,6 +63,7 @@ public class HotbarUI : MonoBehaviour
         SetupCanvas();
         CreateHotbar();
         SelectSlot(0); // Start with watering can selected
+        RefreshDisplays(); // populate displays with current values instead of hardcoded defaults
     }
 
     void Update()
