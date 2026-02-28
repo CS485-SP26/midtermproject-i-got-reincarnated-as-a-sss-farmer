@@ -64,6 +64,7 @@ public class HotbarUI : MonoBehaviour
         CreateHotbar();
         RefreshDisplays(); // Populate displays with actual values now that UI exists
         SelectSlot(0); // Start with watering can selected
+        RefreshDisplays(); // populate displays with current values instead of hardcoded defaults
     }
 
     void Update()

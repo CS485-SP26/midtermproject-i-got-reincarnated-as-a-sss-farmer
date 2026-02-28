@@ -67,9 +67,14 @@ namespace Farming
 
 
         /// <summary>
+<<<<<<< HEAD
         /// General interaction with this farm tile using an optional water resource.
         /// Tills grass tiles, waters tilled soil when water is available, and handles
         /// plant watering/harvesting when a plant is present.
+=======
+        /// Interact with this farm tile using an optional water resource.
+        /// May till grass, consume water to water tilled soil or plants, and harvest mature plants.
+>>>>>>> 7545cdd (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
         /// </summary>
         public void Interact(Character.WaterResource waterResource)
         {
@@ -183,10 +188,27 @@ namespace Farming
 =======
             // creating a Plant object relative to that tile's position (using the tile's plantSpawn)
             // note: this *should* be a child of the respective farm tile, however the model "squishes" when I do & that shouldn't be happening
+<<<<<<< HEAD
             Vector3 spawnPosition = plantSpawn != null ? plantSpawn.position : transform.position;
             currentPlant = Instantiate(plantPrefab, spawnPosition, UnityEngine.Quaternion.identity);
             currentPlant.ChangeState(PlantState.Planted);
 >>>>>>> a1d5ff0 (Apply PR review feedback to FarmTile.cs)
+=======
+            if(plantPrefab)
+            {
+                Vector3 spawnPosition;
+                if (plantSpawn != null)
+                {
+                    spawnPosition = plantSpawn.position;
+                }
+                else
+                {
+                    Debug.LogWarning($"[FarmTile] {gameObject.name} has no plantSpawn assigned; falling back to transform.position.");
+                    spawnPosition = transform.position;
+                }
+                currentPlant = Instantiate(plantPrefab, spawnPosition, UnityEngine.Quaternion.identity);
+            }
+>>>>>>> 7545cdd (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
 
             FarmingEvents.TileFarmed(this, previousCondition, tileCondition);
             return true;
