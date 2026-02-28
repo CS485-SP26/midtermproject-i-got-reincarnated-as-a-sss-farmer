@@ -72,11 +72,13 @@ namespace Farming
 
         void Update()
         {
-
-            totalLifetime += Time.deltaTime;
-
-            // first 15 seconds, cannot water plant, let it grow naturally
-            if (totalLifetime >= 15)
+<<<<<<< HEAD
+            // Only grow if the plant has been watered and hasn't reached Mature or Withered yet
+            if (isWatered && (currentState == PlantState.Planted || currentState == PlantState.Growing))
+=======
+            // changed so the plants can now wither (will be needed as withered plants shouldn't increment the plantInventory counter)
+            if (currentState == PlantState.Planted || currentState == PlantState.Growing || currentState == PlantState.Mature)
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
             {
                 waterable = true;
             }
