@@ -17,36 +17,136 @@ namespace Farming
         [Header("Settings")]
         public float timeToNextStage = 5.0f; // Seconds between growth stages
         private float timer;
+        private bool isWatered = false; // Plant needs to be watered to start growing
+
+        [Header("Watering Plant Logic")]
+        public GameObject waterReminderIcon;
+
+        private float totalLifetime;
+        private bool waterable = false;
+
+        private bool watered = false;
+        private int growthStagesAutoGrow;
+        private int autoGrownStages = 0;
+
+
+
+    // Here's what I'm trying to go for with the plant growth logic, copied from my message to Ryan:
+    // I think maybe when you first plant, for the first 15 seconds you can’t add water, and the plant can grow 1-2 stages on its own.
+    // Maybe 15 seconds per stage, but will require extra water to reach the final stage. If it isn’t watered after a minute, it’ll wither. 
+    // And maybe after the 30 second mark, we spawn like a water droplet png on top of the plant to remind it to be watered, like zen garden in pvz.
+    // - Salvador
 
         void Start()
         {
+            Initialize();
+        }
+        
+        public void Initialize()
+        {
             timer = timeToNextStage;
+            currentState = PlantState.Planted; // Ensure we start in Planted state
             UpdatePlantVisuals();
+
+            if (waterReminderIcon)
+            {
+                waterReminderIcon.SetActive(false);
+            }
+
         }
 
         void Update()
         {
-            // changed so the plants can now wither (will be needed as withered plants shouldn't increment the plantInventory counter)
-            if (currentState == PlantState.Planted || currentState == PlantState.Growing || currentState == PlantState.Mature)
+            // Only grow if the plant has been watered and hasn't reached Mature or Withered yet
+            if (isWatered && (currentState == PlantState.Planted || currentState == PlantState.Growing))
             {
-                timer -= Time.deltaTime;
+                waterable = true;
+            }
 
-                if (timer <= 0)
+            // only auto-grows for the randomly selected number of stages, then requires watering
+            if (currentState == PlantState.Planted || currentState == PlantState.Growing)
+            {
+                if (autoGrownStages < growthStagesAutoGrow)
                 {
-                    Grow();
-                    timer = timeToNextStage; // Reset timer for the next stage
+                    timer -= Time.deltaTime;
+
+                    if (timer <= 0f)
+                    {
+                        Grow();
+                        autoGrownStages++;
+                        timer = 15f; // reset timer for the next stage
+                    }
                 }
             }
+
+            // show reminder at 30 seconds, but only while the plant still needs watering
+            if (totalLifetime >= 30f && !watered && (currentState == PlantState.Planted || currentState == PlantState.Growing))
+            {
+                if (waterReminderIcon)
+                    waterReminderIcon.SetActive(true);
+            }
+
+            // wither after 60 seconds if not watered
+            if (totalLifetime >= 60f && !watered)
+            {
+                ChangeState(PlantState.Withered);
+            }
         }
+        
+        /// <summary>
+        /// Set the watered state of the plant. Plant will only grow when watered.
+        /// </summary>
+        public void SetWatered(bool watered)
+        {
+            bool wasWatered = isWatered;
+            isWatered = watered;
+            if (watered && !wasWatered)
+            {
+                Debug.Log($"[Plant] Plant watered - growth started!");
+            }
+        }
+
+        public bool TryWater()
+        {
+            // for when ypu can't water in the first 15s or already watered or withered
+            if (!waterable || watered || currentState == PlantState.Withered || currentState == PlantState.Mature)
+            {
+                return false;
+  
+            }
+
+            watered = true;
+
+            // hide the droplet indicator
+            if (waterReminderIcon){
+                waterReminderIcon.SetActive(false);
+            }
+
+            if (currentState == PlantState.Planted)
+            {
+                ChangeState(PlantState.Growing);
+            }
+    
+            else if (currentState == PlantState.Growing)
+            {
+                ChangeState(PlantState.Mature);
+            }
+
+            Debug.Log($"[Plant] {gameObject.name} has been watered!");
+
+            return true;
+        }       
 
         void Grow()
         {
             if (currentState == PlantState.Planted)
             {
+                Debug.Log("[Plant] Growing from Planted to Growing stage!");
                 ChangeState(PlantState.Growing);
             }
             else if (currentState == PlantState.Growing)
             {
+                Debug.Log("[Plant] Growing from Growing to Mature stage!");
                 ChangeState(PlantState.Mature);
             }
             else if(currentState == PlantState.Mature)
@@ -59,14 +159,20 @@ namespace Farming
         {
             currentState = newState;
             UpdatePlantVisuals();
+
+            // hide water reminder if plant is Mature or Withered, too late to water lol
+            if (waterReminderIcon != null && (currentState == PlantState.Mature || currentState == PlantState.Withered))
+            {
+                waterReminderIcon.SetActive(false);
+            }
         }
 
         void UpdatePlantVisuals()
         {
-            plantedModel.SetActive(currentState == PlantState.Planted);
-            growingModel.SetActive(currentState == PlantState.Growing);
-            matureModel.SetActive(currentState == PlantState.Mature);
-            witheredModel.SetActive(currentState == PlantState.Withered);
+            if (plantedModel != null) plantedModel.SetActive(currentState == PlantState.Planted);
+            if (growingModel != null) growingModel.SetActive(currentState == PlantState.Growing);
+            if (matureModel != null) matureModel.SetActive(currentState == PlantState.Mature);
+            if (witheredModel != null) witheredModel.SetActive(currentState == PlantState.Withered);
         }
     }
 }
