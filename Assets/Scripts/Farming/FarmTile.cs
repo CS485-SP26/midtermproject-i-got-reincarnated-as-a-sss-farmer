@@ -96,6 +96,7 @@ namespace Farming
         /// <summary>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         /// Interact with this farm tile using an optional water resource.
         /// May till grass, consume water to water tilled soil or plants, and harvest mature plants.
 =======
@@ -112,6 +113,11 @@ namespace Farming
         /// May till grass, consume water to water tilled soil or plants, and harvest mature plants.
 >>>>>>> 7545cdd (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
 >>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
+=======
+        /// General interaction with this farm tile using an optional water resource.
+        /// Tills grass tiles, waters tilled soil when water is available, and handles
+        /// plant watering/harvesting when a plant is present.
+>>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
         /// </summary>
         public void Interact(Character.WaterResource waterResource)
         {
@@ -194,8 +200,13 @@ namespace Farming
 <<<<<<< HEAD
                     if (currentPlant != null)
                     {
-                        return currentPlant.TryWater();
+                        if (waterResource != null && currentPlant.TryWater() && waterResource.TryConsumeWater())
+                        {
+                            daysSinceLastInteraction = 0;
+                            return true;
+                        }
                     }
+<<<<<<< HEAD
                     return false; // Already planted
 >>>>>>> 553f965 (Small change to Part 10 and additions for Part 11)
 =======
@@ -208,6 +219,9 @@ namespace Farming
                     return false; // Could not water planted tile
 >>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
 >>>>>>> 1a943be (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
+=======
+                    return false; // Could not water planted tile
+>>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
             }
             return false;
         }
@@ -262,6 +276,7 @@ namespace Farming
 =======
             if(plantPrefab)
             {
+<<<<<<< HEAD
                 Vector3 spawnPosition;
                 if (plantSpawn != null)
                 {
@@ -273,6 +288,17 @@ namespace Farming
                     spawnPosition = transform.position;
                 }
                 currentPlant = Instantiate(plantPrefab, spawnPosition, UnityEngine.Quaternion.identity);
+=======
+                if (plantSpawn == null)
+                {
+                    Debug.LogWarning($"FarmTile '{name}' is missing a plantSpawn reference. Cannot instantiate plant prefab.", this);
+                }
+                else
+                {
+                    currentPlant = Instantiate(plantPrefab, plantSpawn.position, UnityEngine.Quaternion.identity);
+                    //currentPlant.ChangeState(PlantState.Planted);
+                }
+>>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
             }
 >>>>>>> 553f965 (Small change to Part 10 and additions for Part 11)
 =======
@@ -509,6 +535,7 @@ namespace Farming
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     // note: this code runs only when the tile has gone at least two days without interaction
 =======
                     // note: this code runs only when the days passed
@@ -538,6 +565,9 @@ namespace Farming
 =======
 >>>>>>> b35b409 (Confirmation of Merge with Salvador's Branch)
                     case Condition.Planted:
+=======
+                    case Condition.Planted:
+>>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
                         if(currentPlant == null)
                         {
                             // Plant reference lost - revert to tilled to prevent stuck state
