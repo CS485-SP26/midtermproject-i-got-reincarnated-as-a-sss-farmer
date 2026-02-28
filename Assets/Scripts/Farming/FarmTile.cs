@@ -1,10 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Environment;
-using System.Numerics;
-using Unity.VisualScripting;
-using UnityEngine.Tilemaps;
-using System;
 
 namespace Farming 
 {
@@ -37,7 +33,7 @@ namespace Farming
         private int daysSinceLastInteraction = 0;
         public FarmTile.Condition GetCondition { get { return tileCondition; } }
 
-        private PlantInventory counter;
+        [SerializeField] private PlantInventory counter;
 
         void Start()
         {
@@ -57,8 +53,11 @@ namespace Farming
         // to check for the player's PlantInventory
         private void Awake()
         {
-            counter = FindFirstObjectByType<PlantInventory>();
-            Debug.Assert(counter, "[FarmTile] needs a reference to player's PlantInventory");
+            if (counter == null)
+            {
+                counter = FindFirstObjectByType<PlantInventory>();
+                Debug.Assert(counter != null, "[FarmTile] needs a reference to player's PlantInventory");
+            }
         }
 
 
@@ -143,7 +142,15 @@ namespace Farming
         public bool Plant(SeedInventory seeds)
         {
             if (tileCondition != Condition.Watered) return false;
-            if (seeds == null || !seeds.TryConsumeSeed()) return false;
+            if (seeds == null) return false;
+
+            if (plantPrefab == null)
+            {
+                Debug.LogWarning($"[FarmTile] {gameObject.name} has no plantPrefab assigned; aborting plant.");
+                return false;
+            }
+
+            if (!seeds.TryConsumeSeed()) return false;
 
             Condition previousCondition = tileCondition;
             tileCondition = Condition.Planted;
@@ -195,7 +202,7 @@ namespace Farming
                 case FarmTile.Condition.Watered: tileRenderer.material = wateredMaterial; break;
                 // when planted, change the tile to the tilledMaterial; after harvest it'll change back to grassMaterial
                 case FarmTile.Condition.Planted:
-                    tileRenderer.material = plantedMaterial != null ? plantedMaterial : wateredMaterial;
+                    tileRenderer.material = plantedMaterial != null ? plantedMaterial : tilledMaterial;
                     break;
             }
         }
@@ -245,9 +252,9 @@ namespace Farming
                         break;
 
                     // "in the event the tile's already planted, if the plant's withered then change the tile to dirt (instead of just grass)"
-                    // note: this code runs only when the days passed
+                    // note: this code runs only when the tile has gone at least two days without interaction
                     case Condition.Planted:
-                        // "if the currentPlant still xists, check if it's withered"
+                        // "if the currentPlant still exists, check if it's withered"
                         if(currentPlant != null) {
                             // "if the currentPlant's state is withered, destroy it & set that tile to tilled / dirt"
                             if(currentPlant.currentState == PlantState.Withered)
@@ -257,6 +264,11 @@ namespace Farming
                                 Destroy(currentPlant.gameObject);
                                 currentPlant = null;
                             }
+                        }
+                        else
+                        {
+                            // Plant reference lost (e.g., destroyed externally); revert tile to tilled
+                            tileCondition = Condition.Tilled;
                         }
                         break;
 
@@ -282,15 +294,13 @@ namespace Farming
 
             if (tileCondition != Condition.Planted) {return;}
             Debug.Log($"[FarmTile] Harvested {gameObject.name}!");
-            // should be removed, but just in-case will leave commented out
-            // Condition previousCondition = tileCondition;
 
             // "if our plant exists, check its status to determine that tile's state"
             if(currentPlant != null)
             {
                 // "if the tile has a 'fresh' plant (i.e., not withered), add to our PlantInventory & set the tile to grass..."
                 if(currentPlant.currentState != PlantState.Withered) {
-                    counter.AddPlant(1);
+                    if (counter != null) counter.AddPlant(1);
                     tileCondition = Condition.Grass;
                 
                 }
@@ -301,11 +311,16 @@ namespace Farming
                     tileCondition = Condition.Tilled;
                 }
                 // regardless of what kind of plant was harvested, show the player's plant count
-                Debug.Log("Plant Count: " + counter.PlantCount);
+                if (counter != null) Debug.Log("Plant Count: " + counter.PlantCount);
                 
                 // actually removing the plant & ensuring its reference is null
                 Destroy(currentPlant.gameObject);
                 currentPlant = null;
+            }
+            else
+            {
+                // No plant reference (e.g., destroyed externally); revert tile to tilled
+                tileCondition = Condition.Tilled;
             }
 
             // since we interacted with the tile, regardless of outcome, reset our interaction check
