@@ -44,6 +44,7 @@ namespace Farming
         {
             tileRenderer = GetComponent<MeshRenderer>();
             Debug.Assert(tileRenderer, "FarmTile requires a MeshRenderer");
+            // modified the for-loop so the transform "plantSpawn" doesn't cause errors in detecting mesh renders
             foreach (Transform edge in transform)
             {
                 MeshRenderer mesh = edge.GetComponent<MeshRenderer>();
@@ -265,23 +266,6 @@ namespace Farming
             FarmingEvents.TileFarmed(this, previousCondition, tileCondition);
         }
 
-
-        /// <summary>
-        /// Called automatically when the growth timer completes.
-        /// Watered tile becomes a planted tile with crops.
-        /// Currently disabled - planted state uses grass material.
-        /// </summary>
-        // void GrowPlant()
-        // {
-        //     Condition previousCondition = tileCondition;
-        //     tileCondition = Condition.Planted;
-        //     isGrowing = false;
-        //     waterTimer = 0f;
-        //     UpdateVisual();
-        //     Debug.Log($"[FarmTile] {gameObject.name} has grown into a plant!");
-        //     FarmingEvents.TilePlanted(this);
-        // }
-
         private void UpdateVisual()
         {
             if(tileRenderer == null) return;
@@ -367,7 +351,11 @@ namespace Farming
                         break;
 
                     // "in the event the tile's already planted, if the plant's withered then change the tile to dirt (instead of just grass)"
+<<<<<<< HEAD
                     // note: this code runs only when the tile has gone at least two days without interaction
+=======
+                    // note: this code runs only when the days passed
+>>>>>>> f9fffec (Confirmation of Merge with Salvador's Branch)
                     case Condition.Planted:
                         // "if the currentPlant still exists, check if it's withered"
                         if(currentPlant != null) {
