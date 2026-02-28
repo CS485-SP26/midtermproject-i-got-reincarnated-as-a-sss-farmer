@@ -52,9 +52,13 @@ namespace Farming
             tileRenderer = GetComponent<MeshRenderer>();
             Debug.Assert(tileRenderer, "FarmTile requires a MeshRenderer");
 <<<<<<< HEAD
+<<<<<<< HEAD
             // modified the for-loop so the transform "plantSpawn" doesn't cause errors in detecting mesh renders
 =======
 >>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+            // modified the for-loop so the transform "plantSpawn" doesn't cause errors in detecting mesh renders
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
             foreach (Transform edge in transform)
             {
                 MeshRenderer mesh = edge.GetComponent<MeshRenderer>();
@@ -467,6 +471,7 @@ namespace Farming
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                     // note: this code runs only when the tile has gone at least two days without interaction
 =======
                     // note: this code runs only when the days passed
@@ -493,6 +498,8 @@ namespace Farming
 >>>>>>> d3dc40d (Modified Planting & Harvesting Logic [RM])
 =======
 >>>>>>> 0c82600 (Apply PR review feedback to FarmTile.cs)
+=======
+>>>>>>> b35b409 (Confirmation of Merge with Salvador's Branch)
                     case Condition.Planted:
                         if(currentPlant == null)
                         {
@@ -514,6 +521,12 @@ namespace Farming
 =======
                     // note: this code runs only when the tile has gone at least two days without interaction
 >>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
+=======
+                    // note: this code runs only when the tile has gone at least two days without interaction
+=======
+                    // note: this code runs only when the days passed
+>>>>>>> f9fffec (Confirmation of Merge with Salvador's Branch)
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
                     case Condition.Planted:
                         // "if the currentPlant still exists, check if it's withered"
                         if(currentPlant != null) {
