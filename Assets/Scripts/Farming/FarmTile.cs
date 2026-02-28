@@ -62,39 +62,8 @@ namespace Farming
 
 
         /// <summary>
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
         /// Interact with this farm tile using an optional water resource.
         /// May till grass, consume water to water tilled soil or plants, and harvest mature plants.
-=======
-        /// General interaction with this farm tile using an optional water resource.
-        /// Tills grass tiles, waters tilled soil when water is available, and handles
-        /// plant watering/harvesting when a plant is present.
->>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
-=======
-        /// General interaction with this farm tile using an optional water resource.
-        /// Tills grass tiles, waters tilled soil when water is available, and handles
-        /// plant watering/harvesting when a plant is present.
-=======
-        /// General interaction with this farm tile using an optional water resource.
-        /// Tills grass tiles, waters tilled soil when water is available, and handles
-        /// plant watering/harvesting when a plant is present.
->>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
-=======
-        /// Interact with this farm tile using an optional water resource.
-        /// May till grass, consume water to water tilled soil or plants, and harvest mature plants.
->>>>>>> 7545cdd (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
-<<<<<<< HEAD
->>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
-=======
-        /// General interaction with this farm tile using an optional water resource.
-        /// Tills grass tiles, waters tilled soil when water is available, and handles
-        /// plant watering/harvesting when a plant is present.
->>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
-=======
->>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
         /// </summary>
         public void Interact(Character.WaterResource waterResource)
         public void Interact(Character.WaterResource waterResource)
@@ -213,8 +182,17 @@ namespace Farming
             // note: this *should* be a child of the respective farm tile, however the model "squishes" when I do & that shouldn't be happening
             if(plantPrefab)
             {
-                currentPlant = Instantiate(plantPrefab, plantSpawn.position, UnityEngine.Quaternion.identity);
-                //currentPlant.ChangeState(PlantState.Planted);
+                Vector3 spawnPosition;
+                if (plantSpawn != null)
+                {
+                    spawnPosition = plantSpawn.position;
+                }
+                else
+                {
+                    Debug.LogWarning($"[FarmTile] {gameObject.name} has no plantSpawn assigned; falling back to transform.position.");
+                    spawnPosition = transform.position;
+                }
+                currentPlant = Instantiate(plantPrefab, spawnPosition, UnityEngine.Quaternion.identity);
             }
 
             FarmingEvents.TileFarmed(this, previousCondition, tileCondition);
