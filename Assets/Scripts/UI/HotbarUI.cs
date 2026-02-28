@@ -175,6 +175,9 @@ public class HotbarUI : MonoBehaviour
             new Color(0.6f, 0.9f, 0.3f), new Vector2(0f, 25f));
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> a51bbc2 (Remove hardcoded seed count in HotbarUI; rely on RefreshDisplays() and event system)
 
         // =============================
         // SLOT 3 — HARVESTED PLANTS (right)
@@ -191,12 +194,16 @@ public class HotbarUI : MonoBehaviour
         plantCountText.text = "0";
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
 =======
 >>>>>>> e09e34a (Remove hardcoded seed count in HotbarUI; rely on RefreshDisplays() and event system)
 >>>>>>> a51bbc2 (Remove hardcoded seed count in HotbarUI; rely on RefreshDisplays() and event system)
 =======
 >>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
+=======
+>>>>>>> e09e34a (Remove hardcoded seed count in HotbarUI; rely on RefreshDisplays() and event system)
+>>>>>>> a51bbc2 (Remove hardcoded seed count in HotbarUI; rely on RefreshDisplays() and event system)
 
         // =============================
         // MONEY DISPLAY (top right)
