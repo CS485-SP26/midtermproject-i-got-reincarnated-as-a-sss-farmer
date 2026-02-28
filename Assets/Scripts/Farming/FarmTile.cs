@@ -63,8 +63,14 @@ namespace Farming
 
 
         /// <summary>
+<<<<<<< HEAD
         /// Interact with this farm tile using an optional water resource.
         /// May till grass, consume water to water tilled soil or plants, and harvest mature plants.
+=======
+        /// General interaction with this farm tile using an optional water resource.
+        /// Tills grass tiles, waters tilled soil when water is available, and handles
+        /// plant watering/harvesting when a plant is present.
+>>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
         /// </summary>
         public void Interact(Character.WaterResource waterResource)
         {
@@ -82,9 +88,9 @@ namespace Farming
                     // only waters if plant is not Mature or Withered state
                         if (currentPlant.currentState != PlantState.Mature && currentPlant.currentState != PlantState.Withered)
                         {
-                            if (waterResource != null)
+                            if (waterResource != null && currentPlant.TryWater() && waterResource.TryConsumeWater())
                             {
-                                currentPlant.TryWater();
+                                // watered successfully
                             }
                         }
 
@@ -130,11 +136,21 @@ namespace Farming
                     // Water the plant to start/continue growth
                     if (waterResource != null && waterResource.TryConsumeWater())
                     {
+<<<<<<< HEAD
                         WaterPlant();
                         daysSinceLastInteraction = 0;
                         return true;
                     }
                     return false;
+=======
+                        if (waterResource != null && currentPlant.TryWater() && waterResource.TryConsumeWater())
+                        {
+                            daysSinceLastInteraction = 0;
+                            return true;
+                        }
+                    }
+                    return false; // Could not water planted tile
+>>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
             }
             return false;
         }
@@ -159,8 +175,25 @@ namespace Farming
             tillAudio?.Play(); // reuse till audio for planting sound
             daysSinceLastInteraction = 0;
 
+<<<<<<< HEAD
             // Spawn the plant object
             SpawnPlant(wasWatered);
+=======
+            // creating a Plant object relative to that tile's position (using the tile's plantSpawn)
+            // note: this *should* be a child of the respective farm tile, however the model "squishes" when I do & that shouldn't be happening
+            if(plantPrefab)
+            {
+                if (plantSpawn == null)
+                {
+                    Debug.LogWarning($"FarmTile '{name}' is missing a plantSpawn reference. Cannot instantiate plant prefab.", this);
+                }
+                else
+                {
+                    currentPlant = Instantiate(plantPrefab, plantSpawn.position, UnityEngine.Quaternion.identity);
+                    //currentPlant.ChangeState(PlantState.Planted);
+                }
+            }
+>>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
 
             FarmingEvents.TileFarmed(this, previousCondition, tileCondition);
             return true;
@@ -297,6 +330,7 @@ namespace Farming
             {
                 if(tileCondition == FarmTile.Condition.Planted)
                 {
+<<<<<<< HEAD
                     // Destroy the plant if tile is reverting
                     if (currentPlant != null)
                     {
@@ -305,6 +339,36 @@ namespace Farming
                     }
                     isPlantedSoilWatered = false;
                     tileCondition = FarmTile.Condition.Grass;
+=======
+                    case Condition.Tilled:
+                        if(currentPlant == null) {tileCondition = Condition.Grass;}
+
+                        break;
+                    
+                    case Condition.Watered:
+                        if(currentPlant == null) {tileCondition = Condition.Tilled;}
+                        break;
+
+                    // "in the event the tile's already planted, if the plant's withered then change the tile to dirt (instead of just grass)"
+                    case Condition.Planted:
+                        if(currentPlant == null)
+                        {
+                            // Plant reference lost - revert to tilled to prevent stuck state
+                            tileCondition = Condition.Tilled;
+                        }
+                        else if(currentPlant.currentState == PlantState.Withered)
+                        {
+                            tileCondition = Condition.Tilled;
+                            Destroy(currentPlant.gameObject);
+                            currentPlant = null;
+                        }
+
+                        break;
+
+                    case Condition.Grass:
+                        break;  
+
+>>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
                 }
                 else if(tileCondition == FarmTile.Condition.Watered) tileCondition = FarmTile.Condition.Tilled;
                 else if(tileCondition == FarmTile.Condition.Tilled) tileCondition = FarmTile.Condition.Grass;
