@@ -34,13 +34,20 @@ namespace Farming
         private int daysSinceLastInteraction = 0;
         public FarmTile.Condition GetCondition { get { return tileCondition; } }
 
+<<<<<<< HEAD
         [SerializeField] private PlantInventory counter;
+=======
+        private PlantInventory counter;
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
 
         void Start()
         {
             tileRenderer = GetComponent<MeshRenderer>();
             Debug.Assert(tileRenderer, "FarmTile requires a MeshRenderer");
+<<<<<<< HEAD
             // modified the for-loop so the transform "plantSpawn" doesn't cause errors in detecting mesh renders
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
             foreach (Transform edge in transform)
             {
                 MeshRenderer mesh = edge.GetComponent<MeshRenderer>();
@@ -48,6 +55,7 @@ namespace Farming
                 {
                     materials.Add(mesh.material);
                 }
+<<<<<<< HEAD
             }
         }
 
@@ -58,7 +66,16 @@ namespace Farming
             {
                 counter = FindFirstObjectByType<PlantInventory>();
                 Debug.Assert(counter != null, "[FarmTile] needs a reference to player's PlantInventory");
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
             }
+        }
+
+        // to check for the player's PlantInventory
+        private void Awake()
+        {
+            counter = FindFirstObjectByType<PlantInventory>();
+            Debug.Assert(counter, "[FarmTile] needs a reference to player's PlantInventory");
         }
 
 
@@ -283,6 +300,7 @@ namespace Farming
                 case FarmTile.Condition.Watered: tileRenderer.material = wateredMaterial; break;
                 // when planted, change the tile to the tilledMaterial; after harvest it'll change back to grassMaterial
                 case FarmTile.Condition.Planted:
+<<<<<<< HEAD
                     // Show wet or dry soil based on watered state
                     if (plantedMaterial != null)
                     {
@@ -292,6 +310,9 @@ namespace Farming
                     {
                         tileRenderer.material = isPlantedSoilWatered ? wateredMaterial : tilledMaterial;
                     }
+=======
+                    tileRenderer.material = plantedMaterial != null ? plantedMaterial : wateredMaterial;
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
                     break;
             }
         }
@@ -350,6 +371,7 @@ namespace Farming
                         break;
 
                     // "in the event the tile's already planted, if the plant's withered then change the tile to dirt (instead of just grass)"
+<<<<<<< HEAD
                     case Condition.Planted:
                         if(currentPlant == null)
                         {
@@ -363,12 +385,31 @@ namespace Farming
                             currentPlant = null;
                         }
 
+=======
+                    // note: this code runs only when the 
+                    case Condition.Planted:
+                        // "if the currentPlant still xists, check if it's withered"
+                        if(currentPlant != null) {
+                            // "if the currentPlant's state is withered, destroy it & set that tile to tilled / dirt"
+                            if(currentPlant.currentState == PlantState.Withered)
+                            {
+                                Debug.Log("[FarmTile] Plant has withered, turning into dirt");
+                                tileCondition = Condition.Tilled;
+                                Destroy(currentPlant.gameObject);
+                                currentPlant = null;
+                            }
+                        }
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
                         break;
 
                     case Condition.Grass:
                         break;  
 
+<<<<<<< HEAD
 >>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
+=======
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
                 }
                 else if(tileCondition == FarmTile.Condition.Watered) tileCondition = FarmTile.Condition.Tilled;
                 else if(tileCondition == FarmTile.Condition.Tilled) tileCondition = FarmTile.Condition.Grass;
@@ -379,6 +420,7 @@ namespace Farming
         }
 
         /// <summary>
+<<<<<<< HEAD
         /// Harvest a planted tile if the plant is mature. Returns true if harvest succeeded.
         /// Resets to grass and fires harvest event.
         /// </summary>
@@ -414,6 +456,48 @@ namespace Farming
             tileCondition = Condition.Tilled;
             isPlantedSoilWatered = false;
             daysSinceLastInteraction = 0;
+<<<<<<< HEAD
+=======
+=======
+        /// Harvest a planted tile. Resets to grass (provided plant is not withered) and fires harvest event.
+        /// </summary>
+        /// 
+        // note: [Ryan] modified / re-structured to handle withered plant cases
+        public void Harvest()
+        {
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+
+            if (tileCondition != Condition.Planted) {return;}
+            Debug.Log($"[FarmTile] Harvested {gameObject.name}!");
+            // should be removed, but just in-case will leave commented out
+            // Condition previousCondition = tileCondition;
+
+            // "if our plant exists, check its status to determine that tile's state"
+            if(currentPlant != null)
+            {
+                // "if the tile has a 'fresh' plant (i.e., not withered), add to our PlantInventory & set the tile to grass..."
+                if(currentPlant.currentState != PlantState.Withered) {
+                    counter.AddPlant(1);
+                    tileCondition = Condition.Grass;
+                
+                }
+                // "... else we assume the plant withered, so DON'T add that plant to the PlantInventory & set the tile to tilled / dirt" 
+                else
+                {
+                    Debug.Log("Withered plants don't sell for money at all!");
+                    tileCondition = Condition.Tilled;
+                }
+                // regardless of what kind of plant was harvested, show the player's plant count
+                Debug.Log("Plant Count: " + counter.PlantCount);
+                
+                // actually removing the plant & ensuring its reference is null
+                Destroy(currentPlant.gameObject);
+                currentPlant = null;
+            }
+
+            // since we interacted with the tile, regardless of outcome, reset our interaction check
+            daysSinceLastInteraction = 0;
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
             UpdateVisual();
             FarmingEvents.TileHarvested(this);
             
