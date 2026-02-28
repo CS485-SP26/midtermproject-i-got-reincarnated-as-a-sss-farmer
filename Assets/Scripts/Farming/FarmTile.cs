@@ -1,10 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Environment;
-using System.Numerics;
-using Unity.VisualScripting;
-using UnityEngine.Tilemaps;
-using System;
 
 namespace Farming 
 {
@@ -52,8 +48,9 @@ namespace Farming
 
 
         /// <summary>
-        /// Interact without water check (tilling only).
-        /// For watering, use InteractWithWater() instead.
+        /// General interaction with this farm tile using an optional water resource.
+        /// Tills grass tiles, waters tilled soil when water is available, and handles
+        /// plant watering/harvesting when a plant is present.
         /// </summary>
         public void Interact(Character.WaterResource waterResource)
         {
@@ -71,9 +68,9 @@ namespace Farming
                     // only waters if plant is not Mature or Withered state
                         if (currentPlant.currentState != PlantState.Mature && currentPlant.currentState != PlantState.Withered)
                         {
-                            if (waterResource != null)
+                            if (waterResource != null && currentPlant.TryWater() && waterResource.TryConsumeWater())
                             {
-                                currentPlant.TryWater();
+                                // watered successfully
                             }
                         }
 
@@ -118,9 +115,13 @@ namespace Farming
                 case FarmTile.Condition.Planted:
                     if (currentPlant != null)
                     {
-                        return currentPlant.TryWater();
+                        if (waterResource != null && currentPlant.TryWater() && waterResource.TryConsumeWater())
+                        {
+                            daysSinceLastInteraction = 0;
+                            return true;
+                        }
                     }
-                    return false; // Already planted
+                    return false; // Could not water planted tile
             }
             return false;
         }
@@ -144,8 +145,15 @@ namespace Farming
             // note: this *should* be a child of the respective farm tile, however the model "squishes" when I do & that shouldn't be happening
             if(plantPrefab)
             {
-                currentPlant = Instantiate(plantPrefab, plantSpawn.position, UnityEngine.Quaternion.identity);
-                //currentPlant.ChangeState(PlantState.Planted);
+                if (plantSpawn == null)
+                {
+                    Debug.LogWarning($"FarmTile '{name}' is missing a plantSpawn reference. Cannot instantiate plant prefab.", this);
+                }
+                else
+                {
+                    currentPlant = Instantiate(plantPrefab, plantSpawn.position, UnityEngine.Quaternion.identity);
+                    //currentPlant.ChangeState(PlantState.Planted);
+                }
             }
 
             FarmingEvents.TileFarmed(this, previousCondition, tileCondition);
@@ -249,9 +257,14 @@ namespace Farming
                         if(currentPlant == null) {tileCondition = Condition.Tilled;}
                         break;
 
-                    // "in the event the tile's already planted, if the plant's witheed then change the tile to dirt (instead of just grass)"
+                    // "in the event the tile's already planted, if the plant's withered then change the tile to dirt (instead of just grass)"
                     case Condition.Planted:
-                        if(currentPlant && currentPlant.currentState == PlantState.Withered)
+                        if(currentPlant == null)
+                        {
+                            // Plant reference lost - revert to tilled to prevent stuck state
+                            tileCondition = Condition.Tilled;
+                        }
+                        else if(currentPlant.currentState == PlantState.Withered)
                         {
                             tileCondition = Condition.Tilled;
                             Destroy(currentPlant.gameObject);

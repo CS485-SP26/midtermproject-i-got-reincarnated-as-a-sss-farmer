@@ -57,6 +57,7 @@ public class HotbarUI : MonoBehaviour
     {
         SetupCanvas();
         CreateHotbar();
+        RefreshDisplays(); // Populate displays with actual values now that UI exists
         SelectSlot(0); // Start with watering can selected
     }
 
@@ -148,7 +149,6 @@ public class HotbarUI : MonoBehaviour
 
         waterCountText = CreateSlotLabel(wateringCanSlot.transform, "Water Count",
             new Color(0.4f, 0.8f, 1f), new Vector2(0f, 25f));
-        waterCountText.text = "10";
 
         // =============================
         // SLOT 2 — SEEDS (right)
@@ -162,7 +162,6 @@ public class HotbarUI : MonoBehaviour
 
         seedCountText = CreateSlotLabel(seedSlot.transform, "Seed Count",
             new Color(0.6f, 0.9f, 0.3f), new Vector2(0f, 25f));
-        seedCountText.text = "5";
 
         // =============================
         // MONEY DISPLAY (top right)
