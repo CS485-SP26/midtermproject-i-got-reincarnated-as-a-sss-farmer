@@ -76,12 +76,15 @@ namespace Farming
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> d3dc40d (Modified Planting & Harvesting Logic [RM])
 =======
 >>>>>>> 8ac7de1 (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
 =======
 >>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
             // Only grow if the plant has been watered and hasn't reached Mature or Withered yet
             if (isWatered && (currentState == PlantState.Planted || currentState == PlantState.Growing))
 =======
@@ -167,12 +170,16 @@ namespace Farming
             if (currentState == PlantState.Planted || currentState == PlantState.Growing)
             {
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if (autoGrownStages < growthStagesAutoGrow)
 =======
                 timer -= Time.deltaTime;
 
                 if (timer <= 0f && (autoGrownStages < growthStagesAutoGrow || watered))
 >>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
+=======
+                if (autoGrownStages < growthStagesAutoGrow)
+>>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
                 {
                     timer -= Time.deltaTime;
 
@@ -192,10 +199,15 @@ namespace Farming
                     waterReminderIcon.SetActive(true);
             }
 
+<<<<<<< HEAD
             // wither after 60 seconds if not watered and not yet mature
             if (totalLifetime >= 60f && !watered &&
                 currentState != PlantState.Mature &&
                 currentState != PlantState.Withered)
+=======
+            // wither after 60 seconds if not watered
+            if (totalLifetime >= 60f && !watered)
+>>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
             {
                 ChangeState(PlantState.Withered);
 >>>>>>> 7545cdd (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)

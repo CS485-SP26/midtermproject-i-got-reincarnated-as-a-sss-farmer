@@ -125,6 +125,7 @@ namespace Farming
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         /// Interact with this farm tile using an optional water resource.
         /// May till grass, consume water to water tilled soil or plants, and harvest mature plants.
 =======
@@ -137,15 +138,23 @@ namespace Farming
         /// Tills grass tiles, waters tilled soil when water is available, and handles
         /// plant watering/harvesting when a plant is present.
 =======
+        /// General interaction with this farm tile using an optional water resource.
+        /// Tills grass tiles, waters tilled soil when water is available, and handles
+        /// plant watering/harvesting when a plant is present.
+>>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
+=======
         /// Interact with this farm tile using an optional water resource.
         /// May till grass, consume water to water tilled soil or plants, and harvest mature plants.
 >>>>>>> 7545cdd (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
+<<<<<<< HEAD
 >>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
 =======
         /// General interaction with this farm tile using an optional water resource.
         /// Tills grass tiles, waters tilled soil when water is available, and handles
         /// plant watering/harvesting when a plant is present.
 >>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
+=======
+>>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
         /// </summary>
         public void Interact(Character.WaterResource waterResource)
         {
@@ -298,12 +307,16 @@ namespace Farming
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
+=======
+>>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
             Vector3 spawnPosition = plantSpawn != null ? plantSpawn.position : transform.position;
             currentPlant = Instantiate(plantPrefab, spawnPosition, UnityEngine.Quaternion.identity);
             currentPlant.ChangeState(PlantState.Planted);
 >>>>>>> a1d5ff0 (Apply PR review feedback to FarmTile.cs)
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
             if(plantPrefab)
@@ -368,6 +381,8 @@ namespace Farming
 =======
 =======
 =======
+>>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
+=======
             if(plantPrefab)
             {
                 Vector3 spawnPosition;
@@ -383,10 +398,13 @@ namespace Farming
                 currentPlant = Instantiate(plantPrefab, spawnPosition, UnityEngine.Quaternion.identity);
             }
 >>>>>>> 7545cdd (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
+<<<<<<< HEAD
 >>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
 >>>>>>> 8ac7de1 (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
 =======
 >>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
+=======
+>>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
 
             FarmingEvents.TileFarmed(this, previousCondition, tileCondition);
             return true;
