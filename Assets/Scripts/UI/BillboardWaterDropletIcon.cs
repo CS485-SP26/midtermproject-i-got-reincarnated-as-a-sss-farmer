@@ -1,23 +1,10 @@
 using UnityEngine;
 
-public class BillboardWaterDropletIcon : MonoBehaviour
+public class Billboard : MonoBehaviour
 {
-    private Transform _cameraTransform;
-
-    private void Awake()
-    {
-        Camera mainCamera = Camera.main;
-        if (mainCamera != null)
-        {
-            _cameraTransform = mainCamera.transform;
-        }
-    }
-
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void LateUpdate()
     {
-        if (_cameraTransform != null)
-        {
-            transform.forward = _cameraTransform.forward;
-        }
+        transform.forward = Camera.main.transform.forward;
     }
 }
