@@ -2736,6 +2736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ShopPodium
 <<<<<<< HEAD
+<<<<<<< HEAD
   itemType: 3
   itemName: Plant
   itemCost: 5
@@ -2747,6 +2748,13 @@ MonoBehaviour:
   itemCost: 5
   itemAmount: 1
 >>>>>>> 09e192b (added the sell desk to the shop scene and edited the ShopPodium.cs script to allow selling plants based off plant inventory count which is gathered from PlantInventory.cs which should be attached to player. PlantCount is increased from FarmTile.cs)
+=======
+  itemType: 3
+  itemName: Plant
+  itemCost: 5
+  itemAmount: 1
+  plantSellPrice: 15
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   interactKey: 20
   triggerOffset: {x: 0.03, y: 0.06, z: -0.92}
   triggerRadius: 1.5
