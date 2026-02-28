@@ -39,6 +39,7 @@ namespace Farming
         {
             tileRenderer = GetComponent<MeshRenderer>();
             Debug.Assert(tileRenderer, "FarmTile requires a MeshRenderer");
+            // modified the for-loop so the transform "plantSpawn" doesn't cause errors in detecting mesh renders
             foreach (Transform edge in transform)
             {
                 MeshRenderer mesh = edge.GetComponent<MeshRenderer>();
@@ -355,7 +356,7 @@ namespace Farming
                         break;
 
                     // "in the event the tile's already planted, if the plant's withered then change the tile to dirt (instead of just grass)"
-                    // note: this code runs only when the tile has gone at least two days without interaction
+                    // note: this code runs only when the days passed
                     case Condition.Planted:
                         // "if the currentPlant still exists, check if it's withered"
                         if(currentPlant != null) {
