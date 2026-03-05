@@ -9,10 +9,6 @@ namespace Farming
         public enum Condition { Grass, Tilled, Watered, Planted }
 
         [SerializeField] private Condition tileCondition = Condition.Grass; 
-        // our plant object
-        [SerializeField] private Plant plantPrefab;
-        // reference to the actual plant object
-        private Plant currentPlant;
         [SerializeField] private Transform plantSpawn;
 
 
