@@ -9,6 +9,11 @@ namespace Farming
         public enum Condition { Grass, Tilled, Watered, Planted }
 
         [SerializeField] private Condition tileCondition = Condition.Grass; 
+<<<<<<< HEAD
+=======
+        [SerializeField] private Transform plantSpawn;
+
+>>>>>>> eb142f3 (Remove plantPrefab and currentPlant from FarmTile)
 
         [Header("Visuals")]
         [SerializeField] private Material grassMaterial;
