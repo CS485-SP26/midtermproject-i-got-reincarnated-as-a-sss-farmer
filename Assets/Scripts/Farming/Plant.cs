@@ -77,6 +77,7 @@ namespace Farming
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> d3dc40d (Modified Planting & Harvesting Logic [RM])
 =======
@@ -85,12 +86,17 @@ namespace Farming
 >>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
 =======
 >>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
+=======
+=======
+<<<<<<< HEAD
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
             // Only grow if the plant has been watered and hasn't reached Mature or Withered yet
             if (isWatered && (currentState == PlantState.Planted || currentState == PlantState.Growing))
 =======
             // changed so the plants can now wither (will be needed as withered plants shouldn't increment the plantInventory counter)
             if (currentState == PlantState.Planted || currentState == PlantState.Growing || currentState == PlantState.Mature)
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 =======
@@ -103,6 +109,8 @@ namespace Farming
 >>>>>>> d3dc40d (Modified Planting & Harvesting Logic [RM])
 =======
 >>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
             {
                 waterable = true;
             }
@@ -110,6 +118,44 @@ namespace Farming
             // only auto-grows for the randomly selected number of stages, then requires watering
             if (currentState == PlantState.Planted || currentState == PlantState.Growing)
 >>>>>>> 553f965 (Small change to Part 10 and additions for Part 11)
+            {
+<<<<<<< HEAD
+                if (autoGrownStages < growthStagesAutoGrow)
+=======
+                timer -= Time.deltaTime;
+
+                if (timer <= 0f && (autoGrownStages < growthStagesAutoGrow || watered))
+<<<<<<< HEAD
+>>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
+                {
+                    timer -= Time.deltaTime;
+
+                    if (timer <= 0f)
+                    {
+                        Grow();
+                        autoGrownStages++;
+                        timer = 15f; // reset timer for the next stage
+                    }
+                }
+            }
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+            // Only grow if the plant has been watered and hasn't reached Mature or Withered yet
+            if (isWatered && (currentState == PlantState.Planted || currentState == PlantState.Growing))
+=======
+            // changed so the plants can now wither (will be needed as withered plants shouldn't increment the plantInventory counter)
+            if (currentState == PlantState.Planted || currentState == PlantState.Growing || currentState == PlantState.Mature)
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+            {
+                waterable = true;
+            }
+
+            // only auto-grows for the randomly selected number of stages, then requires watering
+            if (currentState == PlantState.Planted || currentState == PlantState.Growing)
             {
 <<<<<<< HEAD
                 if (autoGrownStages < growthStagesAutoGrow)
@@ -129,6 +175,7 @@ namespace Farming
                     }
                 }
             }
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
 
             // show reminder at 30 seconds, but only while the plant still needs watering
             if (totalLifetime >= 30f && !watered && (currentState == PlantState.Planted || currentState == PlantState.Growing))
@@ -171,6 +218,7 @@ namespace Farming
             {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 if (autoGrownStages < growthStagesAutoGrow)
 =======
                 timer -= Time.deltaTime;
@@ -180,6 +228,9 @@ namespace Farming
 =======
                 if (autoGrownStages < growthStagesAutoGrow)
 >>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
+=======
+                if (autoGrownStages < growthStagesAutoGrow)
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
                 {
                     timer -= Time.deltaTime;
 
@@ -200,6 +251,7 @@ namespace Farming
             }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
             // wither after 60 seconds if not watered and not yet mature
             if (totalLifetime >= 60f && !watered &&
                 currentState != PlantState.Mature &&
@@ -210,10 +262,74 @@ namespace Farming
 >>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
             {
                 ChangeState(PlantState.Withered);
+=======
+            // wither after 60 seconds if not watered
+            if (totalLifetime >= 60f && !watered)
+            {
+                ChangeState(PlantState.Withered);
+<<<<<<< HEAD
+=======
+            }
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+        }
+        
+        /// <summary>
+        /// Set the watered state of the plant. Plant will only grow when watered.
+        /// </summary>
+        public void SetWatered(bool watered)
+        {
+            bool wasWatered = isWatered;
+            isWatered = watered;
+            if (watered && !wasWatered)
+            {
+                Debug.Log($"[Plant] Plant watered - growth started!");
+=======
+
+            totalLifetime += Time.deltaTime;
+
+            // first 15 seconds, cannot water plant, let it grow naturally
+            if (totalLifetime >= 15)
+            {
+                waterable = true;
+            }
+
+            // only auto-grows for the randomly selected number of stages, then requires watering
+            if (currentState == PlantState.Planted || currentState == PlantState.Growing)
+            {
+                if (autoGrownStages < growthStagesAutoGrow)
+                {
+                    timer -= Time.deltaTime;
+
+                    if (timer <= 0f)
+                    {
+                        Grow();
+                        autoGrownStages++;
+                        timer = 15f; // reset timer for the next stage
+                    }
+                }
+            }
+
+            // show reminder at 30 seconds, but only while the plant still needs watering
+            if (totalLifetime >= 30f && !watered && (currentState == PlantState.Planted || currentState == PlantState.Growing))
+            {
+                if (waterReminderIcon)
+                    waterReminderIcon.SetActive(true);
+            }
+
+            // wither after 60 seconds if not watered
+            if (totalLifetime >= 60f && !watered)
+            {
+                ChangeState(PlantState.Withered);
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
 >>>>>>> 7545cdd (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
             }
         }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
         public bool TryWater()
         {
             // for when you can't water in the first 15s or already watered or withered
@@ -245,6 +361,11 @@ namespace Farming
             return true;
         }       
 
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
         void Grow()
         {
             if (currentState == PlantState.Planted)
