@@ -12,6 +12,7 @@ namespace Character
         WaterResource waterResource;
         EnergyResource energyResource;
         SeedInventory seedInventory;
+        PlantInventory plantInventory;
 
         bool isWateringActive; // prevents multi-drain per animation
         float wateringStartTime;
@@ -24,6 +25,7 @@ namespace Character
             waterResource = GetComponent<WaterResource>();
             energyResource = GetComponent<EnergyResource>();
             seedInventory = GetComponent<SeedInventory>();
+            plantInventory = GetComponent<PlantInventory>();
 
             if (selectorManager == null)
                 selectorManager = GetComponent<SelectorManager>();
@@ -41,6 +43,9 @@ namespace Character
 
             if (!seedInventory)
                 Debug.LogWarning("No SeedInventory found on Player - planting will be unavailable.");
+                
+            if (!plantInventory)
+                Debug.LogWarning("No PlantInventory found on Player - harvesting will be unavailable.");
         }
 
         void OnEnable()
@@ -123,31 +128,50 @@ namespace Character
                 selectedTool = HotbarUI.Instance.SelectedTool;
             }
 
-            // SEEDS: Plant on watered tiles
+            // SEEDS: Plant on tilled or watered tiles only (no harvesting)
             if (selectedTool == HotbarUI.ToolType.Seeds)
             {
-                if (tile.GetCondition == FarmTile.Condition.Watered && seedInventory != null && seedInventory.HasSeeds)
+                if ((tile.GetCondition == FarmTile.Condition.Tilled || tile.GetCondition == FarmTile.Condition.Watered) 
+                    && seedInventory != null && seedInventory.HasSeeds)
                 {
                     tile.Plant(seedInventory);
                 }
-                else if (tile.GetCondition != FarmTile.Condition.Watered)
+                else if (tile.GetCondition == FarmTile.Condition.Planted)
                 {
-                    Debug.Log("[PlayerFarmingController] Seeds can only be planted on watered tiles!");
+                    Debug.Log("[PlayerFarmingController] Can't plant on planted tiles! Use harvest tool (key 3) to harvest.");
+                }
+                else if (tile.GetCondition != FarmTile.Condition.Tilled && tile.GetCondition != FarmTile.Condition.Watered)
+                {
+                    Debug.Log("[PlayerFarmingController] Seeds can only be planted on tilled or watered tiles!");
                 }
                 return;
             }
 
-            // WATERING CAN: Till grass, water tilled land, harvest planted tiles
-            if (selectedTool == HotbarUI.ToolType.WateringCan)
+            // HARVEST TOOL: Harvest mature plants
+            if (selectedTool == HotbarUI.ToolType.HarvestTool)
             {
-                // Handle harvesting planted tiles
                 if (tile.GetCondition == FarmTile.Condition.Planted)
                 {
-                    tile.Harvest();
-                    Debug.Log("[PlayerFarmingController] Harvested planted tile");
-                    return;
+                    // Try to harvest if the plant is mature
+                    if (tile.Harvest(plantInventory))
+                    {
+                        Debug.Log("[PlayerFarmingController] Harvested mature plant!");
+                    }
+                    else
+                    {
+                        Debug.Log("[PlayerFarmingController] Plant is not ready to harvest yet!");
+                    }
                 }
-                
+                else
+                {
+                    Debug.Log("[PlayerFarmingController] No plant to harvest!");
+                }
+                return;
+            }
+
+            // WATERING CAN: Till grass, water tilled land, water planted tiles
+            if (selectedTool == HotbarUI.ToolType.WateringCan)
+            {
                 // Check if action requires energy (tilling grass)
                 bool requiresEnergy = tile.GetCondition == FarmTile.Condition.Grass;
                 
@@ -171,7 +195,7 @@ namespace Character
                 bool success = tile.InteractWithWater(waterResource);
                 Debug.Log($"[PlayerFarmingController] Watering can interaction - Success: {success}, Tile condition: {tile.GetCondition}");
 
-                if (success && tile.GetCondition == FarmTile.Condition.Watered)
+                if (success && (tile.GetCondition == FarmTile.Condition.Watered || tile.GetCondition == FarmTile.Condition.Planted))
                 {
                     TryWater();
                 }

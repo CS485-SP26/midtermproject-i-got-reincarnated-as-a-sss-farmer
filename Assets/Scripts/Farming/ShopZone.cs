@@ -30,6 +30,7 @@ public class ShopZone : MonoBehaviour
         // Search from the root of the player hierarchy for WaterResource
         Transform root = other.transform.root;
         WaterResource water = root.GetComponentInChildren<WaterResource>();
+        PlantInventory plants = root.GetComponentInChildren<PlantInventory>();
         
         // PlayerEconomy may be on a separate GameObject, so search the entire scene
         PlayerEconomy economy = FindFirstObjectByType<PlayerEconomy>();
@@ -38,10 +39,12 @@ public class ShopZone : MonoBehaviour
             Debug.LogWarning($"[ShopZone] No WaterResource found in {root.name} hierarchy.");
         if (economy == null)
             Debug.LogWarning($"[ShopZone] No PlayerEconomy found in scene.");
+        if (plants == null)
+            Debug.LogWarning($"[ShopZone] No PlantInventory found in {root.name} hierarchy.");
 
         if (water != null)
         {
-            shopUI?.OpenShop(water, economy);
+            shopUI?.OpenShop(water, economy, plants);
         }
     }
 

@@ -11,7 +11,7 @@ using Farming;
 /// </summary>
 public class HotbarUI : MonoBehaviour
 {
-    public enum ToolType { WateringCan = 0, Seeds = 1 }
+    public enum ToolType { WateringCan = 0, Seeds = 1, HarvestTool = 2 }
 
     private static HotbarUI instance;
     public static HotbarUI Instance => instance;
@@ -19,6 +19,7 @@ public class HotbarUI : MonoBehaviour
     [SerializeField] private Canvas hotbarCanvas;
     [SerializeField] private Texture2D wateringCanTexture; // Art/UI/Adament_Watering_can.webp
     [SerializeField] private Texture2D seedTexture;        // Art/UI/seeds.png
+    [SerializeField] private Texture2D plantTexture;       // For harvested plants icon
     
     [Header("Sizing")]
     [SerializeField] private float iconSize = 64f;
@@ -30,13 +31,17 @@ public class HotbarUI : MonoBehaviour
     private TextMeshProUGUI moneyText;
     private Image seedImage;
     private TextMeshProUGUI seedCountText;
+    private Image plantImage;
+    private TextMeshProUGUI plantCountText;
 
     // Tool selection
-    private int selectedSlot = 0; // 0 = watering can, 1 = seeds
+    private int selectedSlot = 0; // 0 = watering can, 1 = seeds, 2 = harvest tool
     private GameObject wateringCanSlot;
     private GameObject seedSlot;
+    private GameObject plantSlot;
     private Image wateringCanBorder;
     private Image seedBorder;
+    private Image plantBorder;
 
     public ToolType SelectedTool => (ToolType)selectedSlot;
 
@@ -74,6 +79,10 @@ public class HotbarUI : MonoBehaviour
             {
                 SelectSlot(1);
             }
+            else if (Keyboard.current[Key.Digit3].wasPressedThisFrame || Keyboard.current[Key.Numpad3].wasPressedThisFrame)
+            {
+                SelectSlot(2);
+            }
         }
     }
 
@@ -82,6 +91,7 @@ public class HotbarUI : MonoBehaviour
         WaterResource.OnWaterChanged += UpdateWaterDisplay;
         PlayerEconomy.OnMoneyChanged += UpdateMoneyDisplay;
         SeedInventory.OnSeedsChanged += UpdateSeedDisplay;
+        PlantInventory.OnPlantsChanged += UpdatePlantDisplay;
         
         // Request initial values after subscribing
         RefreshDisplays();
@@ -92,6 +102,7 @@ public class HotbarUI : MonoBehaviour
         WaterResource.OnWaterChanged -= UpdateWaterDisplay;
         PlayerEconomy.OnMoneyChanged -= UpdateMoneyDisplay;
         SeedInventory.OnSeedsChanged -= UpdateSeedDisplay;
+        PlantInventory.OnPlantsChanged -= UpdatePlantDisplay;
     }
 
     void SetupCanvas()
@@ -118,7 +129,7 @@ public class HotbarUI : MonoBehaviour
         float slotWidth  = iconSize + 40f;
         float slotHeight = iconSize + 50f;
         float slotSpacing = 8f;
-        int   slotCount  = 2;
+        int   slotCount  = 3; // Updated to 3 slots (watering can, seeds, harvested plants)
         float totalWidth = slotWidth * slotCount + slotSpacing * (slotCount - 1);
 
         // =============================
@@ -140,7 +151,7 @@ public class HotbarUI : MonoBehaviour
         // =============================
         // SLOT 1 — WATERING CAN (left)
         // =============================
-        float leftX = -(slotWidth * 0.5f + slotSpacing * 0.5f);
+        float leftX = -(slotWidth + slotSpacing);
         
         wateringCanSlot = CreateSlotContainer(hotbarObj.transform, "Watering Can Slot", new Vector2(leftX, 0f), slotWidth, slotHeight, out wateringCanBorder);
         
@@ -151,17 +162,30 @@ public class HotbarUI : MonoBehaviour
             new Color(0.4f, 0.8f, 1f), new Vector2(0f, 25f));
 
         // =============================
-        // SLOT 2 — SEEDS (right)
+        // SLOT 2 — SEEDS (middle)
         // =============================
-        float rightX = slotWidth * 0.5f + slotSpacing * 0.5f;
         
-        seedSlot = CreateSlotContainer(hotbarObj.transform, "Seed Slot", new Vector2(rightX, 0f), slotWidth, slotHeight, out seedBorder);
+        seedSlot = CreateSlotContainer(hotbarObj.transform, "Seed Slot", new Vector2(0f, 0f), slotWidth, slotHeight, out seedBorder);
         
         seedImage = CreateSlotIcon(seedSlot.transform, "Seed Icon",
             seedTexture, new Color(0.4f, 0.8f, 0.2f, 1f), new Vector2(0f, -5f));
 
         seedCountText = CreateSlotLabel(seedSlot.transform, "Seed Count",
             new Color(0.6f, 0.9f, 0.3f), new Vector2(0f, 25f));
+
+        // =============================
+        // SLOT 3 — HARVESTED PLANTS (right)
+        // =============================
+        float rightX = slotWidth + slotSpacing;
+        
+        plantSlot = CreateSlotContainer(hotbarObj.transform, "Plant Slot", new Vector2(rightX, 0f), slotWidth, slotHeight, out plantBorder);
+        
+        plantImage = CreateSlotIcon(plantSlot.transform, "Plant Icon",
+            plantTexture, new Color(0.9f, 0.5f, 0.2f, 1f), new Vector2(0f, -5f));
+
+        plantCountText = CreateSlotLabel(plantSlot.transform, "Plant Count",
+            new Color(0.9f, 0.7f, 0.3f), new Vector2(0f, 25f));
+        plantCountText.text = "0";
 
         // =============================
         // MONEY DISPLAY (top right)
@@ -280,6 +304,8 @@ public class HotbarUI : MonoBehaviour
             wateringCanBorder.enabled = (slotIndex == 0);
         if (seedBorder != null)
             seedBorder.enabled = (slotIndex == 1);
+        if (plantBorder != null)
+            plantBorder.enabled = (slotIndex == 2);
 
         Debug.Log($"[HotbarUI] Selected tool: {(ToolType)slotIndex}");
     }
@@ -317,6 +343,17 @@ public class HotbarUI : MonoBehaviour
         }
     }
     
+    void UpdatePlantDisplay(int count)
+    {
+        if (plantCountText != null)
+        {
+            plantCountText.text = count.ToString();
+            plantCountText.color = count > 0
+                ? new Color(0.9f, 0.7f, 0.3f)   // orange — plants available
+                : new Color(0.5f, 0.5f, 0.5f);  // gray — no plants
+        }
+    }
+    
     void RefreshDisplays()
     {
         // Find and request current values from all systems
@@ -333,6 +370,12 @@ public class HotbarUI : MonoBehaviour
             if (seedInventory != null)
             {
                 UpdateSeedDisplay(seedInventory.CurrentSeeds);
+            }
+            
+            var plantInventory = player.GetComponent<Farming.PlantInventory>();
+            if (plantInventory != null)
+            {
+                UpdatePlantDisplay(plantInventory.CurrentPlants);
             }
         }
         
