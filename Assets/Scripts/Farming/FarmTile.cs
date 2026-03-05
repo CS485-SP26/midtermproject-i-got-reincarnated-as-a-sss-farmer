@@ -93,6 +93,7 @@ namespace Farming
         /// <summary>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         /// Interact with this farm tile using an optional water resource.
         /// May till grass, consume water to water tilled soil or plants, and harvest mature plants.
 =======
@@ -109,6 +110,19 @@ namespace Farming
         /// May till grass, consume water to water tilled soil or plants, and harvest mature plants.
 >>>>>>> 7545cdd (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
 >>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
+=======
+        /// General interaction with this farm tile using an optional water resource.
+        /// Tills grass tiles, waters tilled soil when water is available, and handles
+        /// plant watering/harvesting when a plant is present.
+=======
+        /// Interact with this farm tile using an optional water resource.
+        /// May till grass, consume water to water tilled soil or plants, and harvest mature plants.
+>>>>>>> 7545cdd (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
+=======
+        /// Interact with this farm tile using an optional water resource.
+        /// May till grass, consume water to water tilled soil or plants, and harvest mature plants.
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
         /// </summary>
         public void Interact(Character.WaterResource waterResource)
         {
@@ -227,11 +241,16 @@ namespace Farming
             daysSinceLastInteraction = 0;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
             // Spawn the plant object
             SpawnPlant(wasWatered);
 =======
             // creating a Plant object relative to that tile's position (using the tile's plantSpawn)
             // note: this *should* be a child of the respective farm tile, however the model "squishes" when I do & that shouldn't be happening
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             if(plantPrefab)
@@ -250,13 +269,18 @@ namespace Farming
 =======
 =======
 >>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
+=======
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
             Vector3 spawnPosition = plantSpawn != null ? plantSpawn.position : transform.position;
             currentPlant = Instantiate(plantPrefab, spawnPosition, UnityEngine.Quaternion.identity);
             currentPlant.ChangeState(PlantState.Planted);
 >>>>>>> a1d5ff0 (Apply PR review feedback to FarmTile.cs)
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
 =======
+=======
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
 =======
             if(plantPrefab)
             {
@@ -273,7 +297,14 @@ namespace Farming
                 currentPlant = Instantiate(plantPrefab, spawnPosition, UnityEngine.Quaternion.identity);
             }
 >>>>>>> 7545cdd (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
+<<<<<<< HEAD
 >>>>>>> 4e4296b (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
+=======
+=======
+            // Spawn the plant object
+            SpawnPlant(wasWatered);
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
 
             FarmingEvents.TileFarmed(this, previousCondition, tileCondition);
             return true;
@@ -419,6 +450,12 @@ namespace Farming
                 if(tileCondition == FarmTile.Condition.Planted)
                 {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
                     // Destroy the plant if tile is reverting
                     if (currentPlant != null)
                     {
@@ -427,6 +464,10 @@ namespace Farming
                     }
                     isPlantedSoilWatered = false;
                     tileCondition = FarmTile.Condition.Grass;
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
 =======
                     case Condition.Tilled:
                         if(currentPlant == null) {tileCondition = Condition.Grass;}
@@ -438,6 +479,7 @@ namespace Farming
                         break;
 
                     // "in the event the tile's already planted, if the plant's withered then change the tile to dirt (instead of just grass)"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -460,11 +502,16 @@ namespace Farming
                     // note: this code runs only when the tile has gone at least two days without interaction
 >>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
 =======
+=======
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
                     // note: this code runs only when the tile has gone at least two days without interaction
 =======
                     // note: this code runs only when the days passed
 >>>>>>> f9fffec (Confirmation of Merge with Salvador's Branch)
+<<<<<<< HEAD
 >>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+=======
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
                     case Condition.Planted:
                         // "if the currentPlant still exists, check if it's withered"
                         if(currentPlant != null) {
@@ -478,29 +525,40 @@ namespace Farming
                             }
                         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
 =======
+=======
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
                         else
                         {
                             // Plant reference lost (e.g., destroyed externally); revert tile to tilled
                             tileCondition = Condition.Tilled;
                         }
+<<<<<<< HEAD
 >>>>>>> 30ea09b (Apply PR review feedback to FarmTile.cs)
+=======
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
                         break;
 
                     case Condition.Grass:
                         break;  
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 44c1d0a (Address PR review comments: fix bugs in Plant, FarmTile, BillboardWaterDropletIcon, HotbarUI)
 =======
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
 >>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
                 }
                 else if(tileCondition == FarmTile.Condition.Watered) tileCondition = FarmTile.Condition.Tilled;
                 else if(tileCondition == FarmTile.Condition.Tilled) tileCondition = FarmTile.Condition.Grass;
             }
-            
             UpdateVisual();
             
         }
@@ -544,7 +602,10 @@ namespace Farming
             daysSinceLastInteraction = 0;
 <<<<<<< HEAD
 =======
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
         /// Harvest a planted tile. Resets to grass (provided plant is not withered) and fires harvest event.
         /// </summary>
         /// 
@@ -586,7 +647,12 @@ namespace Farming
 
             // since we interacted with the tile, regardless of outcome, reset our interaction check
             daysSinceLastInteraction = 0;
+<<<<<<< HEAD
 >>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+=======
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
             UpdateVisual();
             FarmingEvents.TileHarvested(this);
             

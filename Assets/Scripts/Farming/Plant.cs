@@ -19,24 +19,6 @@ namespace Farming
         private float timer;
         private bool isWatered = false; // Plant needs to be watered to start growing
 
-        [Header("Watering Plant Logic")]
-        public GameObject waterReminderIcon;
-
-        private float totalLifetime;
-        private bool waterable = false;
-
-        private bool watered = false;
-        private int growthStagesAutoGrow;
-        private int autoGrownStages = 0;
-
-
-
-    // Here's what I'm trying to go for with the plant growth logic, copied from my message to Ryan:
-    // I think maybe when you first plant, for the first 15 seconds you can’t add water, and the plant can grow 1-2 stages on its own.
-    // Maybe 15 seconds per stage, but will require extra water to reach the final stage. If it isn’t watered after a minute, it’ll wither. 
-    // And maybe after the 30 second mark, we spawn like a water droplet png on top of the plant to remind it to be watered, like zen garden in pvz.
-    // - Salvador
-
         void Start()
         {
             Initialize();
@@ -59,6 +41,26 @@ namespace Farming
         {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+            // Only grow if the plant has been watered and hasn't reached Mature or Withered yet
+            if (isWatered && (currentState == PlantState.Planted || currentState == PlantState.Growing))
+=======
+            // changed so the plants can now wither (will be needed as withered plants shouldn't increment the plantInventory counter)
+            if (currentState == PlantState.Planted || currentState == PlantState.Growing || currentState == PlantState.Mature)
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+            {
+                timer -= Time.deltaTime;
+
+                if (timer <= 0f && (autoGrownStages < growthStagesAutoGrow || watered))
+                {
+                    Grow();
+                    timer = timeToNextStage; // Reset timer for the next stage
+                }
+            }
+=======
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
             // Only grow if the plant has been watered and hasn't reached Mature or Withered yet
             if (isWatered && (currentState == PlantState.Planted || currentState == PlantState.Growing))
 =======
@@ -154,10 +156,65 @@ namespace Farming
             if (totalLifetime >= 60f && !watered)
             {
                 ChangeState(PlantState.Withered);
+<<<<<<< HEAD
+=======
+            }
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+        }
+        
+        /// <summary>
+        /// Set the watered state of the plant. Plant will only grow when watered.
+        /// </summary>
+        public void SetWatered(bool watered)
+        {
+            bool wasWatered = isWatered;
+            isWatered = watered;
+            if (watered && !wasWatered)
+            {
+                Debug.Log($"[Plant] Plant watered - growth started!");
+=======
+
+            totalLifetime += Time.deltaTime;
+
+            // first 15 seconds, cannot water plant, let it grow naturally
+            if (totalLifetime >= 15)
+            {
+                waterable = true;
+            }
+
+            // only auto-grows for the randomly selected number of stages, then requires watering
+            if (currentState == PlantState.Planted || currentState == PlantState.Growing)
+            {
+                if (autoGrownStages < growthStagesAutoGrow)
+                {
+                    timer -= Time.deltaTime;
+
+                    if (timer <= 0f)
+                    {
+                        Grow();
+                        autoGrownStages++;
+                        timer = 15f; // reset timer for the next stage
+                    }
+                }
+            }
+
+            // show reminder at 30 seconds, but only while the plant still needs watering
+            if (totalLifetime >= 30f && !watered && (currentState == PlantState.Planted || currentState == PlantState.Growing))
+            {
+                if (waterReminderIcon)
+                    waterReminderIcon.SetActive(true);
+            }
+
+            // wither after 60 seconds if not watered
+            if (totalLifetime >= 60f && !watered)
+            {
+                ChangeState(PlantState.Withered);
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
 >>>>>>> 7545cdd (Apply PR review feedback: null safety, operator precedence, billboard class name, seed count init)
             }
         }
 
+<<<<<<< HEAD
         public bool TryWater()
         {
             // for when you can't water in the first 15s or already watered or withered
@@ -189,6 +246,8 @@ namespace Farming
             return true;
         }       
 
+=======
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
         void Grow()
         {
             if (currentState == PlantState.Planted)
