@@ -231,6 +231,13 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5784181}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
 --- !u!1 &19903954
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +269,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 621895049}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9733853 (minimap and plants merged)
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
 --- !u!1 &22227625
 GameObject:
   m_ObjectHideFlags: 0
@@ -2701,6 +2716,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 315949135}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
+=======
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
 --- !u!1 &316771452
 GameObject:
   m_ObjectHideFlags: 0
@@ -2827,6 +2853,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a932991b74f4c7c43b8d58d4faca8582, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Billboard
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
 --- !u!1 &326990968
 GameObject:
   m_ObjectHideFlags: 0
@@ -2883,7 +2922,29 @@ Transform:
   m_GameObject: {fileID: 349927077}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
+=======
+  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+<<<<<<< HEAD
+=======
+  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_LocalScale: {x: 0.5, y: 10, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3042,10 +3103,37 @@ Transform:
   - {fileID: 543114693}
   - {fileID: 1720796704}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  - {fileID: 1201180667}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   - {fileID: 1466921172}
 =======
   - {fileID: 1201180667}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  - {fileID: 1466921172}
+=======
+  - {fileID: 1201180667}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  - {fileID: 1201180667}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &383629374
@@ -3063,10 +3151,37 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  plantSpawn: {fileID: 1201180667}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   plantSpawn: {fileID: 1466921172}
 =======
   plantSpawn: {fileID: 1201180667}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  plantSpawn: {fileID: 1466921172}
+=======
+  plantSpawn: {fileID: 1201180667}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  plantSpawn: {fileID: 1201180667}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -3647,10 +3762,37 @@ Transform:
   - {fileID: 78836006}
   - {fileID: 372587994}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  - {fileID: 1713704098}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   - {fileID: 1590805487}
 =======
   - {fileID: 1713704098}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  - {fileID: 1590805487}
+=======
+  - {fileID: 1713704098}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  - {fileID: 1713704098}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &400642160
@@ -3668,10 +3810,37 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  plantSpawn: {fileID: 1713704098}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   plantSpawn: {fileID: 1590805487}
 =======
   plantSpawn: {fileID: 1713704098}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  plantSpawn: {fileID: 1590805487}
+=======
+  plantSpawn: {fileID: 1713704098}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  plantSpawn: {fileID: 1713704098}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -4217,10 +4386,37 @@ Transform:
   - {fileID: 52824239}
   - {fileID: 1295579208}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  - {fileID: 1260232420}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   - {fileID: 831865423}
 =======
   - {fileID: 1260232420}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  - {fileID: 831865423}
+=======
+  - {fileID: 1260232420}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  - {fileID: 1260232420}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &413481108
@@ -4238,10 +4434,37 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  plantSpawn: {fileID: 1260232420}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   plantSpawn: {fileID: 831865423}
 =======
   plantSpawn: {fileID: 1260232420}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  plantSpawn: {fileID: 831865423}
+=======
+  plantSpawn: {fileID: 1260232420}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  plantSpawn: {fileID: 1260232420}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -4812,10 +5035,37 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 295940396}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
+--- !u!1 &518463536
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
 --- !u!1 &522337235
 =======
 --- !u!1 &518463536
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+--- !u!1 &522337235
+=======
+--- !u!1 &518463536
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+--- !u!1 &518463536
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4824,6 +5074,22 @@ GameObject:
   serializedVersion: 6
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
+  - component: {fileID: 518463537}
+  m_Layer: 0
+  m_Name: plantSpawn14
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+  - component: {fileID: 522337236}
+  m_Layer: 0
+  m_Name: plantSpawn5
+=======
+<<<<<<< HEAD
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   - component: {fileID: 522337236}
   m_Layer: 0
   m_Name: plantSpawn5
@@ -4832,24 +5098,87 @@ GameObject:
   m_Layer: 0
   m_Name: plantSpawn14
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+=======
+  - component: {fileID: 518463537}
+  m_Layer: 0
+  m_Name: plantSpawn14
+<<<<<<< HEAD
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
+--- !u!4 &518463537
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
 --- !u!4 &522337236
 =======
 --- !u!4 &518463537
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+--- !u!4 &522337236
+=======
+--- !u!4 &518463537
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+--- !u!4 &518463537
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  m_GameObject: {fileID: 518463536}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_GameObject: {fileID: 522337235}
 >>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+  m_GameObject: {fileID: 522337235}
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  m_GameObject: {fileID: 522337235}
+=======
+  m_GameObject: {fileID: 518463536}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
@@ -4857,8 +5186,16 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Father: {fileID: 2056574611}
 =======
+=======
+<<<<<<< HEAD
+  m_Father: {fileID: 2056574611}
+=======
+=======
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_Father: {fileID: 749749632}
 =======
   m_GameObject: {fileID: 518463536}
@@ -4870,6 +5207,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2056574611}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+=======
+  m_Father: {fileID: 2056574611}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &531808571
 GameObject:
@@ -5360,10 +5708,37 @@ Transform:
   - {fileID: 2025664199}
   - {fileID: 1738074294}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  - {fileID: 1314965275}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   - {fileID: 1459352147}
 =======
   - {fileID: 1314965275}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  - {fileID: 1459352147}
+=======
+  - {fileID: 1314965275}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  - {fileID: 1314965275}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &575667305
@@ -5381,10 +5756,37 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  plantSpawn: {fileID: 1314965275}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   plantSpawn: {fileID: 1459352147}
 =======
   plantSpawn: {fileID: 1314965275}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  plantSpawn: {fileID: 1459352147}
+=======
+  plantSpawn: {fileID: 1314965275}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  plantSpawn: {fileID: 1314965275}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -5839,10 +6241,37 @@ Transform:
   - {fileID: 1971078523}
   - {fileID: 1547236827}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  - {fileID: 796450918}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   - {fileID: 1756160319}
 =======
   - {fileID: 796450918}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  - {fileID: 1756160319}
+=======
+  - {fileID: 796450918}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  - {fileID: 796450918}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &593384251
@@ -5860,10 +6289,37 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  plantSpawn: {fileID: 796450918}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   plantSpawn: {fileID: 1756160319}
 =======
   plantSpawn: {fileID: 796450918}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  plantSpawn: {fileID: 1756160319}
+=======
+  plantSpawn: {fileID: 796450918}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  plantSpawn: {fileID: 796450918}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -6266,7 +6722,29 @@ Transform:
   m_GameObject: {fileID: 596519231}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
+=======
+  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+<<<<<<< HEAD
+=======
+  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_LocalScale: {x: 0.5, y: 10, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6313,10 +6791,37 @@ Transform:
   - {fileID: 5784182}
   - {fileID: 1513483820}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  - {fileID: 19903955}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   - {fileID: 143556232}
 =======
   - {fileID: 19903955}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  - {fileID: 143556232}
+=======
+  - {fileID: 19903955}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  - {fileID: 19903955}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &621895050
@@ -6334,10 +6839,37 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  plantSpawn: {fileID: 19903955}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   plantSpawn: {fileID: 143556232}
 =======
   plantSpawn: {fileID: 19903955}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  plantSpawn: {fileID: 143556232}
+=======
+  plantSpawn: {fileID: 19903955}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  plantSpawn: {fileID: 19903955}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -7159,10 +7691,37 @@ Transform:
   - {fileID: 2073044460}
   - {fileID: 71938159}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  - {fileID: 883955340}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   - {fileID: 522337236}
 =======
   - {fileID: 883955340}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  - {fileID: 522337236}
+=======
+  - {fileID: 883955340}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  - {fileID: 883955340}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &749749633
@@ -7180,10 +7739,37 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  plantSpawn: {fileID: 883955340}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   plantSpawn: {fileID: 522337236}
 =======
   plantSpawn: {fileID: 883955340}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  plantSpawn: {fileID: 522337236}
+=======
+  plantSpawn: {fileID: 883955340}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  plantSpawn: {fileID: 883955340}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -7861,10 +8447,37 @@ MeshFilter:
   m_GameObject: {fileID: 778930465}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
+--- !u!1 &796450917
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
 --- !u!1 &779743008
 =======
 --- !u!1 &796450917
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+--- !u!1 &779743008
+=======
+--- !u!1 &796450917
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+--- !u!1 &796450917
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -7873,6 +8486,22 @@ GameObject:
   serializedVersion: 6
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
+  - component: {fileID: 796450918}
+  m_Layer: 0
+  m_Name: plantSpawn12
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+  - component: {fileID: 779743009}
+  m_Layer: 0
+  m_Name: plantSpawn2
+=======
+<<<<<<< HEAD
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   - component: {fileID: 779743009}
   m_Layer: 0
   m_Name: plantSpawn2
@@ -7881,24 +8510,87 @@ GameObject:
   m_Layer: 0
   m_Name: plantSpawn12
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+=======
+  - component: {fileID: 796450918}
+  m_Layer: 0
+  m_Name: plantSpawn12
+<<<<<<< HEAD
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
+--- !u!4 &796450918
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
 --- !u!4 &779743009
 =======
 --- !u!4 &796450918
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+--- !u!4 &779743009
+=======
+--- !u!4 &796450918
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+--- !u!4 &796450918
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  m_GameObject: {fileID: 796450917}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
   m_GameObject: {fileID: 779743008}
 >>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+  m_GameObject: {fileID: 779743008}
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  m_GameObject: {fileID: 779743008}
+=======
+  m_GameObject: {fileID: 796450917}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
@@ -7906,8 +8598,16 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Father: {fileID: 593384250}
 =======
+=======
+<<<<<<< HEAD
+  m_Father: {fileID: 593384250}
+=======
+=======
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_Father: {fileID: 1259173393}
 =======
   m_GameObject: {fileID: 796450917}
@@ -7919,6 +8619,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 593384250}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+=======
+  m_Father: {fileID: 593384250}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &798747590
 GameObject:
@@ -8050,10 +8761,37 @@ Transform:
   - {fileID: 1299586775}
   - {fileID: 1282850375}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  - {fileID: 596519232}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   - {fileID: 1052762551}
 =======
   - {fileID: 596519232}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  - {fileID: 1052762551}
+=======
+  - {fileID: 596519232}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  - {fileID: 596519232}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &818270249
@@ -8071,10 +8809,37 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  plantSpawn: {fileID: 596519232}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   plantSpawn: {fileID: 1052762551}
 =======
   plantSpawn: {fileID: 596519232}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  plantSpawn: {fileID: 1052762551}
+=======
+  plantSpawn: {fileID: 596519232}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  plantSpawn: {fileID: 596519232}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -9026,6 +9791,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1173184620}
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
 --- !u!1 &899672484
 GameObject:
   m_ObjectHideFlags: 0
@@ -9057,6 +9829,14 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1259173393}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9733853 (minimap and plants merged)
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
 --- !u!1 &933086708 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1202967806258005865, guid: 9520bada6c169bd499d4f8d942ca249e, type: 3}
@@ -10314,7 +11094,29 @@ Transform:
   m_GameObject: {fileID: 1209371882}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
+=======
+  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+<<<<<<< HEAD
+=======
+  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_LocalScale: {x: 0.5, y: 10, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -10528,10 +11330,37 @@ Transform:
   - {fileID: 1626224883}
   - {fileID: 151697139}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  - {fileID: 899672485}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   - {fileID: 779743009}
 =======
   - {fileID: 899672485}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  - {fileID: 779743009}
+=======
+  - {fileID: 899672485}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  - {fileID: 899672485}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1259173394
@@ -10549,10 +11378,37 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  plantSpawn: {fileID: 899672485}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   plantSpawn: {fileID: 779743009}
 =======
   plantSpawn: {fileID: 899672485}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  plantSpawn: {fileID: 779743009}
+=======
+  plantSpawn: {fileID: 899672485}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  plantSpawn: {fileID: 899672485}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -11368,7 +12224,29 @@ Transform:
   m_GameObject: {fileID: 1314965274}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
+=======
+  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+<<<<<<< HEAD
+=======
+  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_LocalScale: {x: 0.5, y: 10, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11639,10 +12517,37 @@ Transform:
   - {fileID: 1719275787}
   - {fileID: 882808254}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  - {fileID: 1624888690}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   - {fileID: 1498628658}
 =======
   - {fileID: 1624888690}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  - {fileID: 1498628658}
+=======
+  - {fileID: 1624888690}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  - {fileID: 1624888690}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1347809120
@@ -11660,10 +12565,37 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  plantSpawn: {fileID: 1624888690}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   plantSpawn: {fileID: 1498628658}
 =======
   plantSpawn: {fileID: 1624888690}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  plantSpawn: {fileID: 1498628658}
+=======
+  plantSpawn: {fileID: 1624888690}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  plantSpawn: {fileID: 1624888690}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -12307,10 +13239,37 @@ Transform:
   - {fileID: 1617809759}
   - {fileID: 1757914154}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  - {fileID: 1209371883}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   - {fileID: 246211259}
 =======
   - {fileID: 1209371883}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  - {fileID: 246211259}
+=======
+  - {fileID: 1209371883}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  - {fileID: 1209371883}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1381054961
@@ -12328,10 +13287,37 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  plantSpawn: {fileID: 1209371883}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   plantSpawn: {fileID: 246211259}
 =======
   plantSpawn: {fileID: 1209371883}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  plantSpawn: {fileID: 246211259}
+=======
+  plantSpawn: {fileID: 1209371883}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  plantSpawn: {fileID: 1209371883}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -12750,10 +13736,37 @@ Transform:
   - {fileID: 455555336}
   - {fileID: 1656558829}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  - {fileID: 349927078}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   - {fileID: 1507623085}
 =======
   - {fileID: 349927078}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  - {fileID: 1507623085}
+=======
+  - {fileID: 349927078}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  - {fileID: 349927078}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1393355531
@@ -12771,10 +13784,37 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  plantSpawn: {fileID: 349927078}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   plantSpawn: {fileID: 1507623085}
 =======
   plantSpawn: {fileID: 349927078}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  plantSpawn: {fileID: 1507623085}
+=======
+  plantSpawn: {fileID: 349927078}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  plantSpawn: {fileID: 349927078}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -13193,10 +14233,37 @@ Transform:
   - {fileID: 1516496667}
   - {fileID: 737488977}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  - {fileID: 1698801837}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   - {fileID: 1922354312}
 =======
   - {fileID: 1698801837}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  - {fileID: 1922354312}
+=======
+  - {fileID: 1698801837}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  - {fileID: 1698801837}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1403734915
@@ -13214,10 +14281,37 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  plantSpawn: {fileID: 1698801837}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   plantSpawn: {fileID: 1922354312}
 =======
   plantSpawn: {fileID: 1698801837}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  plantSpawn: {fileID: 1922354312}
+=======
+  plantSpawn: {fileID: 1698801837}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  plantSpawn: {fileID: 1698801837}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -14919,7 +16013,28 @@ MeshFilter:
   m_GameObject: {fileID: 1626224882}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+<<<<<<< HEAD
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+<<<<<<< HEAD
+>>>>>>> b35b409 (Confirmation of Merge with Salvador's Branch)
+=======
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+=======
+=======
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
 --- !u!1 &1639864496
 GameObject:
   m_ObjectHideFlags: 0
@@ -14976,7 +16091,29 @@ Transform:
   - {fileID: 316771453}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> f9fffec (Confirmation of Merge with Salvador's Branch)
+=======
+<<<<<<< HEAD
+=======
+>>>>>>> f9fffec (Confirmation of Merge with Salvador's Branch)
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+>>>>>>> b35b409 (Confirmation of Merge with Salvador's Branch)
+=======
+>>>>>>> f9fffec (Confirmation of Merge with Salvador's Branch)
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+=======
+=======
+>>>>>>> f9fffec (Confirmation of Merge with Salvador's Branch)
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+=======
+>>>>>>> f9fffec (Confirmation of Merge with Salvador's Branch)
+=======
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
 --- !u!1 &1656558828
 GameObject:
   m_ObjectHideFlags: 0
@@ -15677,10 +16814,37 @@ Transform:
   - {fileID: 1322298144}
   - {fileID: 1458930304}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  - {fileID: 326990969}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   - {fileID: 71212364}
 =======
   - {fileID: 326990969}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  - {fileID: 71212364}
+=======
+  - {fileID: 326990969}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  - {fileID: 326990969}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1697533642
@@ -15698,10 +16862,37 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  plantSpawn: {fileID: 326990969}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   plantSpawn: {fileID: 71212364}
 =======
   plantSpawn: {fileID: 326990969}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  plantSpawn: {fileID: 71212364}
+=======
+  plantSpawn: {fileID: 326990969}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  plantSpawn: {fileID: 326990969}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -16247,7 +17438,29 @@ Transform:
   m_GameObject: {fileID: 1713704097}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
+=======
+  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+<<<<<<< HEAD
+=======
+  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_LocalScale: {x: 0.5, y: 10, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18045,10 +19258,37 @@ Transform:
   - {fileID: 174265430}
   - {fileID: 1900093295}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  - {fileID: 518463537}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   - {fileID: 1016255624}
 =======
   - {fileID: 518463537}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  - {fileID: 1016255624}
+=======
+  - {fileID: 518463537}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  - {fileID: 518463537}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2056574612
@@ -18066,10 +19306,37 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  plantSpawn: {fileID: 518463537}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   plantSpawn: {fileID: 1016255624}
 =======
   plantSpawn: {fileID: 518463537}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  plantSpawn: {fileID: 1016255624}
+=======
+  plantSpawn: {fileID: 518463537}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  plantSpawn: {fileID: 518463537}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
@@ -18584,7 +19851,29 @@ Transform:
   m_GameObject: {fileID: 2073145971}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
+=======
+  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+<<<<<<< HEAD
+=======
+  m_LocalPosition: {x: -0.722, y: 0, z: -0.745}
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+  m_LocalPosition: {x: -0.613, y: 0, z: -0.6}
+>>>>>>> 5477fb0 (Confirmation of Merge with Salvador's Branch)
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_LocalScale: {x: 0.5, y: 10, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18631,10 +19920,37 @@ Transform:
   - {fileID: 552250509}
   - {fileID: 778930466}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  - {fileID: 2073145972}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   - {fileID: 1874899676}
 =======
   - {fileID: 2073145972}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  - {fileID: 1874899676}
+=======
+  - {fileID: 2073145972}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  - {fileID: 2073145972}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   m_Father: {fileID: 1135064476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2096229166
@@ -18652,10 +19968,37 @@ MonoBehaviour:
   tileCondition: 0
   plantPrefab: {fileID: 1639864497}
 <<<<<<< HEAD
+<<<<<<< HEAD
+  plantSpawn: {fileID: 2073145972}
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   plantSpawn: {fileID: 1874899676}
 =======
   plantSpawn: {fileID: 2073145972}
 >>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+<<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+>>>>>>> 34b0dad (Modified Planting & Harvesting Logic [RM])
+=======
+<<<<<<< HEAD
+  plantSpawn: {fileID: 1874899676}
+=======
+  plantSpawn: {fileID: 2073145972}
+>>>>>>> 86f62b7 (Modified Planting & Harvesting Logic [RM])
+=======
+  plantSpawn: {fileID: 2073145972}
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
+>>>>>>> 17a061b0211aa51644236eff296492aada7209ff
+>>>>>>> 379e7c04d510f4bd23239b6446b07e47b5459184
   grassMaterial: {fileID: 2100000, guid: 45eb7efec0c8f504285b382733758e52, type: 2}
   tilledMaterial: {fileID: 2100000, guid: 053fa0c86b03be449bd117d80d1eb19c, type: 2}
   wateredMaterial: {fileID: 2100000, guid: da86e0e9da248f44685781dc53d77c8f, type: 2}
