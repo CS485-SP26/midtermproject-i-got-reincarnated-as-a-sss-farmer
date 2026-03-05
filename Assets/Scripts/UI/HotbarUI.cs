@@ -174,6 +174,9 @@ public class HotbarUI : MonoBehaviour
         seedCountText = CreateSlotLabel(seedSlot.transform, "Seed Count",
             new Color(0.6f, 0.9f, 0.3f), new Vector2(0f, 25f));
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4241b9e09a5b44f57f7961716adeddcec728b790
 
         // =============================
         // SLOT 3 — HARVESTED PLANTS (right)
