@@ -169,6 +169,24 @@ namespace Environment
             if (sunLight != null)
                 sunLight.transform.rotation = Quaternion.Euler(sunAngle - 90f, 170f, 0f);
         }
+
+        public float GetSeasonalGrowthMultiplier()
+        {
+            // Return a multiplier depending on season
+            switch (currentSeason)
+            {
+                case Season.Spring:
+                    return 1.2f; // Faster growth in Spring
+                case Season.Summer:
+                    return 1.5f; // Fastest growth in Summer
+                case Season.Fall:
+                    return 0.8f; // Slower growth in Fall
+                case Season.Winter:
+                    return 0.5f; // Slowest growth in Winter
+                default:
+                    return 1f;
+            }
+        }
     }
 
 }
