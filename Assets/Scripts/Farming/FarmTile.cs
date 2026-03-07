@@ -22,8 +22,6 @@ namespace Farming
         private Plant currentPlant; // Reference to the spawned plant
         private bool isPlantedSoilWatered = false; // Tracks if planted soil is wet or dry
 
-        // [Ryan] testing pull requests in Bryan branch
-
         [Header("Audio")]
         [SerializeField] private AudioSource stepAudio;
         [SerializeField] private AudioSource tillAudio;
@@ -209,22 +207,33 @@ namespace Farming
             FarmingEvents.TileFarmed(this, previousCondition, tileCondition);
         }
 
+        // function that will allow farm tiles to accept fertiliezr as a valid action
+        public bool ApplyFertilizer(FertilizerInventory fertilizerInventory)
+        {
+            // "if the current tile is NOT planted, don't apply fertilizer"
+            if (tileCondition != Condition.Planted)
+                return false;
 
-        /// <summary>
-        /// Called automatically when the growth timer completes.
-        /// Watered tile becomes a planted tile with crops.
-        /// Currently disabled - planted state uses grass material.
-        /// </summary>
-        // void GrowPlant()
-        // {
-        //     Condition previousCondition = tileCondition;
-        //     tileCondition = Condition.Planted;
-        //     isGrowing = false;
-        //     waterTimer = 0f;
-        //     UpdateVisual();
-        //     Debug.Log($"[FarmTile] {gameObject.name} has grown into a plant!");
-        //     FarmingEvents.TilePlanted(this);
-        // }
+            // "if the plant doesn't exist, then don't apply fertilizer"
+            if (currentPlant == null)
+                return false;
+
+            // "if the plant is already mature, don't apply fertilizer"
+            if (currentPlant.currentState == PlantState.Mature)
+                return false;
+
+            // "if we've ran out of fertilizer OR if we can't try using fertilizer, then don't apply it"
+            if (fertilizerInventory == null || !fertilizerInventory.TryUseFertilizer())
+                return false;
+
+            // apply the fertilizer to shave 5 seconds off the plant's growth time
+            currentPlant.ApplyFertilizer(5f);
+
+            Debug.Log("[FarmTile] Fertilizer applied to plant!");
+
+            return true;
+        }
+
 
         private void UpdateVisual()
         {

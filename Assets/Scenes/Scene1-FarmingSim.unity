@@ -1091,6 +1091,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Character.PlayerFarmingController
   selectorManager: {fileID: 0}
+  compostCounter: 0
 --- !u!114 &76249689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1155,6 +1156,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Farming.PlantInventory
   maxPlants: 999
   currentPlants: 0
+--- !u!114 &76249696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76249673}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a469ccb9c582a4b4caade3a0a2ee8920, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Farming.FertilizerInventory
+  fertilizerCount: 20
 --- !u!1 &78836005
 GameObject:
   m_ObjectHideFlags: 0
@@ -1544,6 +1558,7 @@ MonoBehaviour:
   wateringCanTexture: {fileID: 2800000, guid: 9bd27fb0e59474d4a923ee40cb50f45f, type: 3}
   seedTexture: {fileID: 2800000, guid: b4a735338a07942af8d2ab7d5b6a2bf0, type: 3}
   plantTexture: {fileID: 0}
+  fertilizerTexture: {fileID: 2800000, guid: 9172ab2342acbec4ab94bd69de470d82, type: 3}
   iconSize: 64
   bottomMargin: 20
   fontSize: 24
@@ -20012,6 +20027,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b81ad75952811d842aac7eb5ec1e8292, type: 3}
       insertIndex: -1
       addedObject: {fileID: 76249695}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: b81ad75952811d842aac7eb5ec1e8292, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 76249696}
   m_SourcePrefab: {fileID: 100100000, guid: b81ad75952811d842aac7eb5ec1e8292, type: 3}
 --- !u!1 &1697533640
 GameObject:
