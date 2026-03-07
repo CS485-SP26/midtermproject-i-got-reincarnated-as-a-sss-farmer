@@ -89,7 +89,7 @@ namespace Farming
             if(currentState == PlantState.Mature || currentState == PlantState.Withered) {return;}
 
             // reducing the plant's growth time
-            timeToNextStage = Mathf.Max(1f, timeToNextStage - growthTimeReduction);
+            baseTimeToNextStage = Mathf.Max(1f, baseTimeToNextStage - growthTimeReduction);
             timer -= growthTimeReduction;
 
             Debug.Log($"[Plant] Fertilizer applied! Growth time reduced by {growthTimeReduction} seconds.");
@@ -98,7 +98,7 @@ namespace Farming
             if(timer <= 0f)
             {
                 Grow();
-                timer = timeToNextStage;
+                timer = baseTimeToNextStage;
 
             }
 
