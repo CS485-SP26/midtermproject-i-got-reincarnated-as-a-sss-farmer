@@ -73,6 +73,28 @@ namespace Farming
             }
         }
 
+        // function that should allow fertilizer to decrease a plant's growth time by ~10 seconds
+        public void ApplyFertilizer(float growthTimeReduction)
+        {
+            // "if the plant is in stages that shouldn't be fertilized, immediately return"
+            if(currentState == PlantState.Mature || currentState == PlantState.Withered) {return;}
+
+            // reducing the plant's growth time
+            timeToNextStage = Mathf.Max(1f, timeToNextStage - growthTimeReduction);
+            timer -= growthTimeReduction;
+
+            Debug.Log($"[Plant] Fertilizer applied! Growth time reduced by {growthTimeReduction} seconds.");
+
+            // "if the fertilizer decreased the plant's growth time to another stage, update the plant's growth stage"
+            if(timer <= 0f)
+            {
+                Grow();
+                timer = timeToNextStage;
+
+            }
+
+        }
+
         public void ChangeState(PlantState newState)
         {
             currentState = newState;

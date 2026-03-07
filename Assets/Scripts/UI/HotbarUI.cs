@@ -11,7 +11,7 @@ using Farming;
 /// </summary>
 public class HotbarUI : MonoBehaviour
 {
-    public enum ToolType { WateringCan = 0, Seeds = 1, HarvestTool = 2 }
+    public enum ToolType { WateringCan = 0, Seeds = 1, HarvestTool = 2, Fertilizer = 3 }
 
     private static HotbarUI instance;
     public static HotbarUI Instance => instance;
@@ -20,6 +20,8 @@ public class HotbarUI : MonoBehaviour
     [SerializeField] private Texture2D wateringCanTexture; // Art/UI/Adament_Watering_can.webp
     [SerializeField] private Texture2D seedTexture;        // Art/UI/seeds.png
     [SerializeField] private Texture2D plantTexture;       // For harvested plants icon
+    // texture for fertilizer icon
+    [SerializeField] private Texture2D fertilizerTexture;
     
     [Header("Sizing")]
     [SerializeField] private float iconSize = 64f;
@@ -33,15 +35,23 @@ public class HotbarUI : MonoBehaviour
     private TextMeshProUGUI seedCountText;
     private Image plantImage;
     private TextMeshProUGUI plantCountText;
+    // the fertilizer image
+    private Image fertilizerImage;
+    // the amount of fertilizer the player currently has
+    private TextMeshProUGUI fertilizerText;
 
     // Tool selection
-    private int selectedSlot = 0; // 0 = watering can, 1 = seeds, 2 = harvest tool
+    private int selectedSlot = 0; // 0 = watering can, 1 = seeds, 2 = harvest tool, 3 = fertilizer
     private GameObject wateringCanSlot;
     private GameObject seedSlot;
     private GameObject plantSlot;
+    // slot for fertilizer
+    private GameObject fertilizerSlot;
     private Image wateringCanBorder;
     private Image seedBorder;
     private Image plantBorder;
+    // border for fertilizer
+    private Image fertilizerBorder;
 
     public ToolType SelectedTool => (ToolType)selectedSlot;
 
@@ -82,6 +92,10 @@ public class HotbarUI : MonoBehaviour
             {
                 SelectSlot(2);
             }
+            else if (Keyboard.current[Key.Digit4].wasPressedThisFrame || Keyboard.current[Key.Numpad4].wasPressedThisFrame)
+            {
+                SelectSlot(3);
+            }
         }
     }
 
@@ -91,6 +105,7 @@ public class HotbarUI : MonoBehaviour
         PlayerEconomy.OnMoneyChanged += UpdateMoneyDisplay;
         SeedInventory.OnSeedsChanged += UpdateSeedDisplay;
         PlantInventory.OnPlantsChanged += UpdatePlantDisplay;
+        FertilizerInventory.OnFertilizerChanged += UpdateFertilizerDisplay;
         
         // Request initial values after subscribing
         RefreshDisplays();
@@ -102,6 +117,7 @@ public class HotbarUI : MonoBehaviour
         PlayerEconomy.OnMoneyChanged -= UpdateMoneyDisplay;
         SeedInventory.OnSeedsChanged -= UpdateSeedDisplay;
         PlantInventory.OnPlantsChanged -= UpdatePlantDisplay;
+        FertilizerInventory.OnFertilizerChanged -= UpdateFertilizerDisplay;
     }
 
     void SetupCanvas()
@@ -125,10 +141,10 @@ public class HotbarUI : MonoBehaviour
 
     void CreateHotbar()
     {
-        float slotWidth  = iconSize + 40f;
-        float slotHeight = iconSize + 50f;
+        float slotWidth  = iconSize + 50f;
+        float slotHeight = iconSize + 60f;
         float slotSpacing = 8f;
-        int   slotCount  = 3; // Updated to 3 slots (watering can, seeds, harvested plants)
+        int   slotCount  = 4; // Updated to 4 slots (watering can, seeds, harvested plants, fertilizer)
         float totalWidth = slotWidth * slotCount + slotSpacing * (slotCount - 1);
 
         // =============================
@@ -150,9 +166,9 @@ public class HotbarUI : MonoBehaviour
         // =============================
         // SLOT 1 — WATERING CAN (left)
         // =============================
-        float leftX = -(slotWidth + slotSpacing);
+        float startX = -(totalWidth / 2f) + slotWidth / 2f;
         
-        wateringCanSlot = CreateSlotContainer(hotbarObj.transform, "Watering Can Slot", new Vector2(leftX, 0f), slotWidth, slotHeight, out wateringCanBorder);
+        wateringCanSlot = CreateSlotContainer(hotbarObj.transform, "Watering Can Slot", new Vector2(startX + (slotWidth + slotSpacing) * 0, 0f), slotWidth, slotHeight, out wateringCanBorder);
         
         wateringCanImage = CreateSlotIcon(wateringCanSlot.transform, "Watering Can Icon",
             wateringCanTexture, new Color(0.3f, 0.6f, 1f, 1f), new Vector2(0f, -5f));
@@ -165,21 +181,21 @@ public class HotbarUI : MonoBehaviour
         // SLOT 2 — SEEDS (middle)
         // =============================
         
-        seedSlot = CreateSlotContainer(hotbarObj.transform, "Seed Slot", new Vector2(0f, 0f), slotWidth, slotHeight, out seedBorder);
+        seedSlot = CreateSlotContainer(hotbarObj.transform, "Seed Slot", new Vector2(startX + (slotWidth + slotSpacing) * 1, 0f), slotWidth, slotHeight, out seedBorder);
         
         seedImage = CreateSlotIcon(seedSlot.transform, "Seed Icon",
             seedTexture, new Color(0.4f, 0.8f, 0.2f, 1f), new Vector2(0f, -5f));
 
         seedCountText = CreateSlotLabel(seedSlot.transform, "Seed Count",
             new Color(0.6f, 0.9f, 0.3f), new Vector2(0f, 25f));
-        seedCountText.text = "0";
+        seedCountText.text = "5";
 
         // =============================
-        // SLOT 3 — HARVESTED PLANTS (right)
+        // SLOT 3 — HARVESTED PLANTS (middle)
         // =============================
         float rightX = slotWidth + slotSpacing;
         
-        plantSlot = CreateSlotContainer(hotbarObj.transform, "Plant Slot", new Vector2(rightX, 0f), slotWidth, slotHeight, out plantBorder);
+        plantSlot = CreateSlotContainer(hotbarObj.transform, "Plant Slot", new Vector2(startX + (slotWidth + slotSpacing) * 2, 0f), slotWidth, slotHeight, out plantBorder);
         
         plantImage = CreateSlotIcon(plantSlot.transform, "Plant Icon",
             plantTexture, new Color(0.9f, 0.5f, 0.2f, 1f), new Vector2(0f, -5f));
@@ -188,6 +204,13 @@ public class HotbarUI : MonoBehaviour
             new Color(0.9f, 0.7f, 0.3f), new Vector2(0f, 25f));
         plantCountText.text = "0";
 
+        // =============================
+        // SLOT 4 — FERTILIZER (right)
+        // =============================
+        fertilizerSlot = CreateSlotContainer(hotbarObj.transform, "Fertilizer Slot", new Vector2(startX + (slotWidth + slotSpacing) * 3, 0f), slotWidth, slotHeight, out fertilizerBorder);
+        fertilizerImage = CreateSlotIcon(fertilizerSlot.transform, "Fertilizer Icon", fertilizerTexture, new Color(0.9f, 0.5f, 0.2f, 1f), new Vector2(0f, -5f));
+        fertilizerText = CreateSlotLabel(fertilizerSlot.transform, "Fertilizer Count", new Color(0.9f, 0.7f, 0.3f), new Vector2(0f, 25f));
+        fertilizerText.text = "20";
         // =============================
         // MONEY DISPLAY (top right)
         // =============================
@@ -307,6 +330,8 @@ public class HotbarUI : MonoBehaviour
             seedBorder.enabled = (slotIndex == 1);
         if (plantBorder != null)
             plantBorder.enabled = (slotIndex == 2);
+        if (fertilizerBorder != null)
+            fertilizerBorder.enabled = (slotIndex == 3);
 
         Debug.Log($"[HotbarUI] Selected tool: {(ToolType)slotIndex}");
     }
@@ -354,6 +379,17 @@ public class HotbarUI : MonoBehaviour
                 : new Color(0.5f, 0.5f, 0.5f);  // gray — no plants
         }
     }
+
+    // should update the fertilizer text display
+    void UpdateFertilizerDisplay(int count)
+    {
+        if(fertilizerText != null)
+        {
+            fertilizerText.text = count.ToString();
+            // same logic as for the seedCountText; green means available & red means out of fertilizer
+            fertilizerText.color = count > 0 ? new Color(0.6f, 0.9f, 0.3f) : Color.red;
+        }
+    }
     
     void RefreshDisplays()
     {
@@ -377,6 +413,13 @@ public class HotbarUI : MonoBehaviour
             if (plantInventory != null)
             {
                 UpdatePlantDisplay(plantInventory.CurrentPlants);
+            }
+
+            // now updated to... update the player's fertilizer
+            var fertilizerInventory = player.GetComponent<Farming.FertilizerInventory>();
+            if(fertilizerInventory != null)
+            {
+                UpdateFertilizerDisplay(fertilizerInventory.CurrentFertilizer);
             }
         }
         

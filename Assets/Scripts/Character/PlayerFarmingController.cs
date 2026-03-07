@@ -13,11 +13,14 @@ namespace Character
         EnergyResource energyResource;
         SeedInventory seedInventory;
         PlantInventory plantInventory;
+        FertilizerInventory fertilizerInventory;
 
         bool isWateringActive; // prevents multi-drain per animation
         float wateringStartTime;
         const float WATERING_ANIMATION_DURATION = 5.6f;
         const float MAX_WATERING_DURATION = 8f; // Safety timeout (extra buffer beyond animation)
+        // will be incremented at every harvest, where every 2 will yield 1 new fertilizer for the player
+        public int compostCounter = 0;
 
         void Start()
         {
@@ -26,6 +29,7 @@ namespace Character
             energyResource = GetComponent<EnergyResource>();
             seedInventory = GetComponent<SeedInventory>();
             plantInventory = GetComponent<PlantInventory>();
+            fertilizerInventory = GetComponent<FertilizerInventory>();
 
             if (selectorManager == null)
                 selectorManager = GetComponent<SelectorManager>();
@@ -46,6 +50,10 @@ namespace Character
                 
             if (!plantInventory)
                 Debug.LogWarning("No PlantInventory found on Player - harvesting will be unavailable.");
+        
+            // now considers the player's fertilizer
+            if(!fertilizerInventory)
+                Debug.LogWarning("No FertilizerInventory found on Player - fertilizing will be unavailable.");
         }
 
         void OnEnable()
@@ -156,6 +164,16 @@ namespace Character
                     if (tile.Harvest(plantInventory))
                     {
                         Debug.Log("[PlayerFarmingController] Harvested mature plant!");
+
+                        // adding onto our compostCounter (to get more fertilizer)
+                        compostCounter++;
+                        // "if the player's harvested 2 plants, add 1 fertilizer to their inventory"
+                        if(compostCounter % 2 == 0)
+                        {
+                            fertilizerInventory.AddFertilizer(1);
+                            Debug.Log("[PlayerFarmingController] Added 1 fertilizer!");
+                        }
+
                     }
                     else
                     {
@@ -169,6 +187,32 @@ namespace Character
                 return;
             }
 
+            // FERTILIZER TOOL: Speed up plant growth
+            if (selectedTool == HotbarUI.ToolType.Fertilizer)
+            {
+                // "if the tile is planted, then check if fertilizer was applied..."
+                if (tile.GetCondition == FarmTile.Condition.Planted)
+                {
+                    // "if fertilizer was applied, write that in the log... "
+                    if (tile.ApplyFertilizer(fertilizerInventory))
+                    {
+                        Debug.Log("[PlayerFarmingController] Fertilizer applied!");
+                    }
+                    // "... else say you can't"
+                    else
+                    {
+                        Debug.Log("[PlayerFarmingController] Cannot fertilize this plant.");
+                    }
+                }
+                // "... else say fertilizer only works on non-mature plants"
+                else
+                {
+                    Debug.Log("[PlayerFarmingController] Fertilizer can only be used on planted crops.");
+                }
+                return;
+
+            }
+            
             // WATERING CAN: Till grass, water tilled land, water planted tiles
             if (selectedTool == HotbarUI.ToolType.WateringCan)
             {
