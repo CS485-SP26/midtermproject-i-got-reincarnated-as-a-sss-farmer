@@ -3265,17 +3265,23 @@ MonoBehaviour:
   player: {fileID: 0}
   distance: 3
   height: 2
+  storeSceneName: Store
   storeDistance: 5
   storeHeight: 4
-  storeSceneName: Store
-  allowZoom: 0
+  mouseSensitivity: 0.18
+  rotationSpeed: 100
   minDistance: 4
   maxDistance: 15
   zoomSpeed: 2
-  allowRotation: 0
-  rotationSpeed: 100
-  positionSmoothTime: 0.15
+  minPitch: -15
+  maxPitch: 65
+  followSmoothTime: 0.12
   rotationSmoothSpeed: 5
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 1
+  collisionRadius: 0.3
+  collisionOffset: 0.2
 --- !u!1 &2002171754
 GameObject:
   m_ObjectHideFlags: 0

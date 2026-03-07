@@ -1,45 +1,58 @@
-using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 
-namespace Character 
+namespace Character
 {
     public class CameraFollow : MonoBehaviour
     {
         private static CameraFollow instance;
-        
-        [Header("Target")]
-        [SerializeField] public GameObject player;
-        
-        [Header("Camera Position")]
-        [SerializeField] private float distance = 8f;              // Distance from player
-        [SerializeField] private float height = 6f;                // Height above player
-        [SerializeField] private float storeDistance = 5f;         // Closer distance when in store
-        [SerializeField] private float storeHeight = 4f;           // Lower height when in store
-        
-        [Header("Store Scene")]
-        [SerializeField] private string storeSceneName = "Store"; // Name of store scene
-        
-        [Header("Camera Controls")]
-        [SerializeField] private bool allowZoom = true;
-        [SerializeField] private float minDistance = 4f;
-        [SerializeField] private float maxDistance = 15f;
-        [SerializeField] private float zoomSpeed = 2f;
-        
-        [SerializeField] private bool allowRotation = true;
-        [SerializeField] private float rotationSpeed = 100f;
-        
-        [Header("Smoothing")]
-        [SerializeField] private float positionSmoothTime = 0.15f;
-        [SerializeField] private float rotationSmoothSpeed = 5f;
 
-        private Vector3 velocity = Vector3.zero;
-        private float currentRotationY = 0f;  // Manual camera rotation around player
+        [Header("Target")]
+        public Transform player;
+
+        [Header("Camera Distance")]
+        [SerializeField] private float distance = 7f;
+        [SerializeField] private float height = 2.5f;
+
+        [Header("Store Scene")]
+        [SerializeField] private string storeSceneName = "Store";
+        [SerializeField] private float storeDistance = 5f;
+        [SerializeField] private float storeHeight = 2f;
+
+        [Header("Mouse Control")]
+        [SerializeField] private float mouseSensitivity = 0.18f;
+
+        [Header("Keyboard Rotation")]
+        [SerializeField] private float rotationSpeed = 120f;
+
+        [Header("Zoom")]
+        [SerializeField] private float minDistance = 3f;
+        [SerializeField] private float maxDistance = 12f;
+        [SerializeField] private float zoomSpeed = 3f;
+
+        [Header("Pitch Limits")]
+        [SerializeField] private float minPitch = -15f;
+        [SerializeField] private float maxPitch = 65f;
+
+        [Header("Smoothing")]
+        [SerializeField] private float followSmoothTime = 0.12f;
+        [SerializeField] private float rotationSmoothSpeed = 10f;
+
+        [Header("Camera Collision")]
+        [SerializeField] private LayerMask collisionLayers;
+        [SerializeField] private float collisionRadius = 0.3f;
+        [SerializeField] private float collisionOffset = 0.2f;
+
+        private float yaw;
+        private float pitch = 20f;
+
+        private Vector3 velocity;
+
+        public static CameraFollow Instance => instance;
 
         void Awake()
         {
-            // Singleton pattern with DontDestroyOnLoad
             if (instance == null)
             {
                 instance = this;
@@ -48,110 +61,155 @@ namespace Character
             else
             {
                 Destroy(gameObject);
-                return;
             }
         }
 
         void Start()
         {
-            Debug.Assert(player, "CameraFollow requires a player (GameObject).");
-            
-            // Initialize camera position and rotation
-            if (player)
-            {
-                // Start behind the player
-                currentRotationY = player.transform.eulerAngles.y;
-                
-                Vector3 targetPosition = CalculateTargetPosition();
-                transform.position = targetPosition;
-                transform.LookAt(player.transform.position + Vector3.up * 1f); // Look at player's chest height
-            }
+            LockCursor();
+        }
+
+        void Update()
+        {
+            HandleCursor();
         }
 
         void LateUpdate()
         {
             if (!player) return;
-            
-            HandleCameraControls();
-            UpdateCameraPosition();
+
+            HandleInput();
+            UpdateCamera();
         }
 
-        private void HandleCameraControls()
+        void HandleCursor()
         {
-            // Zoom with mouse wheel
-            if (allowZoom)
+            if (Keyboard.current.escapeKey.wasPressedThisFrame)
             {
-                float scroll = Mouse.current?.scroll.ReadValue().y ?? 0f;
-                if (scroll != 0f)
+                UnlockCursor();
+            }
+
+            if (Mouse.current.leftButton.wasPressedThisFrame && Cursor.lockState != CursorLockMode.Locked)
+            {
+                LockCursor();
+            }
+        }
+
+        void LockCursor()
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+        }
+
+        void UnlockCursor()
+        {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
+
+        void HandleInput()
+        {
+            // Stop camera movement if cursor is unlocked
+            if (Cursor.lockState != CursorLockMode.Locked)
+                return;
+
+            if (Mouse.current != null)
+            {
+                Vector2 mouse = Mouse.current.delta.ReadValue();
+
+                yaw += mouse.x * mouseSensitivity * 100f * Time.deltaTime;
+                pitch -= mouse.y * mouseSensitivity * 100f * Time.deltaTime;
+
+                pitch = Mathf.Clamp(pitch, minPitch, maxPitch);
+
+                float scroll = Mouse.current.scroll.ReadValue().y;
+
+                if (scroll != 0)
                 {
-                    // Normalize scroll value (Mouse.current.scroll is in pixels, typically ±120)
-                    distance -= (scroll / 120f) * zoomSpeed;
+                    distance -= scroll * zoomSpeed * Time.deltaTime;
                     distance = Mathf.Clamp(distance, minDistance, maxDistance);
                 }
             }
-            
-            // Rotate with Q/E keys
-            if (allowRotation)
+
+            var keyboard = Keyboard.current;
+
+            if (keyboard != null)
             {
-                Keyboard keyboard = Keyboard.current;
-                if (keyboard != null)
-                {
-                    if (keyboard.qKey.isPressed)
-                    {
-                        currentRotationY -= rotationSpeed * Time.deltaTime;
-                    }
-                    if (keyboard.eKey.isPressed)
-                    {
-                        currentRotationY += rotationSpeed * Time.deltaTime;
-                    }
-                }
+                if (keyboard.qKey.isPressed)
+                    yaw -= rotationSpeed * Time.deltaTime;
+
+                if (keyboard.eKey.isPressed)
+                    yaw += rotationSpeed * Time.deltaTime;
             }
         }
 
-        private Vector3 CalculateTargetPosition()
+        void UpdateCamera()
         {
-            // Use different distance/height if in store
             float currentDistance = distance;
             float currentHeight = height;
-            
+
             if (SceneManager.GetActiveScene().name == storeSceneName)
             {
                 currentDistance = storeDistance;
                 currentHeight = storeHeight;
             }
-            
-            // Calculate position based on distance, height, and rotation
-            float radians = currentRotationY * Mathf.Deg2Rad;
-            
-            // Position camera at an angle behind the player
-            Vector3 offset = new Vector3(
-                Mathf.Sin(radians) * currentDistance,
-                currentHeight,
-                Mathf.Cos(radians) * currentDistance
-            );
-            
-            return player.transform.position + offset;
-        }
 
-        private void UpdateCameraPosition()
-        {
-            // Smoothly move to target position
-            Vector3 targetPosition = CalculateTargetPosition();
+            Quaternion rotation = Quaternion.Euler(pitch, yaw, 0);
+
+            Vector3 pivot = player.position + Vector3.up * currentHeight;
+
+            Vector3 desiredPosition =
+                pivot + rotation * new Vector3(0, 0, -currentDistance);
+
+            RaycastHit hit;
+
+            if (Physics.SphereCast(
+                pivot,
+                collisionRadius,
+                (desiredPosition - pivot).normalized,
+                out hit,
+                currentDistance,
+                collisionLayers))
+            {
+                float adjustedDistance = hit.distance - collisionOffset;
+
+                desiredPosition =
+                    pivot + rotation * new Vector3(0, 0, -adjustedDistance);
+            }
+
+            if (desiredPosition.y < player.position.y + 0.5f)
+                desiredPosition.y = player.position.y + 0.5f;
+
             transform.position = Vector3.SmoothDamp(
                 transform.position,
-                targetPosition,
+                desiredPosition,
                 ref velocity,
-                positionSmoothTime
+                followSmoothTime
             );
-            
-            // Smoothly rotate to look at player (slightly above ground level)
-            Vector3 lookAtPoint = player.transform.position + Vector3.up * 1f;
-            Quaternion targetRotation = Quaternion.LookRotation(lookAtPoint - transform.position);
+
+            Quaternion targetRotation = Quaternion.LookRotation(
+                (player.position + Vector3.up * 1.5f) - transform.position
+            );
+
             transform.rotation = Quaternion.Slerp(
                 transform.rotation,
                 targetRotation,
                 rotationSmoothSpeed * Time.deltaTime
             );
+        }
+
+        public Vector3 GetForward()
+        {
+            Vector3 forward = transform.forward;
+            forward.y = 0;
+            return forward.normalized;
+        }
+
+        public Vector3 GetRight()
+        {
+            Vector3 right = transform.right;
+            right.y = 0;
+            return right.normalized;
         }
     }
 }

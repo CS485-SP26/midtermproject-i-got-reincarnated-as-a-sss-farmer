@@ -4376,6 +4376,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481214612}
   m_CullTransparentMesh: 1
+--- !u!1 &501016709 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8942792083406501520, guid: 6b079cfe482d2fe41b4315e111d183d8, type: 3}
+  m_PrefabInstance: {fileID: 3669322243495948795}
+  m_PrefabAsset: {fileID: 0}
 --- !u!23 &507908050 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: 2300000, guid: 158f788eeb1973d45933b060a20c6a8b, type: 3}
@@ -6309,6 +6314,38 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 373491078271530027, guid: 6b079cfe482d2fe41b4315e111d183d8, type: 3}
   m_PrefabInstance: {fileID: 3669322243495948795}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &691663741
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501016709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b63f88bb9da30945b99b81ec8216dc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Character.CameraFollow
+  player: {fileID: 76249694}
+  distance: 8
+  height: 3
+  storeSceneName: Store
+  storeDistance: 5
+  storeHeight: 4
+  mouseSensitivity: 1
+  rotationSpeed: 100
+  minDistance: 4
+  maxDistance: 15
+  zoomSpeed: 2
+  minPitch: -10
+  maxPitch: 65
+  followSmoothTime: 0.15
+  rotationSmoothSpeed: 10
+  collisionLayers:
+    serializedVersion: 2
+    m_Bits: 54
+  collisionRadius: 0.3
+  collisionOffset: 0.2
 --- !u!1 &693635763
 GameObject:
   m_ObjectHideFlags: 0
@@ -22531,11 +22568,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 416930778977442110, guid: 6b079cfe482d2fe41b4315e111d183d8, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4
+      value: 2.82
       objectReference: {fileID: 0}
     - target: {fileID: 416930778977442110, guid: 6b079cfe482d2fe41b4315e111d183d8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -3
+      value: -3.68
       objectReference: {fileID: 0}
     - target: {fileID: 416930778977442110, guid: 6b079cfe482d2fe41b4315e111d183d8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -22593,10 +22630,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5485089592789745108, guid: 6b079cfe482d2fe41b4315e111d183d8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8942792083406501520, guid: 6b079cfe482d2fe41b4315e111d183d8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 691663741}
   m_SourcePrefab: {fileID: 100100000, guid: 6b079cfe482d2fe41b4315e111d183d8, type: 3}
 --- !u!1001 &5086469852691421147
 PrefabInstance:
