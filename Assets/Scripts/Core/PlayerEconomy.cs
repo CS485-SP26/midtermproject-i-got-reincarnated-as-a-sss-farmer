@@ -14,6 +14,11 @@ namespace Farming
         [SerializeField] private int startingMoney = 0;
     [SerializeField] private int moneyPerSquare = 10; // Money earned per completed progress square
 
+    [Header("Money Earned Effects")]
+    [SerializeField] private ParticleSystem confettiEffect; // Confetti particle effect
+    [SerializeField] private AudioClip moneyEarnedSound;    // Sound to play when earning money
+    [SerializeField] private AudioSource audioSource;       // Audio source for playing sounds
+
     private int currentMoney;
 
     /// <summary>Fires whenever money changes (newAmount)</summary>
@@ -42,6 +47,16 @@ namespace Farming
             }
         }
         
+        // Ensure we have an AudioSource component for playing sounds
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+            }
+        }
+        
         currentMoney = startingMoney;
     }
 
@@ -54,6 +69,19 @@ namespace Farming
     {
         currentMoney += amount;
         Debug.Log($"[Economy] Earned ${amount}! Total: ${currentMoney}");
+        
+        // Play confetti particle effect
+        if (confettiEffect != null)
+        {
+            confettiEffect.Play();
+        }
+        
+        // Play money earned sound
+        if (audioSource != null && moneyEarnedSound != null)
+        {
+            audioSource.PlayOneShot(moneyEarnedSound);
+        }
+        
         OnMoneyEarned?.Invoke(amount);
         OnMoneyChanged?.Invoke(currentMoney);
     }
